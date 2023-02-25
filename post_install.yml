@@ -1,0 +1,76 @@
+# vim: et
+
+- hosts: localhost
+  tasks:
+
+    # Communication
+    - name: Install communication packages
+      become: yes
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - discord
+        - signal-desktop
+
+    # Dev
+    - name: Install dev packages
+      become: yes
+      package:
+        name: "{{ item }}"
+      loop:
+        - make
+        - qtcreator
+
+    # Games
+    - name: Install gaming packages
+      become: yes
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - aisleriot
+        - lutris
+        - mangohud
+        - steam
+
+    # Media
+    - name: Install media packages
+      become: yes
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+       - pinta
+       - strawberry
+       - vlc
+
+    # Tools (CLI)
+    - name: Install tools packages
+      become: yes
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - bat
+        - git
+        - htop
+        - neofetch
+        - syncthing
+        - tmux
+        - vim
+
+    # Tools (GUI)
+    - name: Install tools packages
+      become: yes
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - bitwarden
+        - flameshot
+        - kdeconnect
+        - obsidian
+        - redshift
+        - timeshift
+        - yakuake
