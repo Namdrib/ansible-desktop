@@ -1,0 +1,23 @@
+# vim: et
+
+- name: Create the autostart directory
+  file:
+    path: "{{ autostart_dir }}"
+    state: directory
+
+- name: See if the source .desktop file exists
+  stat:
+    path: "{{ applications_dir }}/{{ item }}.desktop"
+  register: stat_results
+  loop:
+    - discord
+    - syncthing-start
+  ignore_errors: True
+
+- name: Install the .desktop file to the autostart directory
+  copy:
+    src: "{{ applications_dir }}/{{ item.item }}.desktop"
+    dest: "{{ autostart_dir }}"
+    mode: '0644'
+  with_items: "{{ stat_results.results }}"
+  when: item.stat.exists == True

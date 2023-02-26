@@ -2,12 +2,17 @@
 - hosts: localhost
 
   vars:
+    - applications_dir: /usr/share/applications
+    - autostart_dir: "{{ ansible_env.HOME }}/.config/autostart"
     - git_repo_dir: "{{ ansible_env.HOME }}/coding/git/namdrib"
 
   tasks:
 
     - name: Install packages
       import_tasks: install_packages.yml
+
+    - name: Run programs on system startup
+      ansible.builtin.import_tasks: start_programs_automatically.yml
 
     - name: Create network shares
       import_tasks: network_shares.yml
