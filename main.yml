@@ -1,6 +1,9 @@
 
 - hosts: localhost
 
+  vars:
+    - git_repo_dir: "{{ ansible_env.HOME }}/coding/git/namdrib"
+
   tasks:
 
     - name: Install packages

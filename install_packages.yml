@@ -25,18 +25,18 @@
 
 - name: Create git repo area
   file:
-    path: "{{ ansible_env.HOME }}/coding/git/namdrib"
+    path: "{{ git_repo_dir }}"
     state: directory
 
 - name: Clone dotfiles repo
   git:
-    dest: "{{ ansible_env.HOME }}/coding/git/namdrib/dotfiles"
+    dest: "{{ git_repo_dir }}/dotfiles"
     repo: git@github.com:Namdrib/dotfiles
     update: yes
 
 - name: Symlink the dotfiles repo to ~/.dotfiles
   file:
-    src: "{{ ansible_env.HOME }}/coding/git/namdrib/dotfiles"
+    src: "{{ git_repo_dir }}/dotfiles"
     dest: "{{ ansible_env.HOME }}/.dotfiles"
     state: link
 
