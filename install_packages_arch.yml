@@ -53,6 +53,7 @@
     name: "{{ item }}"
     state: present
   loop:
+    - autojump
     - bat
     - git
     - htop
