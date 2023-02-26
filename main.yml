@@ -12,6 +12,12 @@
     - network_mount_dir: /media/shared
     - samba_credentials_file: /root/.smbcredentials
     - samba_host: //192.168.0.60
+    - samba_shares:
+        - guest
+        - images
+        - media
+        - namdrib
+        - share
     - user: namdrib
 
   tasks:
