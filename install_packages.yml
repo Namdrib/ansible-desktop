@@ -12,36 +12,7 @@
   become: true
   when: ansible_facts['os_family']|lower == 'archlinux'
 
-- name: Create Vim plugin directory
-  ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.vim/autoload"
-    state: directory
-    mode: '0755'
-
-- name: Install VimPlug
-  ansible.builtin.get_url:
-    dest: "{{ ansible_env.HOME }}/.vim/autoload/plug.vim"
-    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    mode: '0644'
-
-- name: Create git repo area
-  ansible.builtin.file:
-    path: "{{ git_repo_dir }}"
-    state: directory
-    mode: '0755'
-
-- name: Clone dotfiles repo
-  ansible.builtin.git:
-    dest: "{{ git_repo_dir }}/dotfiles"
-    repo: git@github.com:Namdrib/dotfiles
-    update: true
-
-- name: Symlink the dotfiles repo to ~/.dotfiles
-  ansible.builtin.file:
-    src: "{{ git_repo_dir }}/dotfiles"
-    dest: "{{ ansible_env.HOME }}/.dotfiles"
-    state: link
-    mode: '0644'
-
-- name: Install the dotfiles
-  ansible.builtin.script: "{{ ansible_env.HOME }}/.dotfiles/install.sh"
+- name: Run user-specific setup
+  ansible.builtin.import_tasks: install_user_specific_things.yml
+  become: true
+  become_user: "{{ user }}"

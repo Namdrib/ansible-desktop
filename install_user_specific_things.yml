@@ -1,0 +1,37 @@
+# vim: et
+---
+
+- name: Create Vim plugin directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.vim/autoload"
+    state: directory
+    mode: '0755'
+
+- name: Install VimPlug
+  ansible.builtin.get_url:
+    dest: "{{ ansible_env.HOME }}/.vim/autoload/plug.vim"
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    mode: '0644'
+
+- name: Create git repo area
+  ansible.builtin.file:
+    path: "{{ git_repo_dir }}"
+    state: directory
+    mode: '0755'
+
+- name: Clone dotfiles repo
+  ansible.builtin.git:
+    dest: "{{ git_repo_dir }}/dotfiles"
+    repo: git@github.com:Namdrib/dotfiles
+    update: true
+
+- name: Symlink the dotfiles repo to ~/.dotfiles
+  ansible.builtin.file:
+    src: "{{ git_repo_dir }}/dotfiles"
+    dest: "{{ ansible_env.HOME }}/.dotfiles"
+    state: link
+    force: true
+    mode: '0755'
+
+- name: Install the dotfiles
+  ansible.builtin.script: "{{ ansible_env.HOME }}/.dotfiles/install.sh"

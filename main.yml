@@ -10,6 +10,7 @@
     - git_repo_dir: "{{ ansible_env.HOME }}/coding/git/namdrib"
     - network_mount_dir: /media/shared
     - samba_host: //192.168.0.60
+    - user: namdrib
 
   tasks:
 
