@@ -2,15 +2,20 @@
 ---
 
 - name: Install packages for Fedora-based distros
-  ansible.builtin.import_tasks: install_packages_fedora.yml
-  become: true
+  # Using include instead of import prevents the stream of skip output
+  ansible.builtin.include_tasks: install_packages_fedora.yml
   when: ansible_facts['os_family']|lower == 'redhat' or
         ansible_facts['os_family']|lower == 'nobara'
+  args:
+    apply:
+      become: true
 
 - name: Install packages for Arch-based distros
-  ansible.builtin.import_tasks: install_packages_arch.yml
-  become: true
+  ansible.builtin.include_tasks: install_packages_arch.yml
   when: ansible_facts['os_family']|lower == 'archlinux'
+  args:
+    apply:
+      become: true
 
 - name: Run user-specific setup
   ansible.builtin.import_tasks: install_user_specific_things.yml
