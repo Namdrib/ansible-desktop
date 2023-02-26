@@ -4,7 +4,7 @@
 - name: Create network share mount points
   become: true
   ansible.builtin.file:
-    dest: "/media/shared/{{ item }}"
+    dest: "{{ network_mount_dir }}/{{ item }}"
     state: directory
     mode: '0755'
   loop:
@@ -17,9 +17,9 @@
 - name: Write Samba network shares to /etc/fstab
   become: true
   ansible.posix.mount:
-    src: "//192.168.0.60/{{ item }}" # TODO: make into a var
-    path: "/media/shared/{{ item }}" # TODO: make into a var
-    opts: "rw,vers=3.0,file_mode=0644,dir_mode=0755,credentials=/root/.smbcredentials"
+    src: "{{ samba_host }}/{{ item }}" # TODO: make into a var
+    path: "{{ network_mount_dir }}/{{ item }}"
+    opts: "rw,vers=3.0,nofail,file_mode=0644,dir_mode=0755,credentials=/root/.smbcredentials"
     fstype: cifs
     backup: true
     state: present
