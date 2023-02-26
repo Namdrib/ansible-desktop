@@ -1,44 +1,49 @@
 # vim: et
+---
 
 - name: Install packages for Fedora-based distros
-  import_tasks: install_packages_fedora.yml
-  become: yes
+  ansible.builtin.import_tasks: install_packages_fedora.yml
+  become: true
   when: ansible_facts['os_family']|lower == 'fedora' or
         ansible_facts['os_family']|lower == 'nobara' or
         ansible_facts['os_family']|lower == 'redhat'
 
 - name: Install packages for Arch-based distros
-  import_tasks: install_packages_arch.yml
-  become: yes
+  ansible.builtin.import_tasks: install_packages_arch.yml
+  become: true
   when: ansible_facts['os_family']|lower == 'arch' or
         ansible_facts['os_family']|lower == 'manjaro'
 
 - name: Create Vim plugin directory
-  file:
+  ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.vim/autoload"
     state: directory
+    mode: '0755'
 
 - name: Install VimPlug
-  get_url:
+  ansible.builtin.get_url:
     dest: "{{ ansible_env.HOME }}/.vim/autoload/plug.vim"
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    mode: '0644'
 
 - name: Create git repo area
-  file:
+  ansible.builtin.file:
     path: "{{ git_repo_dir }}"
     state: directory
+    mode: '0755'
 
 - name: Clone dotfiles repo
-  git:
+  ansible.builtin.git:
     dest: "{{ git_repo_dir }}/dotfiles"
     repo: git@github.com:Namdrib/dotfiles
-    update: yes
+    update: true
 
 - name: Symlink the dotfiles repo to ~/.dotfiles
-  file:
+  ansible.builtin.file:
     src: "{{ git_repo_dir }}/dotfiles"
     dest: "{{ ansible_env.HOME }}/.dotfiles"
     state: link
+    mode: '0644'
 
 - name: Install the dotfiles
-  script: "{{ ansible_env.HOME }}/.dotfiles/install.sh"
+  ansible.builtin.script: "{{ ansible_env.HOME }}/.dotfiles/install.sh"

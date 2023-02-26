@@ -1,9 +1,12 @@
+# vim: et
+---
 
 - name: Create network share mount points
-  become: yes
-  file:
+  become: true
+  ansible.builtin.file:
     dest: "/media/shared/{{ item }}"
     state: directory
+    mode: '0755'
   loop:
     - guest
     - images
@@ -12,7 +15,7 @@
     - share
 
 - name: Write Samba network shares to /etc/fstab
-  become: yes
+  become: true
   ansible.posix.mount:
     src: "//192.168.0.60/{{ item }}" # TODO: make into a var
     path: "/media/shared/{{ item }}" # TODO: make into a var

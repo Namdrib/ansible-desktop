@@ -1,23 +1,24 @@
 # vim: et
 
 - name: Create the autostart directory
-  file:
+  ansible.builtin.file:
     path: "{{ autostart_dir }}"
     state: directory
+    mode: '0755'
 
 - name: See if the source .desktop file exists
-  stat:
+  ansible.builtin.stat:
     path: "{{ applications_dir }}/{{ item }}.desktop"
   register: stat_results
   loop:
     - discord
     - syncthing-start
-  ignore_errors: True
+  ignore_errors: true
 
 - name: Install the .desktop file to the autostart directory
-  copy:
+  ansible.builtin.copy:
     src: "{{ applications_dir }}/{{ item.item }}.desktop"
     dest: "{{ autostart_dir }}"
     mode: '0644'
   with_items: "{{ stat_results.results }}"
-  when: item.stat.exists == True
+  when: item.stat.exists
