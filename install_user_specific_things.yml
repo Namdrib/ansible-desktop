@@ -22,7 +22,7 @@
 - name: Clone dotfiles repo
   ansible.builtin.git:
     dest: "{{ git_repo_dir }}/dotfiles"
-    repo: git@github.com:Namdrib/dotfiles
+    repo: "{{ dotfiles_repo_url }}"
     update: true
 
 - name: Symlink the dotfiles repo to ~/.dotfiles

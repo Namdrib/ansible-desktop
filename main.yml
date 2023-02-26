@@ -7,8 +7,10 @@
   vars:
     - applications_dir: /usr/share/applications
     - autostart_dir: "{{ ansible_env.HOME }}/.config/autostart"
+    - dotfiles_repo_url: "git@github.com:Namdrib/dotfiles"
     - git_repo_dir: "{{ ansible_env.HOME }}/coding/git/namdrib"
     - network_mount_dir: /media/shared
+    - samba_credentials_file: /root/.smbcredentials
     - samba_host: //192.168.0.60
     - user: namdrib
 
