@@ -1,6 +1,16 @@
 # vim: et
 ---
 
+# Install custom repos
+- name: Install custom repos
+  become: true
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: /etc/yum.repos.d/
+    mode: 0644
+  loop:
+    - vscodium.repo
+
 # Communication
 - name: Install communication packages
   become: true
@@ -16,6 +26,7 @@
   ansible.builtin.package:
     name: "{{ item }}"
   loop:
+    - codium
     - make
     - qtcreator
 
