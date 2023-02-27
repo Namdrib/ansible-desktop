@@ -19,6 +19,7 @@
   loop:
     - make
     - qtcreator
+    - shellcheck
 
 # Games
 - name: Install gaming packages
