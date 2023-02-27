@@ -14,7 +14,7 @@
   ansible.posix.mount:
     src: "{{ samba_host }}/{{ item }}"
     path: "{{ network_mount_dir }}/{{ item }}"
-    opts: "rw,vers=3.0,nofail,file_mode=0644,dir_mode=0755,credentials={{ samba_credentials_file }}"
+    opts: "vers=3,nofail,credentials={{ samba_credentials_file }},uid=1000"
     fstype: cifs
     backup: true
     state: present
