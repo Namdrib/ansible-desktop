@@ -4,68 +4,63 @@
 - name: Install packages (communication)
   become: true
   ansible.builtin.package:
-    name: "{{ item }}"
+    name:
+      - discord
+      - signal-desktop
     state: present
-  loop:
-    - discord
-    - signal-desktop
 
 - name: Install packages (dev)
   become: true
   ansible.builtin.package:
-    name: "{{ item }}"
-  loop:
-    - make
-    - qtcreator
-    - shellcheck
+    name:
+      - make
+      - qtcreator
+      - shellcheck
+    state: present
 
 - name: Install packages (gaming)
   become: true
   ansible.builtin.package:
-    name: "{{ item }}"
+    name:
+      - aisleriot
+      - lutris
+      - mangohud
+      - steam
     state: present
-  loop:
-    - aisleriot
-    - lutris
-    - mangohud
-    - steam
 
 - name: Install packages (media)
   become: true
   ansible.builtin.package:
-    name: "{{ item }}"
+    name:
+      - pinta
+      - strawberry
+      - vlc
     state: present
-  loop:
-    - pinta
-    - strawberry
-    - vlc
 
 - name: Install packages (CLI tools)
   become: true
   ansible.builtin.package:
-    name: "{{ item }}"
+    name:
+      - autojump
+      - bat
+      - git
+      - htop
+      - neofetch
+      - nethogs
+      - syncthing
+      - tmux
     state: present
-  loop:
-    - autojump
-    - bat
-    - git
-    - htop
-    - neofetch
-    - nethogs
-    - syncthing
-    - tmux
 
 - name: Install packages (GUI tools)
   become: true
   ansible.builtin.package:
-    name: "{{ item }}"
+    name:
+      - bitwarden
+      - flameshot
+      - gvim # provides CLI vim as well
+      - kdeconnect
+      - obsidian
+      - redshift
+      - timeshift
+      - yakuake
     state: present
-  loop:
-    - bitwarden
-    - flameshot
-    - gvim # provides CLI vim as well
-    - kdeconnect
-    - obsidian
-    - redshift
-    - timeshift
-    - yakuake
