@@ -22,6 +22,8 @@
   become: true
   ansible.builtin.package:
     name:
+      - ansible
+      - ansible-lint
       - codium
       - make
       - qtcreator

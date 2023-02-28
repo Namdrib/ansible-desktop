@@ -13,6 +13,8 @@
   become: true
   ansible.builtin.package:
     name:
+      - ansible
+      - ansible-lint
       - make
       - qtcreator
       - shellcheck
