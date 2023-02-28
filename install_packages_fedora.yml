@@ -11,8 +11,7 @@
   loop:
     - vscodium.repo
 
-# Communication
-- name: Install communication packages
+- name: Install packages (communication)
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -20,8 +19,7 @@
   loop:
     - discord
 
-# Dev
-- name: Install dev packages
+- name: Install packages (dev)
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -31,8 +29,7 @@
     - qtcreator
     - ShellCheck
 
-# Games
-- name: Install gaming packages
+- name: Install packages (gaming)
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -43,8 +40,7 @@
     - mangohud
     - steam
 
-# Media
-- name: Install media packages
+- name: Install packages (media)
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -54,8 +50,7 @@
     - strawberry
     - vlc
 
-# Tools (CLI)
-- name: Install tools packages
+- name: Install packages (CLI tools)
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -69,10 +64,9 @@
     - nethogs
     - syncthing
     - tmux
-    - vim
+    - vim-enhanced
 
-# Tools (GUI)
-- name: Install tools packages
+- name: Install packages (GUI tools)
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -82,4 +76,5 @@
     - kde-connect
     - redshift
     - timeshift
+    - vim-X11
     - yakuake

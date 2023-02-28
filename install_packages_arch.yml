@@ -1,8 +1,7 @@
 # vim: et
 ---
 
-# Communication
-- name: Install communication packages
+- name: Install packages (communication)
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -11,8 +10,7 @@
     - discord
     - signal-desktop
 
-# Dev
-- name: Install dev packages
+- name: Install packages (dev)
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -21,8 +19,7 @@
     - qtcreator
     - shellcheck
 
-# Games
-- name: Install gaming packages
+- name: Install packages (gaming)
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -33,8 +30,7 @@
     - mangohud
     - steam
 
-# Media
-- name: Install media packages
+- name: Install packages (media)
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -44,8 +40,7 @@
     - strawberry
     - vlc
 
-# Tools (CLI)
-- name: Install tools packages
+- name: Install packages (CLI tools)
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -60,8 +55,7 @@
     - syncthing
     - tmux
 
-# Tools (GUI)
-- name: Install tools packages
+- name: Install packages (GUI tools)
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -69,7 +63,7 @@
   loop:
     - bitwarden
     - flameshot
-    - gvim # provides vim
+    - gvim # provides CLI vim as well
     - kdeconnect
     - obsidian
     - redshift
