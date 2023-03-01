@@ -1,0 +1,6 @@
+# vim: et
+---
+
+- name: Install common gaming packages
+  ansible.builtin.import_tasks: install_gaming_packages.yml
+  become: true

@@ -20,8 +20,11 @@
         - share
     - user: namdrib
 
-  tasks:
+  roles:
+    - dev
+    - gaming
 
+  tasks:
     - name: Install packages
       ansible.builtin.import_tasks: install_packages.yml
 

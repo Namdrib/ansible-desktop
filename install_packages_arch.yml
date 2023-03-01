@@ -9,16 +9,6 @@
       - signal-desktop
     state: present
 
-- name: Install packages (gaming)
-  become: true
-  ansible.builtin.package:
-    name:
-      - aisleriot
-      - lutris
-      - mangohud
-      - steam
-    state: present
-
 - name: Install packages (media)
   become: true
   ansible.builtin.package:
