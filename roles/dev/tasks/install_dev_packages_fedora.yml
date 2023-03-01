@@ -1,7 +1,6 @@
 # vim: et
 ---
 
-# Install custom repos
 - name: Install custom repos
   become: true
   ansible.builtin.copy:
