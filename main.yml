@@ -7,15 +7,6 @@
   vars:
     - applications_dir: /usr/share/applications
     - autostart_dir: "{{ ansible_env.HOME }}/.config/autostart"
-    - network_mount_dir: /media/shared
-    - samba_credentials_file: /root/.smbcredentials
-    - samba_host: //192.168.0.60
-    - samba_shares:
-        - guest
-        - images
-        - media
-        - namdrib
-        - share
     - user: namdrib
 
   roles:
@@ -23,10 +14,8 @@
     - dev
     - desktop
     - gaming
+    - mount_network_shares
 
   tasks:
     - name: Run programs on system startup
       ansible.builtin.import_tasks: start_programs_automatically.yml
-
-    - name: Write network shares to /etc/fstab
-      ansible.builtin.import_tasks: network_shares.yml
