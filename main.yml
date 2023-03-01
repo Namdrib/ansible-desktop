@@ -22,6 +22,7 @@
 
   roles:
     - dev
+    - desktop
     - gaming
 
   tasks:

@@ -1,22 +1,6 @@
 # vim: et
 ---
 
-- name: Install packages (communication)
-  become: true
-  ansible.builtin.package:
-    name:
-      - discord
-    state: present
-
-- name: Install packages (media)
-  become: true
-  ansible.builtin.package:
-    name:
-      - pinta
-      - strawberry
-      - vlc
-    state: present
-
 - name: Install packages (CLI tools)
   become: true
   ansible.builtin.package:

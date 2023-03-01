@@ -1,0 +1,9 @@
+# vim: et
+---
+
+- name: Install desktop packages (arch)
+  become: true
+  ansible.builtin.package:
+    name:
+      - signal-desktop
+    state: present

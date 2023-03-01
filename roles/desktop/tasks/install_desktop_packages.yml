@@ -1,0 +1,12 @@
+# vim: et
+---
+
+- name: Install packages (desktop)
+  become: true
+  ansible.builtin.package:
+    name:
+      - discord
+      - pinta
+      - strawberry
+      - vlc
+    state: present
