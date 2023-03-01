@@ -20,3 +20,9 @@
   args:
     apply:
       become: true
+
+- name: Install VimPlug
+  ansible.builtin.import_tasks: install_vimplug.yml
+
+- name: Install dotfiles
+  ansible.builtin.import_tasks: install_dotfiles.yml

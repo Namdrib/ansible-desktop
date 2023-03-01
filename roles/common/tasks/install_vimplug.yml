@@ -1,0 +1,14 @@
+# vim: et
+---
+
+- name: Create Vim plugin directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.vim/autoload"
+    state: directory
+    mode: '0755'
+
+- name: Download the VimPlug file
+  ansible.builtin.get_url:
+    dest: "{{ ansible_env.HOME }}/.vim/autoload/plug.vim"
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    mode: '0644'
