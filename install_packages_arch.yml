@@ -9,17 +9,6 @@
       - signal-desktop
     state: present
 
-- name: Install packages (dev)
-  become: true
-  ansible.builtin.package:
-    name:
-      - ansible
-      - ansible-lint
-      - make
-      - qtcreator
-      - shellcheck
-    state: present
-
 - name: Install packages (gaming)
   become: true
   ansible.builtin.package:

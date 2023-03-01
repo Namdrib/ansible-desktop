@@ -1,0 +1,12 @@
+# vim: et
+---
+
+- name: Install packages (dev)
+  become: true
+  ansible.builtin.package:
+    name:
+      - ansible
+      - ansible-lint
+      - make
+      - qtcreator
+    state: present

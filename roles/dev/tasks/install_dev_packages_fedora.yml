@@ -1,0 +1,20 @@
+# vim: et
+---
+
+# Install custom repos
+- name: Install custom repos
+  become: true
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: /etc/yum.repos.d/
+    mode: 0644
+  loop:
+    - vscodium.repo
+
+- name: Install dev packages (fedora)
+  become: true
+  ansible.builtin.package:
+    name:
+      - codium
+      - ShellCheck
+    state: present

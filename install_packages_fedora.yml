@@ -1,33 +1,11 @@
 # vim: et
 ---
 
-# Install custom repos
-- name: Install custom repos
-  become: true
-  ansible.builtin.copy:
-    src: "{{ item }}"
-    dest: /etc/yum.repos.d/
-    mode: 0644
-  loop:
-    - vscodium.repo
-
 - name: Install packages (communication)
   become: true
   ansible.builtin.package:
     name:
       - discord
-    state: present
-
-- name: Install packages (dev)
-  become: true
-  ansible.builtin.package:
-    name:
-      - ansible
-      - ansible-lint
-      - codium
-      - make
-      - qtcreator
-      - ShellCheck
     state: present
 
 - name: Install packages (gaming)
