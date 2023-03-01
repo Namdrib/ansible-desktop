@@ -21,14 +21,12 @@
     - user: namdrib
 
   roles:
+    - common
     - dev
     - desktop
     - gaming
 
   tasks:
-    - name: Install packages
-      ansible.builtin.import_tasks: install_packages.yml
-
     - name: Run programs on system startup
       ansible.builtin.import_tasks: start_programs_automatically.yml
 

@@ -1,0 +1,22 @@
+# vim: et
+---
+
+- name: Install common common packages
+  ansible.builtin.import_tasks: install_common_packages.yml
+  become: true
+
+- name: Install Fedora-specific common packages
+  # Using include instead of import prevents the stream of skip output
+  ansible.builtin.include_tasks: install_common_packages_fedora.yml
+  when: ansible_facts['os_family']|lower == 'redhat' or
+        ansible_facts['os_family']|lower == 'nobara'
+  args:
+    apply:
+      become: true
+
+- name: Install Arch-specific common packages
+  ansible.builtin.include_tasks: install_common_packages_arch.yml
+  when: ansible_facts['os_family']|lower == 'archlinux'
+  args:
+    apply:
+      become: true
