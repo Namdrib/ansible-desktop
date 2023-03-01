@@ -1,0 +1,12 @@
+# vim: et
+---
+
+- name: Install packages (gaming)
+  become: true
+  ansible.builtin.package:
+    name:
+      - aisleriot
+      - lutris
+      - mangohud
+      - steam
+    state: present

@@ -7,8 +7,6 @@
   vars:
     - applications_dir: /usr/share/applications
     - autostart_dir: "{{ ansible_env.HOME }}/.config/autostart"
-    - dotfiles_repo_url: "git@github.com:Namdrib/dotfiles"
-    - git_repo_dir: "{{ ansible_env.HOME }}/coding/git/namdrib"
     - network_mount_dir: /media/shared
     - samba_credentials_file: /root/.smbcredentials
     - samba_host: //192.168.0.60
@@ -20,11 +18,13 @@
         - share
     - user: namdrib
 
+  roles:
+    - common
+    - dev
+    - desktop
+    - gaming
+
   tasks:
-
-    - name: Install packages
-      ansible.builtin.import_tasks: install_packages.yml
-
     - name: Run programs on system startup
       ansible.builtin.import_tasks: start_programs_automatically.yml
 

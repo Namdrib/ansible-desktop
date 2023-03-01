@@ -1,0 +1,20 @@
+# vim: et
+---
+
+- name: Install common packages
+  become: true
+  ansible.builtin.package:
+    name:
+      - autojump
+      - bat
+      - flameshot
+      - git
+      - htop
+      - neofetch
+      - nethogs
+      - redshift
+      - syncthing
+      - timeshift
+      - tmux
+      - yakuake
+    state: present

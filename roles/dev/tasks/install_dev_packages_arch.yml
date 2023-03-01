@@ -1,0 +1,9 @@
+# vim: et
+---
+
+- name: Install dev packages (arch)
+  become: true
+  ansible.builtin.package:
+    name:
+      - shellcheck
+    state: present

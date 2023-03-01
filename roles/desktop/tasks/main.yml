@@ -1,0 +1,13 @@
+# vim: et
+---
+
+- name: Install common desktop packages
+  ansible.builtin.import_tasks: install_desktop_packages.yml
+  become: true
+
+- name: Install Arch-specific desktop packages
+  ansible.builtin.include_tasks: install_desktop_packages_arch.yml
+  when: ansible_facts['os_family']|lower == 'archlinux'
+  args:
+    apply:
+      become: true
