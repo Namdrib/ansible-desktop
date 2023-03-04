@@ -1,0 +1,10 @@
+# vim: et
+---
+
+- name: Install LaTeX packages (arch)
+  become: true
+  ansible.builtin.package:
+    name:
+      - texlive-fontsextra
+      - texlive-latexextra
+    state: present

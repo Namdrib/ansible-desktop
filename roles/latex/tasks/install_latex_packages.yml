@@ -1,0 +1,9 @@
+# vim: et
+---
+
+- name: Install packages (LaTeX)
+  become: true
+  ansible.builtin.package:
+    name:
+      - texstudio
+    state: present

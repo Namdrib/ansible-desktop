@@ -1,0 +1,12 @@
+# vim: et
+---
+
+- name: Install LaTeX packages (fedora)
+  become: true
+  ansible.builtin.package:
+    name:
+      - texlive-fontawesome
+      - texlive-multirow
+      - texlive-relsize
+      - texlive-tabu
+    state: present
