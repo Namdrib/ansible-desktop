@@ -1,0 +1,46 @@
+# vim: et
+---
+
+# Does not currently work. Need to set Id_X=<GUID>
+# Unsure whether the value of the GUID has any significance
+- name: Set number of virtual desktops
+  community.general.ini_file:
+    path: ~/.config/kwinrc
+    section: Desktops
+    option: Number
+    value: 4
+
+- name: Set number of rows of virtual desktops
+  community.general.ini_file:
+    path: ~/.config/kwinrc
+    section: Desktops
+    option: Rows
+    value: 2
+
+- name: Set virtual desktop name (1)
+  community.general.ini_file:
+    path: ~/.config/kwinrc
+    section: Desktops
+    option: Name_1
+    value: Main
+
+- name: Set virtual desktop name (2)
+  community.general.ini_file:
+    path: ~/.config/kwinrc
+    section: Desktops
+    option: Name_2
+    value: Comms
+
+- name: Set virtual desktop name (3)
+  community.general.ini_file:
+    path: ~/.config/kwinrc
+    section: Desktops
+    option: Name_3
+    value: Browsing
+
+- name: Set virtual desktop name (4)
+  community.general.ini_file:
+    path: ~/.config/kwinrc
+    section: Desktops
+    option: Name_4
+    value: Misc

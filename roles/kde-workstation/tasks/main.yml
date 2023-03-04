@@ -1,0 +1,5 @@
+# vim: et
+---
+
+- name: Setup virtual desktops
+  ansible.builtin.import_tasks: setup_virtual_desktops.yml
