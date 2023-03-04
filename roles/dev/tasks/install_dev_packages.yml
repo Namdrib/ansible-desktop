@@ -9,4 +9,5 @@
       - ansible-lint
       - make
       - qtcreator
+      - screenkey
     state: present
