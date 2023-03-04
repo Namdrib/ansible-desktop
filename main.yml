@@ -2,7 +2,7 @@
 ---
 
 - name: Set up workstation
-  hosts: localhost
+  hosts: desktops
 
   vars:
     - applications_dir: /usr/share/applications

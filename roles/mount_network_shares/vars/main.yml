@@ -3,7 +3,7 @@
 
 network_mount_dir: /media/shared
 samba_credentials_file: /root/.smbcredentials
-samba_host: //192.168.20.83
+samba_host: "//{{ samba_host_ip }}"
 samba_shares:
   - guest
   - images
