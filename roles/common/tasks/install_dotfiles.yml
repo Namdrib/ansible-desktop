@@ -3,23 +3,23 @@
 
 - name: Create git repo area
   ansible.builtin.file:
-    path: "{{ git_repo_dir }}"
+    path: "{{ dotfiles_clone_dir }}"
     state: directory
     mode: '0755'
 
 - name: Clone dotfiles repo
   ansible.builtin.git:
-    dest: "{{ git_repo_dir }}/dotfiles"
+    dest: "{{ dotfiles_clone_dir }}"
     repo: "{{ dotfiles_repo_url }}"
-    update: true
+    update: false
 
 - name: Symlink the dotfiles repo to ~/.dotfiles
   ansible.builtin.file:
-    src: "{{ git_repo_dir }}/dotfiles"
-    dest: "{{ ansible_env.HOME }}/.dotfiles"
+    src: "{{ dotfiles_clone_dir }}"
+    dest: "{{ dotfiles_install_dir }}"
     state: link
     force: true
     mode: '0755'
 
 - name: Install the dotfiles
-  ansible.builtin.script: "{{ ansible_env.HOME }}/.dotfiles/install.sh"
+  ansible.builtin.script: "{{ dotfiles_install_dir }}/install.sh"

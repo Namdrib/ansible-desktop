@@ -2,4 +2,5 @@
 ---
 
 dotfiles_repo_url: "git@github.com:Namdrib/dotfiles"
-git_repo_dir: "{{ ansible_env.HOME }}/coding/git/namdrib"
+dotfiles_clone_dir: "{{ ansible_env.HOME }}/coding/git/namdrib/dotfiles"
+dotfiles_install_dir: "{{ ansible_env.HOME }}/.dotfiles"
