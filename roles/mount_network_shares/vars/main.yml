@@ -10,3 +10,4 @@ samba_shares:
   - media
   - namdrib
   - share
+  - software
