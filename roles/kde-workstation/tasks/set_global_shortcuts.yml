@@ -1,6 +1,14 @@
 # vim: et
 ---
 
+- name: Shortcut - Show Desktop Grid
+  community.general.ini_file:
+    path: ~/.config/kglobalshortcutsrc
+    section: kwin
+    option: ShowDesktopGrid
+    value: Ctrl+F8,Meta+F8,Show Desktop Grid
+    no_extra_spaces: true
+
 - name: Shortcut - Switch One Desktop Down
   community.general.ini_file:
     path: ~/.config/kglobalshortcutsrc
