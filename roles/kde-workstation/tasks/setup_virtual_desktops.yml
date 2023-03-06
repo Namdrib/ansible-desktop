@@ -7,6 +7,7 @@
     section: Desktops
     option: Number
     value: 4
+    no_extra_spaces: true
 
 - name: Set number of rows of virtual desktops
   community.general.ini_file:
@@ -14,6 +15,7 @@
     section: Desktops
     option: Rows
     value: 2
+    no_extra_spaces: true
 
 # Unsure whether the value of the GUID has any significance
 - name: Set virtual desktop IDs
@@ -22,6 +24,7 @@
     section: Desktops
     option: "Id_{{ index+1 }}"
     value: "{{ item }}"
+    no_extra_spaces: true
   loop:
     - 58ce3089-e05a-4380-ab0f-0600630ad22c
     - 5b991997-e033-4c3b-a45d-43ce44c7a7a1
@@ -36,6 +39,7 @@
     section: Desktops
     option: "Name_{{ index+1 }}"
     value: "{{ item }}"
+    no_extra_spaces: true
   loop:
     - Main
     - Comms
