@@ -1,8 +1,6 @@
 # vim: et
 ---
 
-# Does not currently work. Need to set Id_X=<GUID>
-# Unsure whether the value of the GUID has any significance
 - name: Set number of virtual desktops
   community.general.ini_file:
     path: ~/.config/kwinrc
@@ -17,30 +15,31 @@
     option: Rows
     value: 2
 
-- name: Set virtual desktop name (1)
+# Unsure whether the value of the GUID has any significance
+- name: Set virtual desktop IDs
   community.general.ini_file:
     path: ~/.config/kwinrc
     section: Desktops
-    option: Name_1
-    value: Main
+    option: "Id_{{ index+1 }}"
+    value: "{{ item }}"
+  loop:
+    - 58ce3089-e05a-4380-ab0f-0600630ad22c
+    - 5b991997-e033-4c3b-a45d-43ce44c7a7a1
+    - ad20c38e-b861-446d-9200-e5cedaea8776
+    - d04c953c-f0a7-41be-9fdb-0a8195299e38
+  loop_control:
+    index_var: index
 
-- name: Set virtual desktop name (2)
+- name: Set virtual desktop names
   community.general.ini_file:
     path: ~/.config/kwinrc
     section: Desktops
-    option: Name_2
-    value: Comms
-
-- name: Set virtual desktop name (3)
-  community.general.ini_file:
-    path: ~/.config/kwinrc
-    section: Desktops
-    option: Name_3
-    value: Browsing
-
-- name: Set virtual desktop name (4)
-  community.general.ini_file:
-    path: ~/.config/kwinrc
-    section: Desktops
-    option: Name_4
-    value: Misc
+    option: "Name_{{ index+1 }}"
+    value: "{{ item }}"
+  loop:
+    - Main
+    - Comms
+    - Browsing
+    - Misc
+  loop_control:
+    index_var: index
