@@ -56,3 +56,11 @@
     option: _launch
     value: Meta+E,Meta+E,Dolphin
     no_extra_spaces: true
+
+- name: Shortcut - Konsole
+  community.general.ini_file:
+    path: ~/.config/kglobalshortcutsrc
+    section: org.kde.konsole.desktop
+    option: _launch
+    value: Ctrl+Alt+T,none,Konsole
+    no_extra_spaces: true
