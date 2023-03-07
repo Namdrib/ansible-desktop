@@ -1,0 +1,14 @@
+# vim: et
+---
+
+- name: Setup virtual desktops
+  ansible.builtin.import_tasks: setup_virtual_desktops.yml
+
+- name: Set global shortcuts
+  ansible.builtin.import_tasks: set_global_shortcuts.yml
+
+- name: Set other system settings
+  ansible.builtin.import_tasks: set_system_settings.yml
+
+- name: Reload kwin
+  ansible.builtin.import_tasks: reload_kwin.yml

@@ -1,0 +1,7 @@
+# vim: et
+---
+
+# This needs to be run as shell (as opposed to command) so it can be run
+# in the background, and not block the ansible task from completing
+- name: Reload kwin to make changes take effect
+  ansible.builtin.shell: /usr/bin/kwin_x11 --replace & disown &
