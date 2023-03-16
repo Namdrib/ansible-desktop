@@ -10,5 +10,5 @@
 - name: Set other system settings
   ansible.builtin.import_tasks: set_system_settings.yml
 
-- name: Reload kwin
+- name: Reload kwin to apply changes
   ansible.builtin.import_tasks: reload_kwin.yml
