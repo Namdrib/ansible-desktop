@@ -1,0 +1,66 @@
+# vim: et
+---
+
+- name: Shortcut - Show Desktop Grid
+  community.general.ini_file:
+    path: ~/.config/kglobalshortcutsrc
+    section: kwin
+    option: ShowDesktopGrid
+    value: Ctrl+F8,Meta+F8,Show Desktop Grid
+    no_extra_spaces: true
+
+- name: Shortcut - Switch One Desktop Down
+  community.general.ini_file:
+    path: ~/.config/kglobalshortcutsrc
+    section: kwin
+    option: Switch One Desktop Down
+    value: Meta+Ctrl+Down,Meta+Ctrl+Down,Switch One Desktop Down
+    no_extra_spaces: true
+
+- name: Shortcut - Switch One Desktop Up
+  community.general.ini_file:
+    path: ~/.config/kglobalshortcutsrc
+    section: kwin
+    option: Switch One Desktop Up
+    value: Meta+Ctrl+Up,Meta+Ctrl+Up,Switch One Desktop Up
+    no_extra_spaces: true
+
+- name: Shortcut - Switch One Desktop to the Left
+  community.general.ini_file:
+    path: ~/.config/kglobalshortcutsrc
+    section: kwin
+    option: Switch One Desktop to the Left
+    value: Meta+Ctrl+Left,Meta+Ctrl+Left,Switch One Desktop to the Left
+    no_extra_spaces: true
+
+- name: Shortcut - Switch One Desktop to the Right
+  community.general.ini_file:
+    path: ~/.config/kglobalshortcutsrc
+    section: kwin
+    option: Switch One Desktop to the Right
+    value: Meta+Ctrl+Right,Meta+Ctrl+Right,Switch One Desktop to the Right
+    no_extra_spaces: true
+
+- name: Shortcut - Dolphin
+  community.general.ini_file:
+    path: ~/.config/kglobalshortcutsrc
+    section: org.kde.dolphin.desktop
+    option: _k_friendly_name
+    value: Dolphin
+    no_extra_spaces: true
+
+- name: Shortcut - Dolphin
+  community.general.ini_file:
+    path: ~/.config/kglobalshortcutsrc
+    section: org.kde.dolphin.desktop
+    option: _launch
+    value: Meta+E,Meta+E,Dolphin
+    no_extra_spaces: true
+
+- name: Shortcut - Konsole
+  community.general.ini_file:
+    path: ~/.config/kglobalshortcutsrc
+    section: org.kde.konsole.desktop
+    option: _launch
+    value: Ctrl+Alt+T,none,Konsole
+    no_extra_spaces: true
