@@ -1,0 +1,11 @@
+# vim: et
+---
+
+- name: Install docker packages
+  become: true
+  ansible.builtin.package:
+    name:
+      - docker
+      - docker.io
+      - docker-compose
+    state: present
