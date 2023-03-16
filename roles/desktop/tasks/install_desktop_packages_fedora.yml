@@ -1,10 +1,9 @@
 # vim: et
 ---
 
-- name: Install common packages (fedora)
+- name: Install desktop packages (fedora)
   become: true
   ansible.builtin.package:
     name:
-      - vim-X11
-      - vim-enhanced
+      - kde-connect
     state: present

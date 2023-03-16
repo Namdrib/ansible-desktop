@@ -5,8 +5,5 @@
   become: true
   ansible.builtin.package:
     name:
-      - bitwarden
       - gvim # provides CLI vim as well
-      - kdeconnect
-      - obsidian
     state: present

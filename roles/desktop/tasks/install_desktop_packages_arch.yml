@@ -5,5 +5,8 @@
   become: true
   ansible.builtin.package:
     name:
+      - bitwarden
+      - kdeconnect
+      - obsidian
       - signal-desktop
     state: present
