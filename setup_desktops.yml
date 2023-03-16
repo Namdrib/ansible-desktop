@@ -16,7 +16,7 @@
     - gaming
     - latex
     - mount_network_shares
-    - kde-workstation
+    - kde_workstation
 
   tasks:
     - name: Run programs on system startup
