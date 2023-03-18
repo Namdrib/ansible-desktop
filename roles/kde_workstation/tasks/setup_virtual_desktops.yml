@@ -1,26 +1,8 @@
 # vim: et
 ---
 
-- name: Set number of virtual desktops
-  community.general.ini_file:
-    path: ~/.config/kwinrc
-    section: Desktops
-    option: Number
-    value: 4
-    no_extra_spaces: true
-    mode: '0644'
-
-- name: Set number of rows of virtual desktops
-  community.general.ini_file:
-    path: ~/.config/kwinrc
-    section: Desktops
-    option: Rows
-    value: 2
-    no_extra_spaces: true
-    mode: '0644'
-
 # Unsure whether the value of the GUID has any significance
-- name: Set virtual desktop IDs and names
+- name: Set virtual desktop IDs and names in kwinrc
   community.general.ini_file:
     path: ~/.config/kwinrc
     section: Desktops
@@ -37,3 +19,5 @@
     - { key: Name_2, value: Comms }
     - { key: Name_3, value: Browsing }
     - { key: Name_4, value: Misc }
+    - { key: Number, value: 4 }
+    - { key: Rows, value: 2 }
