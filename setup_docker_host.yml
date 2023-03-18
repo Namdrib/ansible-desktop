@@ -1,7 +1,7 @@
 # vim: et
 ---
 
-# Set the host up for docker oeprations
+# Set the host up for docker operations
 # Do not actually pull or start any containers
 - name: Setup Docker host
   hosts: dockerhosts
