@@ -1,0 +1,12 @@
+# vim: et
+---
+
+- name: Setup Linux Game Server Manager server
+  hosts: lgsm_servers
+
+  vars:
+    - user: namdrib
+
+  roles:
+    # - common
+    - lgsm_server

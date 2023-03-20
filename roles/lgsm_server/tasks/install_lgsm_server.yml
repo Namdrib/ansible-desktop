@@ -1,0 +1,40 @@
+---
+- name: Download linuxgsm.sh
+  become: true
+  become_user: "{{ game_server }}"
+  ansible.builtin.get_url:
+    url: https://linuxgsm.sh
+    dest: "/home/{{ game_server }}/linuxgsm.sh"
+    mode: "0775"
+
+- name: "Check if the {{ game_server }} user home exists"
+  ansible.builtin.stat:
+    path: "/home/{{ game_server }}"
+  register: game_server_exists
+
+- name: Create the game server installer
+  become: true
+  become_user: "{{ game_server }}"
+  ansible.builtin.shell:
+    cmd: "bash linuxgsm.sh {{ game_server }}"
+    chdir: "/home/{{ game_server }}"
+  when: not game_server_exists.stat.exists
+
+- name: Install the server from the installer
+  become: true
+  become_user: "{{ game_server }}"
+  ansible.builtin.shell: |
+    spawn bash /home/{{ game_server }} install
+
+    expect "Continue? [Y/n] Y"
+    send "\n"
+
+    expect "Was the install successful? [Y/n] Y"
+    send "\n"
+
+    expect "Allow anonymous usage statistics? [Y/n] Y"
+    send "\010n\n"
+
+    exit 0
+  args:
+    executable: /usr/bin/expect

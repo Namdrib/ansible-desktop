@@ -1,0 +1,11 @@
+# vim: et
+---
+
+- name: Create users for LGSM
+  ansible.builtin.import_tasks: create_game_server_users.yml
+
+- name: Add dpkg architectures
+  ansible.builtin.import_tasks: dpkg_add_i386_architecture.yml
+
+- name: Install LGSM dependencies
+  ansible.builtin.import_tasks: install_lgsm_dependencies.yml

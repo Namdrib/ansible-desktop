@@ -1,0 +1,27 @@
+---
+
+# A task to add iamd64 and  i386 architectures to dpkg
+- name: Add dpkg amd64 architecture
+  become: true
+  ansible.builtin.lineinfile:
+    dest: /var/lib/dpkg/arch
+    line: "amd64"
+    create: true
+    mode: 0644
+    owner: root
+    group: root
+
+- name: Add dpkg i386 architecture
+  become: true
+  ansible.builtin.lineinfile:
+    dest: /var/lib/dpkg/arch
+    line: "i386"
+    create: true
+    mode: 0644
+    owner: root
+    group: root
+  register: add_i386
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: "{{ add_i386.changed }}"
