@@ -1,4 +1,9 @@
 # Create a password for each LGSM user
+
+lgsm_games:
+  - insserver
+  - inssserver
+
 # Each LGSM game server should have a corresponding user with the same name (and password)
 # To add a new game server, add a new line here, and a new vault entry for the password
 lgsm_users:
