@@ -1,0 +1,9 @@
+# vim: et
+---
+
+- name: Stop LGSM server
+  become: true
+  become_user: "{{ item }}"
+  ansible.builtin.shell:
+    cmd: "bash {{ item }} stop" 
+    chdir: "/home/{{ item }}" 

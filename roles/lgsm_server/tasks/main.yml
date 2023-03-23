@@ -14,6 +14,13 @@
 #   ansible.builtin.include_tasks: install_lgsm_server.yml
 #   loop: "{{ lgsm_games }}"
 
+# If the server is already running, starting it will wipe Game.ini
+# which is placed in the next step
+- name: Stop the server
+  ansible.builtin.include_tasks: stop_lgsm_server.yml
+  loop:
+    - inssserver
+
 - name: Apply insserver config files
   ansible.builtin.include_tasks: apply_inssserver_config_files.yml
 
