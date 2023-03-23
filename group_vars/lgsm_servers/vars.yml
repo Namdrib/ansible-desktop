@@ -12,6 +12,10 @@ lgsm_users:
   - { name: insserver, password: "{{ vault_insserver_password }}" }
   - { name: inssserver, password: "{{ vault_inssserver_password }}" }
 
+# inssserver template secrets
+inssserver_game_ini_rcon_password: "{{ vault_inssserver_game_ini_rcon_password }}"
+inssserver_game_ini_rcon_listenport: "{{ vault_inssserver_game_ini_rcon_listenport }}"
+
 # Config files for insseerver
 inssserver_files:
   - { source: Admins.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
@@ -20,6 +24,8 @@ inssserver_files:
   - { source: MapCycle-Insurgents.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
   - { source: MapCycle-Security.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
   - { source: MapCycle.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
-  - { source: Game.ini, dest: /home/inssserver/serverfiles/Insurgency/Saved/Config/LinuxServer/ }
   - { source: common.cfg, dest: /home/inssserver/lgsm/config-lgsm/inssserver/ }
   - { source: inssserver.cfg, dest: /home/inssserver/lgsm/config-lgsm/inssserver/ }
+
+inssserver_templates:
+  - { source: Game.ini.j2, dest: /home/inssserver/serverfiles/Insurgency/Saved/Config/LinuxServer/Game.ini }
