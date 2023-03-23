@@ -9,3 +9,7 @@
 
 - name: Install LGSM dependencies
   ansible.builtin.import_tasks: install_lgsm_dependencies.yml
+
+- name: Install LGSM server
+  ansible.builtin.include_tasks: install_lgsm_server.yml
+  loop: "{{ lgsm_user }}"
