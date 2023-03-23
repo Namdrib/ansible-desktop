@@ -1,40 +1,39 @@
+# vim: et
 ---
+
 - name: Download linuxgsm.sh
   become: true
-  become_user: "{{ game_server }}"
+  become_user: "{{ item }}"
   ansible.builtin.get_url:
     url: https://linuxgsm.sh
-    dest: "/home/{{ game_server }}/linuxgsm.sh"
+    dest: "/home/{{ item }}/linuxgsm.sh"
     mode: "0775"
 
-- name: "Check if the {{ game_server }} user home exists"
+- name: "Check if the {{ item }} user home exists"
+  become: true
+  become_user: "{{ item }}"
   ansible.builtin.stat:
-    path: "/home/{{ game_server }}"
+    path: "/home/{{ item }}/linuxgsm.sh"
   register: game_server_exists
 
 - name: Create the game server installer
   become: true
-  become_user: "{{ game_server }}"
+  become_user: "{{ item }}"
   ansible.builtin.shell:
-    cmd: "bash linuxgsm.sh {{ game_server }}"
-    chdir: "/home/{{ game_server }}"
+    cmd: "bash linuxgsm.sh {{ item }}"
+    chdir: "/home/{{ item }}"
   when: not game_server_exists.stat.exists
 
+# WARNING: This step potentially takes a long time!
 - name: Install the server from the installer
   become: true
-  become_user: "{{ game_server }}"
-  ansible.builtin.shell: |
-    spawn bash /home/{{ game_server }} install
-
-    expect "Continue? [Y/n] Y"
-    send "\n"
-
-    expect "Was the install successful? [Y/n] Y"
-    send "\n"
-
-    expect "Allow anonymous usage statistics? [Y/n] Y"
-    send "\010n\n"
-
-    exit 0
-  args:
-    executable: /usr/bin/expect
+  become_user: "{{ item }}"
+  ansible.builtin.expect:
+    command: "bash {{ item }} install"
+    chdir: "/home/{{ item }}"
+    responses:
+      # Each of these questions are regexes
+      .*Continue? [Y/n]: "\n"
+      .*Was the install successful? [Y/n]: "\n"
+      # Send a backspace to delete the Y, then send n
+      .*Allow anonymous usage statistics? [Y/n]: "\010n\n"
