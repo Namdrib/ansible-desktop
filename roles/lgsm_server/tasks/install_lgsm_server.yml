@@ -35,6 +35,7 @@
       # Each of these questions are regexes
       (.*)Continue? \[Y/n\](.*): "\n"
       (.*)Was the install successful? \[Y/n\](.*): "\n"
+      (.*)GSLT TOKEN(.*): "\n"
       # Send a backspace to delete the Y, then send n
       (.*)Allow anonymous usage statistics? \[Y/n\](.*): "\010n\n"
     timeout: null
