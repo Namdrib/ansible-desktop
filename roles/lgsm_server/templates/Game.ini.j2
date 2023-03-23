@@ -1,7 +1,7 @@
 [Rcon]
 bEnabled=True
-Password=password
-ListenPort=27015
+Password={{ inssserver_game_ini_rcon_password }}
+ListenPort={{ inssserver_game_ini_rcon_listenport }}"
 
 [/Script/Insurgency.INSGameMode]
 bKillFeed=False
@@ -60,4 +60,3 @@ bCheckMeleeDamage=false
 [/Script/Insurgency.Mutator_HotPotato]
 bIgnoreHeadshots=true
 bBotsOnly=false
-
