@@ -10,6 +10,14 @@
 - name: Install LGSM dependencies
   ansible.builtin.import_tasks: install_lgsm_dependencies.yml
 
-- name: Install LGSM server
-  ansible.builtin.include_tasks: install_lgsm_server.yml
-  loop: "{{ lgsm_games }}"
+# - name: Install LGSM server
+#   ansible.builtin.include_tasks: install_lgsm_server.yml
+#   loop: "{{ lgsm_games }}"
+
+- name: Apply insserver config files
+  ansible.builtin.include_tasks: apply_inssserver_config_files.yml
+
+- name: Start the server
+  ansible.builtin.include_tasks: start_lgsm_server.yml
+  loop:
+    - inssserver

@@ -1,0 +1,13 @@
+# vim: et
+---
+
+- name: Apply inssserver config files
+  become: true
+  become_user: inssserver
+  ansible.builtin.copy:
+    src: "{{ item.source }}"
+    dest: "{{ item.dest }}"
+    mode: '0644'
+    owner: inssserver
+    group: inssserver
+  loop: "{{ inssserver_files }}"
