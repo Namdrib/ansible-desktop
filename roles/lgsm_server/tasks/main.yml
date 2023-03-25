@@ -24,6 +24,11 @@
 - name: Apply insserver config files
   ansible.builtin.include_tasks: apply_inssserver_config_files.yml
 
+- name: Insert cron jobs for the server
+  ansible.builtin.include_tasks: add_lgsm_cron_job.yml
+  loop:
+    - inssserver
+
 - name: Start the server
   ansible.builtin.include_tasks: start_lgsm_server.yml
   loop:
