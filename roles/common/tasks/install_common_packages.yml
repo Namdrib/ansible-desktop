@@ -12,6 +12,7 @@
       - htop
       - neofetch
       - nethogs
+      - net-tools
       - redshift
       - syncthing
       - timeshift
