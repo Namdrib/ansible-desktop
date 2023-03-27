@@ -5,7 +5,8 @@ network_mount_dir: /media/shared
 samba_credentials_file: /root/.smbcredentials
 samba_host: "//{{ samba_host_ip }}"
 samba_shares:
-  - guest
+  # Guest share not included in normal shares
+  # There is a separate task to add it
   - images
   - media
   - namdrib
