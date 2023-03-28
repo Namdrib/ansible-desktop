@@ -1,0 +1,9 @@
+# vim: et
+---
+
+# Create a password for each LGSM user
+# Each LGSM game server should have a corresponding user with the same name (and password)
+# To add a new game server, add a new line here, and a new vault entry for the password
+lgsm_users:
+  - { name: insserver, password: "{{ vault_insserver_password }}" }
+  - { name: inssserver, password: "{{ vault_inssserver_password }}" }
