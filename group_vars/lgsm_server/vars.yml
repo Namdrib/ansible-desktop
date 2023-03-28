@@ -5,11 +5,18 @@ lgsm_games:
   - insserver
   - inssserver
 
+# Create a password for each LGSM user
+# Each LGSM game server should have a corresponding user with the same name (and password)
+# To add a new game server, add a new line here, and a new vault entry for the password
+lgsm_users:
+  - { name: insserver, password: "{{ vault_insserver_password }}" }
+  - { name: inssserver, password: "{{ vault_inssserver_password }}" }
+
 # inssserver template secrets
 inssserver_game_ini_rcon_password: "{{ vault_inssserver_game_ini_rcon_password }}"
 inssserver_game_ini_rcon_listenport: "{{ vault_inssserver_game_ini_rcon_listenport }}"
 
-# Config files for inssserver
+# Config files for insseerver
 inssserver_files:
   - { source: Admins.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
   - { source: MapCycleDay.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
@@ -19,7 +26,6 @@ inssserver_files:
   - { source: MapCycle.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
   - { source: common.cfg, dest: /home/inssserver/lgsm/config-lgsm/inssserver/ }
 
-# Template files for inssserver
 inssserver_templates:
   - { source: Game.ini.j2, dest: /home/inssserver/serverfiles/Insurgency/Saved/Config/LinuxServer/Game.ini }
   - { source: inssserver.cfg.j2, dest: /home/inssserver/lgsm/config-lgsm/inssserver/inssserver.cfg }
