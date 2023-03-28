@@ -19,7 +19,7 @@
 - name: Create the game server installer
   become: true
   become_user: "{{ item }}"
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: "bash linuxgsm.sh {{ item }}"
     chdir: "/home/{{ item }}"
   when: not game_server_exists.stat.exists

@@ -4,6 +4,6 @@
 - name: Start LGSM server
   become: true
   become_user: "{{ item }}"
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: "bash {{ item }} restart"
     chdir: "/home/{{ item }}"
