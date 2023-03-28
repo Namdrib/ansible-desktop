@@ -5,5 +5,5 @@
   become: true
   become_user: "{{ item }}"
   ansible.builtin.shell:
-    cmd: "bash {{ item }} restart" 
-    chdir: "/home/{{ item }}" 
+    cmd: "bash {{ item }} restart"
+    chdir: "/home/{{ item }}"

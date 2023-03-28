@@ -6,5 +6,5 @@
   become_user: "{{ item }}"
   ignore_errors: true
   ansible.builtin.shell:
-    cmd: "bash {{ item }} stop" 
-    chdir: "/home/{{ item }}" 
+    cmd: "bash {{ item }} stop"
+    chdir: "/home/{{ item }}"

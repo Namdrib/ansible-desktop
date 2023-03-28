@@ -4,7 +4,7 @@
 - name: Create the log directory for the cronjobs
   become: true
   become_user: "{{ item }}"
-  file:
+  ansible.builtin.file:
     path: "/home/{{ item }}/logs"
     state: directory
 
@@ -25,7 +25,7 @@
     name: Update {{ item }}
     minute: '*/30'
     job: '/home/{{ item }}/{{ item }}/update > /home/{{ item }}/logs/update.log'
-  
+
 - name: Cron job - Monitor Server
   become: true
   become_user: "{{ item }}"
