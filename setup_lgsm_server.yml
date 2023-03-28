@@ -1,13 +1,16 @@
 # vim: et
 ---
 
-- name: Setup Linux Game Server Manager server
+- name: Setup Linux Game Server Manager
   hosts: lgsm_servers
-
-  vars:
-    - user: namdrib
 
   roles:
     # - common
-    - { role: lgsm_dependencies, become: yes }
-    - lgsm_server
+    - role: lgsm_dependencies
+      become: true
+
+    # Ideally I want to loop over vats/lgsm_games
+    # for the become_user, and pass in that item for all the internal tasks
+    - role: lgsm_server
+      become: true
+      become_user: inssserver
