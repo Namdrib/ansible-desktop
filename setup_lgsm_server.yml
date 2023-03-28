@@ -9,4 +9,5 @@
 
   roles:
     # - common
+    - { role: lgsm_dependencies, become: yes }
     - lgsm_server
