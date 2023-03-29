@@ -2,16 +2,12 @@
 ---
 
 - name: Create the log directory for the cronjobs
-  become: true
-  become_user: "{{ item }}"
   ansible.builtin.file:
     path: "/home/{{ item }}/logs"
     state: directory
     mode: '0755'
 
 - name: Cron job - Update LGSM
-  become: true
-  become_user: "{{ item }}"
   ansible.builtin.cron:
     name: Update LGSM
     minute: '00'
@@ -20,16 +16,12 @@
     job: '/home/{{ item }}/{{ item }}/update-lgsm > /home/{{ item }}/logs/update-lgsm.log'
 
 - name: Cron job - Update Server
-  become: true
-  become_user: "{{ item }}"
   ansible.builtin.cron:
     name: Update {{ item }}
     minute: '*/30'
     job: '/home/{{ item }}/{{ item }}/update > /home/{{ item }}/logs/update.log'
 
 - name: Cron job - Monitor Server
-  become: true
-  become_user: "{{ item }}"
   ansible.builtin.cron:
     name: Monitor {{ item }}
     minute: '*/5'

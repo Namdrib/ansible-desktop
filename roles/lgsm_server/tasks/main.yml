@@ -1,26 +1,8 @@
 # vim: et
 ---
 
-# - name: Install LGSM server
-#   ansible.builtin.include_tasks: install_lgsm_server.yml
-#   loop: "{{ lgsm_games }}"
+- name: Install, configure, and start the game server
 
-# If the server is already running, starting it will wipe Game.ini
-# which is placed in the next step
-- name: Stop the server
-  ansible.builtin.include_tasks: stop_lgsm_server.yml
-  loop:
-    - inssserver
-
-- name: Apply insserver config files
-  ansible.builtin.include_tasks: apply_inssserver_config_files.yml
-
-- name: Insert cron jobs for the server
-  ansible.builtin.include_tasks: add_lgsm_cron_job.yml
-  loop:
-    - inssserver
-
-- name: Start the server
-  ansible.builtin.include_tasks: start_lgsm_server.yml
-  loop:
-    - inssserver
+  # main_block does the work. This only exists so we can loop over it with lgsm_games
+  include_tasks: main_block.yml
+  loop: "{{ lgsm_games }}"

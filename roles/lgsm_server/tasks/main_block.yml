@@ -1,0 +1,35 @@
+# vim: et
+---
+
+- name: Install, configure, and start the game server
+  block:
+
+    - name: See if LGSM server is installed
+      ansible.builtin.stat:
+        path: "/home/{{ item }}/serverfiles"
+      register: stat_results
+
+    # Potentially costly step, so skip if server is already installed
+    # If we've run all of the steps successfully before, there will be
+    # a cron job to keep the server updated anyway
+    - name: Install LGSM server
+      ansible.builtin.include_tasks: install_lgsm_server.yml
+      when: not stat_results.stat.exists
+
+    # Config files placed in the next step may be overwritten
+    # when the server restarts if it is already running
+    - name: Stop the server
+      ansible.builtin.include_tasks: stop_lgsm_server.yml
+
+    - name: Apply config files
+      ansible.builtin.include_tasks: apply_inssserver_config_files.yml
+
+    - name: Insert cron jobs for the server
+      ansible.builtin.include_tasks: add_lgsm_cron_job.yml
+
+    - name: Start the server
+      ansible.builtin.include_tasks: start_lgsm_server.yml
+
+  # All tasks need to be done as the game server's service user
+  become: true
+  become_user: "{{ item }}"

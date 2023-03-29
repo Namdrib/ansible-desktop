@@ -2,23 +2,17 @@
 ---
 
 - name: Download linuxgsm.sh
-  become: true
-  become_user: "{{ item }}"
   ansible.builtin.get_url:
     url: https://linuxgsm.sh
     dest: "/home/{{ item }}/linuxgsm.sh"
     mode: "0775"
 
 - name: "Check if the {{ item }} user home exists"
-  become: true
-  become_user: "{{ item }}"
   ansible.builtin.stat:
     path: "/home/{{ item }}/linuxgsm.sh"
   register: game_server_exists
 
 - name: Create the game server installer
-  become: true
-  become_user: "{{ item }}"
   ansible.builtin.command:
     cmd: "bash linuxgsm.sh {{ item }}"
     chdir: "/home/{{ item }}"
@@ -26,8 +20,6 @@
 
 # WARNING: This step potentially takes a long time!
 - name: Install the server from the installer
-  become: true
-  become_user: "{{ item }}"
   ansible.builtin.expect:
     command: "bash {{ item }} install"
     chdir: "/home/{{ item }}"
