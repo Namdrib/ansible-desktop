@@ -1,20 +1,28 @@
 # vim: et
 ---
 
-- name: Apply inssserver config files
+# Loop over the X_files variables to see which files to copy
+# look for them in the templates/X folder
+- name: Apply game server config files
   ansible.builtin.copy:
-    src: "{{ item.source }}"
-    dest: "{{ item.dest }}"
+    src: "{{ item }}/{{ config_file.source }}"
+    dest: "{{ config_file.dest }}"
     mode: '0644'
-    owner: inssserver
-    group: inssserver
-  loop: "{{ inssserver_files }}"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+  loop: "{{ lookup('vars', item + '_files') }}"
+  loop_control:
+    loop_var: config_file
 
-- name: Apply inssserver template files
+# Loop over the X_templates variables to see which templates to copy
+# look for them in the templates/X folder
+- name: Apply game server template files
   ansible.builtin.template:
-    src: "{{ item.source }}"
-    dest: "{{ item.dest }}"
+    src: "{{ item }}/{{ template_file.source }}"
+    dest: "{{ template_file.dest }}"
     mode: '0644'
-    owner: inssserver
-    group: inssserver
-  loop: "{{ inssserver_templates }}"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+  loop: "{{ lookup('vars', item + '_templates') }}"
+  loop_control:
+    loop_var: template_file
