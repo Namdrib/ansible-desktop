@@ -22,7 +22,7 @@
       ansible.builtin.include_tasks: stop_lgsm_server.yml
 
     - name: Apply config files
-      ansible.builtin.include_tasks: apply_inssserver_config_files.yml
+      ansible.builtin.include_tasks: apply_game_server_config_files.yml
 
     - name: Insert cron jobs for the server
       ansible.builtin.include_tasks: add_lgsm_cron_job.yml
