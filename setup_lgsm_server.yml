@@ -6,11 +6,9 @@
 
   roles:
     # - common
+    # Handles one-time configuration, done as root
     - role: lgsm_dependencies
       become: true
 
-    # Ideally I want to loop over vats/lgsm_games
-    # for the become_user, and pass in that item for all the internal tasks
+    # Handles per-game configuration, done as the game server
     - role: lgsm_server
-      become: true
-      become_user: inssserver

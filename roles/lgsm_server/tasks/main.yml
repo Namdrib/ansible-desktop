@@ -4,5 +4,6 @@
 - name: Install, configure, and start the game server
 
   # main_block does the work. This only exists so we can loop over it with lgsm_games
+  # each iteration will use lgsm_games as both the become user and the game server to install/configure
   include_tasks: main_block.yml
   loop: "{{ lgsm_games }}"
