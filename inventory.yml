@@ -32,13 +32,9 @@ all:
         beans:
         complex-stonework:
         pi3:
-      vars:
-        samba_host_ip: 192.168.0.60
     north:
       hosts:
         apps01:
         bomb:
         nas01:
         triple-coaster:
-      vars:
-        samba_host_ip: 192.168.20.83
