@@ -17,6 +17,10 @@ all:
       vars:
         # I only ever want to run against desktops from the desktops themselves
         ansible_connection: local
+    lgsm_servers:
+      hosts:
+        apps01:
+        beans:
     pihole:
       hosts:
         bomb:

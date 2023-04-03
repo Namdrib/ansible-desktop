@@ -1,0 +1,8 @@
+# vim: et
+---
+
+- name: Install docker packages
+  ansible.builtin.import_tasks: install_docker_packages.yml
+
+- name: Clone server-setup repo
+  ansible.builtin.import_tasks: clone_server_setup_repo.yml

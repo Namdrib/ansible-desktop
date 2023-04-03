@@ -1,0 +1,13 @@
+# vim: et
+---
+
+- name: Create game server users
+  become: true
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    password: "{{ item.password | password_hash('sha512') }}"
+    update_password: on_create
+  loop: "{{ lgsm_users }}"
+  # Suppress output so the password doesn't get displayed during runtime
+  # Note, however, that this makes it harder to debug if the operation failed
+  no_log: true

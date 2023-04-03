@@ -1,0 +1,33 @@
+# vim: et
+---
+
+- name: Download linuxgsm.sh
+  ansible.builtin.get_url:
+    url: https://linuxgsm.sh
+    dest: "/home/{{ item }}/linuxgsm.sh"
+    mode: "0775"
+
+- name: "Check if the {{ item }} user home exists"
+  ansible.builtin.stat:
+    path: "/home/{{ item }}/linuxgsm.sh"
+  register: game_server_exists
+
+- name: Create the game server installer
+  ansible.builtin.command:
+    cmd: "bash linuxgsm.sh {{ item }}"
+    chdir: "/home/{{ item }}"
+  when: not game_server_exists.stat.exists
+
+# WARNING: This step potentially takes a long time!
+- name: Install the server from the installer
+  ansible.builtin.expect:
+    command: "bash {{ item }} install"
+    chdir: "/home/{{ item }}"
+    responses:
+      # Each of these questions are regexes
+      (.*)Continue? \[Y/n\](.*): "\n"
+      (.*)Was the install successful? \[Y/n\](.*): "\n"
+      (.*)GSLT TOKEN(.*): "\n"
+      # Send a backspace to delete the Y, then send n
+      (.*)Allow anonymous usage statistics? \[Y/n\](.*): "\010n\n"
+    timeout: null

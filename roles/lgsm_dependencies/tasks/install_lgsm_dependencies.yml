@@ -1,0 +1,31 @@
+---
+
+# A task to install the lgsm dependencies listed here:
+# https://linuxgsm.com/servers/inssserver/
+# Assumes running ubuntu >= 20.10
+
+- name: Install lgsm dependencies
+  become: true
+  ansible.builtin.package:
+    name:
+      - curl
+      - wget
+      - file
+      - tar
+      - bzip2
+      - gzip
+      - unzip
+      - python3
+      - util-linux
+      - ca-certificates
+      - binutils
+      - bc
+      - jq
+      - tmux
+      - netcat
+      - libsdl2-2.0-0:i386
+      - steamcmd
+      - openjdk-17-jre
+      - libc-bin
+      - expect
+    state: present

@@ -1,0 +1,22 @@
+##################################
+####### Instance Settings ########
+##################################
+# PLACE INSTANCE SETTINGS HERE
+## These settings will apply to a specific instance.
+servername="[MLT] Nam test server (AUS coop) {{ ansible_hostname }}"
+# defaultmap="Bab"
+defaultmap="PowerPlant"
+# defaultscenario="Scenario_Bab_Checkpoint_Insurgents"
+defaultscenario="Scenario_PowerPlant_Checkpoint_Insurgents"
+maxplayers="8"
+# mutators="SpecialOperations,Vampirism,SoldierOfFortune"
+# mutators="Vampirism,SoldierOfFortune"
+mutators="FullyLoaded,Vampirism,SoldierOfFortune"
+# mutators="BoltActionsOnly,Vampirism,SoldierOfFortune"
+# mutators="BudgetAntiquing,HotPotato,Vampirism,SoldierOfFortune"
+# mutators="HeadshotOnly,Vampirism,SoldierOfFortune"
+map_cycle="MapCycle.txt"
+# lighting="Night"
+lighting="Day"
+
+startparameters="${defaultmap}?Scenario=${defaultscenario}?MaxPlayers=${maxplayers}?Lighting=${lighting} -Port=${port} -QueryPort=${queryport} -hostname='${servername}' -log -NoEAC -mutators=${mutators} -mapcycle=${map_cycle}"

@@ -1,0 +1,22 @@
+# vim: et
+---
+
+- name: Create git repo area
+  ansible.builtin.file:
+    path: "{{ server_setup_clone_dir }}"
+    state: directory
+    mode: '0755'
+
+- name: Clone server_setup repo
+  ansible.builtin.git:
+    dest: "{{ server_setup_clone_dir }}"
+    repo: "{{ server_setup_repo_url }}"
+    update: false
+
+- name: Symlink the server_setup repo to ~/.server_setup
+  ansible.builtin.file:
+    src: "{{ server_setup_clone_dir }}"
+    dest: "{{ server_setup_install_dir }}"
+    state: link
+    force: true
+    mode: '0755'

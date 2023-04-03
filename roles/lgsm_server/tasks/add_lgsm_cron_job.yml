@@ -1,0 +1,28 @@
+# vim: et
+---
+
+- name: Create the log directory for the cronjobs
+  ansible.builtin.file:
+    path: "/home/{{ item }}/logs"
+    state: directory
+    mode: '0755'
+
+- name: Cron job - Update LGSM
+  ansible.builtin.cron:
+    name: Update LGSM
+    minute: '00'
+    hour: '3'
+    day: '6'
+    job: '/home/{{ item }}/{{ item }}/update-lgsm > /home/{{ item }}/logs/update-lgsm.log'
+
+- name: Cron job - Update Server
+  ansible.builtin.cron:
+    name: Update {{ item }}
+    minute: '*/30'
+    job: '/home/{{ item }}/{{ item }}/update > /home/{{ item }}/logs/update.log'
+
+- name: Cron job - Monitor Server
+  ansible.builtin.cron:
+    name: Monitor {{ item }}
+    minute: '*/5'
+    job: '/home/{{ item }}/{{ item }}/update > /home/{{ item }}/logs/update.log'
