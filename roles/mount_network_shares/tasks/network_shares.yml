@@ -14,7 +14,7 @@
   ansible.posix.mount:
     src: "{{ samba_host }}/{{ item }}"
     path: "{{ network_mount_dir }}/{{ item }}"
-    opts: "vers=3,nofail,_netdev,credentials={{ samba_credentials_file }},uid=1000,gid=users"
+    opts: "vers=3,nofail,auto,x-systemd.automount,credentials={{ samba_credentials_file }},uid=1000,gid=users"
     fstype: cifs
     backup: true
     state: present
@@ -25,7 +25,7 @@
   ansible.posix.mount:
     src: "{{ samba_host }}/guest"
     path: "{{ network_mount_dir }}/guest"
-    opts: "vers=3,nofail,_netdev,guest,uid=1000,gid=users"
+    opts: "vers=3,nofail,auto,x-systemd.automount,guest,uid=1000,gid=users"
     fstype: cifs
     backup: true
     state: present
