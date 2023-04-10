@@ -26,3 +26,6 @@
 
 - name: Install dotfiles
   ansible.builtin.import_tasks: install_dotfiles.yml
+
+- name: Install fzf
+  ansible.builtin.import_tasks: install_fzf.yml
