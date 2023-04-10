@@ -10,6 +10,7 @@
       - flameshot
       - git
       - htop
+      - ncdu
       - neofetch
       - nethogs
       - net-tools
