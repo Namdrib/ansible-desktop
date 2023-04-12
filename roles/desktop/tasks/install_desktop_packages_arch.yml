@@ -9,4 +9,5 @@
       - kdeconnect
       - obsidian
       - signal-desktop
+      - ttf-fira-code
     state: present
