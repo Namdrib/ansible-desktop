@@ -13,4 +13,4 @@
     version: HEAD # latest
 
 - name: Run install script
-  script: /tmp/fzf/install --no-key-bindings --no-completion --no-update-rc
+  script: /tmp/fzf/install --key-bindings --no-completion --no-update-rc
