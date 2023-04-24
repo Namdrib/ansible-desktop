@@ -1,16 +1,16 @@
 # vim: et
 ---
 
-- name: make sure git is installed
+- name: Make sure git is installed
   package:
     name: git
     state: present
 
-- name: fetch fzf from github
+- name: Fetch fzf from GitHub
   git:
     repo: 'https://github.com/junegunn/fzf.git'
-    dest: /tmp/fzf/
+    dest: "{{ ansible_env.HOME }}/.fzf"
     version: HEAD # latest
 
 - name: Run install script
-  script: /tmp/fzf/install --key-bindings --no-completion --no-update-rc
+  script: "{{ ansible_env.HOME}}/.fzf/install --key-bindings --no-completion --no-update-rc"
