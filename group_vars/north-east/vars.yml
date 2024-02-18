@@ -7,7 +7,7 @@ network_cidr: 192.168.90.0/24
 dhcp_range_start: 192.168.90.5
 dhcp_range_end: 192.168.90.29
 dhcp_router: 192.168.90.1 # Firewall LAN port
-dhcp_active: "false"
+dhcp_active: "true"
 upstream_dns_1: 64.6.64.6
 upstream_dns_2: 9.9.9.9
 
