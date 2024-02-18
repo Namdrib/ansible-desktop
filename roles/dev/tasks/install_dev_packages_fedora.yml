@@ -15,5 +15,6 @@
   ansible.builtin.package:
     name:
       - codium
+      - pylint
       - ShellCheck
     state: present
