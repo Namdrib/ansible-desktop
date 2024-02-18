@@ -5,11 +5,9 @@
   when: not running_as_container
   listen: "restart pihole dns"
   changed_when: false
-  become: true
 
 - name: Restart pihole docker
   ansible.builtin.command: docker exec -t pihole pihole restartdns
   when: running_as_container
   listen: "restart pihole dns"
   changed_when: false
-  become: true

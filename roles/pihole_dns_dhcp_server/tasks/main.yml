@@ -1,5 +1,7 @@
 ---
 
+# Note: this playbook should be run with -K and -b to become
+# as almost every task needs root or pihole privileges to write files
 - name: Check for duplicated items
   ansible.builtin.include_tasks: check_duplicates.yml
 
