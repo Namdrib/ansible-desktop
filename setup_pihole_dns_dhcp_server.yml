@@ -1,0 +1,9 @@
+# vim: et
+---
+
+# Includes DHCP reservations
+- name: Setup Pi-Hole DNS/DHCP servers
+  hosts: piholes
+
+  roles:
+    - pihole_dns_dhcp_server

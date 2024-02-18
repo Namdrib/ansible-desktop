@@ -21,7 +21,7 @@ all:
       hosts:
         apps01:
         beans:
-    pihole:
+    piholes:
       hosts:
         bomb:
         pi3:

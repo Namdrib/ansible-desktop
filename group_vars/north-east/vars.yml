@@ -1,1 +1,59 @@
 samba_host_name: nas01
+
+# Home networking
+# See: https://blog.ktz.me/fully-automated-dns-and-dhcp-with-pihole-and-dnsmasq/
+default_domain: "home.arpa"
+network_cidr: 192.168.90.0/24
+dhcp_range_start: 192.168.90.5
+dhcp_range_end: 192.168.90.29
+dhcp_router: 192.168.90.1 # Firewall LAN port
+dhcp_active: "false"
+upstream_dns_1: 64.6.64.6
+upstream_dns_2: 9.9.9.9
+
+dns_overrides:
+  - {ip: 192.168.90.85, custom_dns: "namdrib.duckdns.org"}
+
+dhcp_reservations:
+  ## Infra
+  - { mac: f8:ca:59:ae:f1:6b, ip: 192.168.90.1, hostname: firewall01 } # Protectli Vault (FW4C)
+  - { mac: 82:bf:24:fe:62:8b, ip: 192.168.90.2, hostname: GL-AR750S-4c2 } # Travel router / Wi-Fi AP
+
+  ## Entertainment
+  - { mac: b4:b2:91:ed:04:f6, ip: 192.168.90.40, hostname: tv } # TV (LG TVUP8000) wired
+  - { mac: ac:bf:71:2d:e1:4b, ip: 192.168.90.41, hostname: Bose-Smart-Soundbar-600 } # Speaker (Bose Smart Soundbar 600) wired
+  - { mac: 84:e6:57:a5:1c:d6, ip: 192.168.90.42, hostname: PlayStation-5 } # PlayStation 5 wired
+  - { mac: ac:67:84:0d:f0:ec, ip: 192.168.90.43, hostname: Kitchen-Display } # Google Home Mini
+  - { mac: 54:2a:1b:5c:f6:20, ip: 192.168.90.46, hostname: SonosZP } # Speaker (IKEA Symfonisk Lamp Wi-Fi)
+
+  ## Mobile devices
+  - { mac: 82:ba:5b:77:d6:48, ip: 192.168.90.50, hostname: hippo-bonanza } # Phone (Samsung Galaxy S10e)
+  - { mac: e2:c0:15:12:4e:d8, ip: 192.168.90.51, hostname: watermelon-cake } # Phone (Asus Zenfone 8)
+  - { mac: ac:5f:3e:4c:e7:d3, ip: 192.168.90.52, hostname: rabid-tweezers } # Phone (Samsung Galaxy S7)
+  - { mac: 82:fe:11:40:cf:de, ip: 192.168.90.53, hostname: gangsta-pudding } # Phone (Google Pixel 8)
+
+  ## Desktop devices
+  - { mac: 18:c0:4d:3c:85:e9, ip: 192.168.90.60, hostname: DESKTOP-1TOA6VN } # Beck desktop wired
+  - { mac: a8:a1:59:42:50:00, ip: 192.168.90.65, hostname: triple-coaster } # Denton desktop wired
+
+  ## Servers
+  - { mac: dc:a6:32:41:23:d5, ip: 192.168.90.80, hostname: bomb } # Raspberry Pi4
+  - { mac: 00:d8:61:a9:cb:96, ip: 192.168.90.81, hostname: proxmox } # Proxmox
+  - { mac: 52:36:ad:f0:4d:91, ip: 192.168.90.83, hostname: nas01 } # Network storage
+  - { mac: fa:e4:7e:2a:6e:e3, ip: 192.168.90.85, hostname: apps01 } # Docker host
+
+  ## IoT dedvices
+  - { mac: 5c:a6:e6:27:3e:e4, ip: 192.168.90.200, hostname: plug-spare } # TP-Link Tapo P100 (Spare)
+  - { mac: 5c:a6:e6:27:39:17, ip: 192.168.90.201, hostname: plug-br1-lamp } # TP-Link Tapo P100 (Bedroom 1)
+  - { mac: 4c:eb:d6:de:18:18, ip: 192.168.90.202, hostname: b-desktop-6168 } # Athom Smart Plug (tasmota_DE1818)
+  - { mac: 4c:eb:d6:dd:77:ca, ip: 192.168.90.203, hostname: server-6090 } # Athom Smart Plug (tasmota_DD77CA)
+  - { mac: 4c:eb:d6:dd:77:33, ip: 192.168.90.204, hostname: fridge-5939 } # Athom Smart Plug (tasmota_DD7733)
+  - { mac: 4c:eb:d6:de:06:c7, ip: 192.168.90.205, hostname: washing-machine-1735 } # Athom Smart Plug (tasmota_DE06C7)
+  - { mac: 4c:eb:d6:dd:d2:58, ip: 192.168.90.206, hostname: d-desktop-4696 } # Athom Smart Plug (tasmota_DDD258)
+  - { mac: 4c:eb:d6:dd:50:0f, ip: 192.168.90.207, hostname: dishwasher-4111 } # Athom Smart Plug (tasmota_DD500F)
+  - { mac: 48:e1:e9:b6:54:7f, ip: 192.168.90.208, hostname: garage-door-opener-1 } # Meross Smart Garage Door Opener
+  - { mac: a0:b7:65:ca:60:90, ip: 192.168.90.209, hostname: wled-ca6090 } # Garage door opener (Meross MSG100)
+  - { mac: e8:fd:f8:c3:0f:2a, ip: 192.168.90.210, hostname: HF-LPT230 } # Goodwe Inverter 1
+  - { mac: 28:9c:6e:23:11:81, ip: 192.168.90.211, hostname: HF-A21 } # Goodwe inverter 2
+  - { mac: 34:ab:95:a7:90:98, ip: 192.168.90.212, hostname: tv-lounge-4248 } # Athom Smart Plug (tasmota_A79098)
+  - { mac: 34:ab:95:a7:8b:21, ip: 192.168.90.213, hostname: network-2849 } # Athom Smart Plug (tasmota_A78B21)
