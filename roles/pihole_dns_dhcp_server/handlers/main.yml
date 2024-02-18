@@ -1,11 +1,15 @@
 ---
 
-- name: restart pihole dns
-  shell: pihole restartdns
+- name: Restart pihole dns
+  ansible.builtin.command: pihole restartdns
   when: not running_as_container
   listen: "restart pihole dns"
+  changed_when: false
+  become: true
 
-- name: restart pihole docker
-  shell: docker exec -t pihole pihole restartdns
+- name: Restart pihole docker
+  ansible.builtin.command: docker exec -t pihole pihole restartdns
   when: running_as_container
   listen: "restart pihole dns"
+  changed_when: false
+  become: true

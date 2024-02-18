@@ -1,10 +1,10 @@
 ---
 
-- name: basic preflight duplicate checks
+- name: Basic preflight duplicate checks
   block:
 # source: https://www.reddit.com/r/ansible/comments/b5tzp1/ansible_get_list_of_subelements_and_assert_for/
     - name: Create data structure to check via assertion
-      set_fact:
+      ansible.builtin.set_fact:
         dupe_check: |
           {
             'reservation_count_total': {{ dhcp_reservations | length }},
@@ -14,19 +14,19 @@
           }
 
     - name: Print counts for basic duplicate checks
-      debug:
+      ansible.builtin.debug:
         var: dupe_check
 
-    - name: assert no duplicates
-      assert:
+    - name: Assert no duplicates
+      ansible.builtin.assert:
         that:
-        - dupe_check.reservation_count_total == dupe_check.reservation_mac_unique
-        - dupe_check.reservation_count_total == dupe_check.reservation_ip_unique
-        - dupe_check.reservation_count_total == dupe_check.reservation_hostname_unique
+          - dupe_check.reservation_count_total == dupe_check.reservation_mac_unique
+          - dupe_check.reservation_count_total == dupe_check.reservation_ip_unique
+          - dupe_check.reservation_count_total == dupe_check.reservation_hostname_unique
 
   rescue:
     - name: Dupe check
-      debug:
+      ansible.builtin.debug:
         msg: "Duplicate entry: {{ item | duplicates }}"
       loop:
         - "{{ dhcp_reservations | selectattr('mac', 'defined') | map(attribute='mac') }}"
