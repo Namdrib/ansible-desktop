@@ -37,7 +37,7 @@ dhcp_reservations:
   - { mac: a8:a1:59:42:50:00, ip: 192.168.90.65, hostname: triple-coaster } # Denton desktop wired
 
   ## Servers
-  - { mac: dc:a6:32:41:23:d5, ip: 192.168.90.80, hostname: bomb } # Raspberry Pi4
+  #- { mac: dc:a6:32:41:23:d5, ip: 192.168.90.80, hostname: bomb } # Raspberry Pi4
   - { mac: 00:d8:61:a9:cb:96, ip: 192.168.90.81, hostname: proxmox } # Proxmox
   - { mac: 52:36:ad:f0:4d:91, ip: 192.168.90.83, hostname: nas01 } # Network storage
   - { mac: fa:e4:7e:2a:6e:e3, ip: 192.168.90.85, hostname: apps01 } # Docker host
