@@ -16,45 +16,45 @@ dns_overrides:
 
 dhcp_reservations:
   ## Infra
-  - { mac: f8:ca:59:ae:f1:6b, ip: 192.168.90.1, hostname: firewall01 } # Protectli Vault (FW4C)
-  - { mac: 82:bf:24:fe:62:8b, ip: 192.168.90.2, hostname: GL-AR750S-4c2 } # Travel router / Wi-Fi AP
+  - { ip: 192.168.90.1, mac: f8:ca:59:ae:f1:6b, hostname: firewall01 } # Protectli Vault (FW4C)
+  - { ip: 192.168.90.2, mac: 82:bf:24:fe:62:8b, hostname: GL-AR750S-4c2 } # Travel router / Wi-Fi AP
 
   ## Entertainment. Leaving space for wired and wireless
-  - { mac: b4:b2:91:ed:04:f6, ip: 192.168.90.40, hostname: LGwebOSTV } # TV (LG TVUP8000) wired
-  - { mac: 8c:19:b5:cc:b3:d0, ip: 192.168.90.41, hostname: LGwebOSTV-wireless } # TV (LG TVUP8000) wireless
-  - { mac: ac:bf:71:2d:e1:4b, ip: 192.168.90.42, hostname: Bose-Smart-Soundbar-600 } # Speaker (Bose Smart Soundbar 600) wired
-  - { mac: 84:e6:57:a5:1c:d6, ip: 192.168.90.44, hostname: PlayStation-5 } # PlayStation 5 wired
-  - { mac: ac:67:84:0d:f0:ec, ip: 192.168.90.46, hostname: Kitchen-Display } # Google Home Mini
-  - { mac: 54:2a:1b:5c:f6:20, ip: 192.168.90.47, hostname: SonosZP-wireless } # Speaker (IKEA Symfonisk Lamp) wireless
-  - { mac: b8:b4:09:56:20:c0, ip: 192.168.90.49, hostname: SamsungFrame } # TV (Frame) wired
+  - { ip: 192.168.90.40, mac: b4:b2:91:ed:04:f6, hostname: LGwebOSTV } # TV (LG TVUP8000) wired
+  - { ip: 192.168.90.41, mac: 8c:19:b5:cc:b3:d0, hostname: LGwebOSTV-wireless } # TV (LG TVUP8000) wireless
+  - { ip: 192.168.90.42, mac: ac:bf:71:2d:e1:4b, hostname: Bose-Smart-Soundbar-600 } # Speaker (Bose Smart Soundbar 600) wired
+  - { ip: 192.168.90.44, mac: 84:e6:57:a5:1c:d6, hostname: PlayStation-5 } # PlayStation 5 wired
+  - { ip: 192.168.90.46, mac: ac:67:84:0d:f0:ec, hostname: Kitchen-Display } # Google Home Mini
+  - { ip: 192.168.90.47, mac: 54:2a:1b:5c:f6:20, hostname: SonosZP-wireless } # Speaker (IKEA Symfonisk Lamp) wireless
+  - { ip: 192.168.90.49, mac: b8:b4:09:56:20:c0, hostname: SamsungFrame } # TV (Frame) wired
 
   ## Personal devices. Leaving space for wired and wireless
-  - { mac: 18:c0:4d:3c:85:e9, ip: 192.168.90.60, hostname: DESKTOP-1TOA6VN } # Beck desktop wired
-  - { mac: e2:c0:15:12:4e:d8, ip: 192.168.90.62, hostname: watermelon-cake } # Phone (Asus Zenfone 8)
-  - { mac: ac:5f:3e:4c:e7:d3, ip: 192.168.90.63, hostname: rabid-tweezers } # Phone (Samsung Galaxy S7)
-  - { mac: 82:ba:5b:77:d6:48, ip: 192.168.90.64, hostname: hippo-bonanza } # Phone (Samsung Galaxy S10e)
-  - { mac: a8:a1:59:42:50:00, ip: 192.168.90.65, hostname: triple-coaster } # Denton desktop wired
-  - { mac: 82:fe:11:40:cf:de, ip: 192.168.90.67, hostname: gangsta-pudding } # Phone (Google Pixel 8)
+  - { ip: 192.168.90.60, mac: 18:c0:4d:3c:85:e9, hostname: DESKTOP-1TOA6VN } # Beck desktop wired
+  - { ip: 192.168.90.62, mac: e2:c0:15:12:4e:d8, hostname: watermelon-cake } # Phone (Asus Zenfone 8)
+  - { ip: 192.168.90.63, mac: ac:5f:3e:4c:e7:d3, hostname: rabid-tweezers } # Phone (Samsung Galaxy S7)
+  - { ip: 192.168.90.64, mac: 82:ba:5b:77:d6:48, hostname: hippo-bonanza } # Phone (Samsung Galaxy S10e)
+  - { ip: 192.168.90.65, mac: a8:a1:59:42:50:00, hostname: triple-coaster } # Denton desktop wired
+  - { ip: 192.168.90.67, mac: 82:fe:11:40:cf:de, hostname: gangsta-pudding } # Phone (Google Pixel 8)
 
   ## Servers
-  #- { mac: dc:a6:32:41:23:d5, ip: 192.168.90.80, hostname: bomb } # Raspberry Pi4
-  - { mac: 00:d8:61:a9:cb:96, ip: 192.168.90.81, hostname: proxmox } # Proxmox
-  - { mac: 52:36:ad:f0:4d:91, ip: 192.168.90.83, hostname: nas01 } # Network storage
-  - { mac: fa:e4:7e:2a:6e:e3, ip: 192.168.90.85, hostname: apps01 } # Docker host
+  #- { ip: 192.168.90.80, mac: dc:a6:32:41:23:d5, hostname: bomb } # Raspberry Pi4
+  - { ip: 192.168.90.81, mac: 00:d8:61:a9:cb:96, hostname: proxmox } # Proxmox
+  - { ip: 192.168.90.83, mac: 52:36:ad:f0:4d:91, hostname: nas01 } # Network storage
+  - { ip: 192.168.90.85, mac: fa:e4:7e:2a:6e:e3, hostname: apps01 } # Docker host
 
   ## IoT devices
-  - { mac: 5c:a6:e6:27:3e:e4, ip: 192.168.90.200, hostname: plug-spare } # TP-Link Tapo P100 (Spare)
-  - { mac: 5c:a6:e6:27:39:17, ip: 192.168.90.201, hostname: plug-br1-lamp } # TP-Link Tapo P100 (Bedroom 1)
-  - { mac: 4c:eb:d6:de:18:18, ip: 192.168.90.202, hostname: b-desktop-6168 } # Athom Smart Plug (tasmota_DE1818)
-  - { mac: 4c:eb:d6:dd:77:ca, ip: 192.168.90.203, hostname: server-6090 } # Athom Smart Plug (tasmota_DD77CA)
-  - { mac: 4c:eb:d6:dd:77:33, ip: 192.168.90.204, hostname: fridge-5939 } # Athom Smart Plug (tasmota_DD7733)
-  - { mac: 4c:eb:d6:de:06:c7, ip: 192.168.90.205, hostname: washing-machine-1735 } # Athom Smart Plug (tasmota_DE06C7)
-  - { mac: 4c:eb:d6:dd:d2:58, ip: 192.168.90.206, hostname: d-desktop-4696 } # Athom Smart Plug (tasmota_DDD258)
-  - { mac: 4c:eb:d6:dd:50:0f, ip: 192.168.90.207, hostname: dishwasher-4111 } # Athom Smart Plug (tasmota_DD500F)
-  - { mac: 48:e1:e9:b6:54:7f, ip: 192.168.90.208, hostname: garage-door-opener-1 } # Meross Smart Garage Door Opener
-  - { mac: a0:b7:65:ca:60:90, ip: 192.168.90.209, hostname: wled-ca6090 } # Garage door opener (Meross MSG100)
-  - { mac: e8:fd:f8:c3:0f:2a, ip: 192.168.90.210, hostname: HF-LPT230 } # GoodWe HK1000
-  - { mac: 28:9c:6e:23:11:83, ip: 192.168.90.211, hostname: HF-A21 } # GoodWe MS6000 Inverter
-  - { mac: 34:ab:95:a7:90:98, ip: 192.168.90.212, hostname: tv-lounge-4248 } # Athom Smart Plug (tasmota_A79098)
-  - { mac: 34:ab:95:a7:8b:21, ip: 192.168.90.213, hostname: network-2849 } # Athom Smart Plug (tasmota_A78B21)
-  - { mac: 70:c9:32:30:d6:30, ip: 192.168.90.214, hostname: dreame_vacuum_r2228o } # Dreame L10s Ultra
+  - { ip: 192.168.90.200, mac: 5c:a6:e6:27:3e:e4, hostname: plug-spare } # TP-Link Tapo P100 (Spare)
+  - { ip: 192.168.90.201, mac: 5c:a6:e6:27:39:17, hostname: plug-br1-lamp } # TP-Link Tapo P100 (Bedroom 1)
+  - { ip: 192.168.90.202, mac: 4c:eb:d6:de:18:18, hostname: b-desktop-6168 } # Athom Smart Plug (tasmota_DE1818)
+  - { ip: 192.168.90.203, mac: 4c:eb:d6:dd:77:ca, hostname: server-6090 } # Athom Smart Plug (tasmota_DD77CA)
+  - { ip: 192.168.90.204, mac: 4c:eb:d6:dd:77:33, hostname: fridge-5939 } # Athom Smart Plug (tasmota_DD7733)
+  - { ip: 192.168.90.205, mac: 4c:eb:d6:de:06:c7, hostname: washing-machine-1735 } # Athom Smart Plug (tasmota_DE06C7)
+  - { ip: 192.168.90.206, mac: 4c:eb:d6:dd:d2:58, hostname: d-desktop-4696 } # Athom Smart Plug (tasmota_DDD258)
+  - { ip: 192.168.90.207, mac: 4c:eb:d6:dd:50:0f, hostname: dishwasher-4111 } # Athom Smart Plug (tasmota_DD500F)
+  - { ip: 192.168.90.208, mac: 48:e1:e9:b6:54:7f, hostname: garage-door-opener-1 } # Meross Smart Garage Door Opener
+  - { ip: 192.168.90.209, mac: a0:b7:65:ca:60:90, hostname: wled-ca6090 } # Garage door opener (Meross MSG100)
+  - { ip: 192.168.90.210, mac: e8:fd:f8:c3:0f:2a, hostname: HF-LPT230 } # GoodWe HK1000
+  - { ip: 192.168.90.211, mac: 28:9c:6e:23:11:83, hostname: HF-A21 } # GoodWe MS6000 Inverter
+  - { ip: 192.168.90.212, mac: 34:ab:95:a7:90:98, hostname: tv-lounge-4248 } # Athom Smart Plug (tasmota_A79098)
+  - { ip: 192.168.90.213, mac: 34:ab:95:a7:8b:21, hostname: network-2849 } # Athom Smart Plug (tasmota_A78B21)
+  - { ip: 192.168.90.214, mac: 70:c9:32:30:d6:30, hostname: dreame_vacuum_r2228o } # Dreame L10s Ultra
