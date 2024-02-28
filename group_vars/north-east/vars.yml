@@ -57,4 +57,4 @@ dhcp_reservations:
   - { ip: 192.168.90.211, mac: 28:9c:6e:23:11:83, hostname: HF-A21 } # GoodWe MS6000 Inverter
   - { ip: 192.168.90.212, mac: 34:ab:95:a7:90:98, hostname: tv-lounge-4248 } # Athom Smart Plug (tasmota_A79098)
   - { ip: 192.168.90.213, mac: 34:ab:95:a7:8b:21, hostname: network-2849 } # Athom Smart Plug (tasmota_A78B21)
-  - { ip: 192.168.90.214, mac: 70:c9:32:30:d6:30, hostname: dreame_vacuum_r2228o } # Dreame L10s Ultra
+  - { ip: 192.168.90.214, mac: 70:c9:32:30:d6:30, hostname: robovac } # Dreame L10s Ultra
