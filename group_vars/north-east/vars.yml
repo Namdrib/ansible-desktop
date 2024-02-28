@@ -53,8 +53,8 @@ dhcp_reservations:
   - { mac: 4c:eb:d6:dd:50:0f, ip: 192.168.90.207, hostname: dishwasher-4111 } # Athom Smart Plug (tasmota_DD500F)
   - { mac: 48:e1:e9:b6:54:7f, ip: 192.168.90.208, hostname: garage-door-opener-1 } # Meross Smart Garage Door Opener
   - { mac: a0:b7:65:ca:60:90, ip: 192.168.90.209, hostname: wled-ca6090 } # Garage door opener (Meross MSG100)
-  - { mac: e8:fd:f8:c3:0f:2a, ip: 192.168.90.210, hostname: HF-LPT230 } # Goodwe Inverter 1
-  - { mac: 28:9c:6e:23:11:81, ip: 192.168.90.211, hostname: HF-A21 } # Goodwe inverter 2
+  - { mac: e8:fd:f8:c3:0f:2a, ip: 192.168.90.210, hostname: HF-LPT230 } # GoodWe HK1000
+  - { mac: 28:9c:6e:23:11:83, ip: 192.168.90.211, hostname: HF-A21 } # GoodWe MS6000 Inverter
   - { mac: 34:ab:95:a7:90:98, ip: 192.168.90.212, hostname: tv-lounge-4248 } # Athom Smart Plug (tasmota_A79098)
   - { mac: 34:ab:95:a7:8b:21, ip: 192.168.90.213, hostname: network-2849 } # Athom Smart Plug (tasmota_A78B21)
   - { mac: 70:c9:32:30:d6:30, ip: 192.168.90.214, hostname: dreame_vacuum_r2228o } # Dreame L10s Ultra
