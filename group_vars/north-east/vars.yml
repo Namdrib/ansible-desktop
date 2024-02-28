@@ -19,22 +19,22 @@ dhcp_reservations:
   - { mac: f8:ca:59:ae:f1:6b, ip: 192.168.90.1, hostname: firewall01 } # Protectli Vault (FW4C)
   - { mac: 82:bf:24:fe:62:8b, ip: 192.168.90.2, hostname: GL-AR750S-4c2 } # Travel router / Wi-Fi AP
 
-  ## Entertainment
-  - { mac: b4:b2:91:ed:04:f6, ip: 192.168.90.40, hostname: tv } # TV (LG TVUP8000) wired
-  - { mac: ac:bf:71:2d:e1:4b, ip: 192.168.90.41, hostname: Bose-Smart-Soundbar-600 } # Speaker (Bose Smart Soundbar 600) wired
-  - { mac: 84:e6:57:a5:1c:d6, ip: 192.168.90.42, hostname: PlayStation-5 } # PlayStation 5 wired
-  - { mac: ac:67:84:0d:f0:ec, ip: 192.168.90.43, hostname: Kitchen-Display } # Google Home Mini
-  - { mac: 54:2a:1b:5c:f6:20, ip: 192.168.90.46, hostname: SonosZP } # Speaker (IKEA Symfonisk Lamp Wi-Fi)
+  ## Entertainment. Leaving space for wired and wireless
+  - { mac: b4:b2:91:ed:04:f6, ip: 192.168.90.40, hostname: LGwebOSTV } # TV (LG TVUP8000) wired
+  - { mac: 8c:19:b5:cc:b3:d0, ip: 192.168.90.41, hostname: LGwebOSTV-wireless } # TV (LG TVUP8000) wireless
+  - { mac: ac:bf:71:2d:e1:4b, ip: 192.168.90.42, hostname: Bose-Smart-Soundbar-600 } # Speaker (Bose Smart Soundbar 600) wired
+  - { mac: 84:e6:57:a5:1c:d6, ip: 192.168.90.44, hostname: PlayStation-5 } # PlayStation 5 wired
+  - { mac: ac:67:84:0d:f0:ec, ip: 192.168.90.46, hostname: Kitchen-Display } # Google Home Mini
+  - { mac: 54:2a:1b:5c:f6:20, ip: 192.168.90.47, hostname: SonosZP-wireless } # Speaker (IKEA Symfonisk Lamp) wireless
+  - { mac: b8:b4:09:56:20:c0, ip: 192.168.90.49, hostname: SamsungFrame } # TV (Frame) wired
 
-  ## Mobile devices
-  - { mac: 82:ba:5b:77:d6:48, ip: 192.168.90.50, hostname: hippo-bonanza } # Phone (Samsung Galaxy S10e)
-  - { mac: e2:c0:15:12:4e:d8, ip: 192.168.90.51, hostname: watermelon-cake } # Phone (Asus Zenfone 8)
-  - { mac: ac:5f:3e:4c:e7:d3, ip: 192.168.90.52, hostname: rabid-tweezers } # Phone (Samsung Galaxy S7)
-  - { mac: 82:fe:11:40:cf:de, ip: 192.168.90.53, hostname: gangsta-pudding } # Phone (Google Pixel 8)
-
-  ## Desktop devices
+  ## Personal devices. Leaving space for wired and wireless
   - { mac: 18:c0:4d:3c:85:e9, ip: 192.168.90.60, hostname: DESKTOP-1TOA6VN } # Beck desktop wired
+  - { mac: e2:c0:15:12:4e:d8, ip: 192.168.90.62, hostname: watermelon-cake } # Phone (Asus Zenfone 8)
+  - { mac: ac:5f:3e:4c:e7:d3, ip: 192.168.90.63, hostname: rabid-tweezers } # Phone (Samsung Galaxy S7)
+  - { mac: 82:ba:5b:77:d6:48, ip: 192.168.90.64, hostname: hippo-bonanza } # Phone (Samsung Galaxy S10e)
   - { mac: a8:a1:59:42:50:00, ip: 192.168.90.65, hostname: triple-coaster } # Denton desktop wired
+  - { mac: 82:fe:11:40:cf:de, ip: 192.168.90.67, hostname: gangsta-pudding } # Phone (Google Pixel 8)
 
   ## Servers
   #- { mac: dc:a6:32:41:23:d5, ip: 192.168.90.80, hostname: bomb } # Raspberry Pi4
