@@ -10,6 +10,7 @@ dhcp_router: 192.168.90.1 # Firewall LAN port
 dhcp_active: "true"
 upstream_dns_1: 64.6.64.6
 upstream_dns_2: 9.9.9.9
+pihole_web_password: 823b5a68b570f50c9a862b46e3c7ca8804c8c297c95157540bda1805f36f06b0
 
 dns_overrides:
   - {ip: 192.168.90.85, custom_dns: "namdrib.duckdns.org"}
