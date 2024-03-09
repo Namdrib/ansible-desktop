@@ -18,16 +18,16 @@ dns_overrides:
 dhcp_reservations:
   ## Infra
   - { ip: 192.168.90.1, mac: f8:ca:59:ae:f1:6b, hostname: firewall01 } # Protectli Vault (FW4C)
-  - { ip: 192.168.90.2, mac: 82:bf:24:fe:62:8b, hostname: GL-AR750S-4c2 } # Travel router / Wi-Fi AP
+  - { ip: 192.168.90.2, mac: 82:bf:24:fe:62:8b, hostname: wap01 } # Travel router / Wi-Fi AP
 
   ## Entertainment. Leaving space for wired and wireless
-  - { ip: 192.168.90.40, mac: b4:b2:91:ed:04:f6, hostname: LGwebOSTV } # TV (LG TVUP8000) wired
-  - { ip: 192.168.90.41, mac: 8c:19:b5:cc:b3:d0, hostname: LGwebOSTV-wireless } # TV (LG TVUP8000) wireless
+  - { ip: 192.168.90.40, mac: b4:b2:91:ed:04:f6, hostname: lg-tv01 } # TV (LG TVUP8000) wired
+  - { ip: 192.168.90.41, mac: 8c:19:b5:cc:b3:d0, hostname: lg-tv01-wireless } # TV (LG TVUP8000) wireless
   - { ip: 192.168.90.42, mac: ac:bf:71:2d:e1:4b, hostname: Bose-Smart-Soundbar-600 } # Speaker (Bose Smart Soundbar 600) wired
   - { ip: 192.168.90.44, mac: 84:e6:57:a5:1c:d6, hostname: PlayStation-5 } # PlayStation 5 wired
   - { ip: 192.168.90.46, mac: ac:67:84:0d:f0:ec, hostname: Kitchen-Display } # Google Home Mini
   - { ip: 192.168.90.47, mac: 54:2a:1b:5c:f6:20, hostname: SonosZP-wireless } # Speaker (IKEA Symfonisk Lamp) wireless
-  - { ip: 192.168.90.49, mac: b8:b4:09:56:20:c0, hostname: SamsungFrame } # TV (Frame) wired
+  - { ip: 192.168.90.49, mac: b8:b4:09:56:20:c0, hostname: samsung-tv01 } # TV (Samsung Frame) wired
 
   ## Personal devices. Leaving space for wired and wireless
   - { ip: 192.168.90.60, mac: 18:c0:4d:3c:85:e9, hostname: DESKTOP-1TOA6VN } # Beck desktop wired
