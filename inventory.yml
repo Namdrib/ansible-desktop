@@ -32,7 +32,7 @@ all:
         beans:
         complex-stonework:
         pi3:
-    north-east:
+    north_east:
       hosts:
         apps01:
         bomb:
