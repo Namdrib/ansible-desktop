@@ -5,5 +5,8 @@
 - name: Check for duplicated items
   ansible.builtin.include_tasks: check_duplicates.yml
 
+- name: Configure FTL
+  ansible.builtin.include_tasks: configure_ftl.yml
+
 - name: Template config files into place
   ansible.builtin.include_tasks: populate_templates.yml
