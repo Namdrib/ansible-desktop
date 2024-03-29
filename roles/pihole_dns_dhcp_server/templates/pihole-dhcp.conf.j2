@@ -21,7 +21,7 @@ dhcp-match=set:efi64-1,60,PXEClient:Arch:00008
 dhcp-boot=tag:efi64-1,netboot.xyz.efi,,{{ pxe_server_ip }}
 dhcp-match=set:efi64-2,60,PXEClient:Arch:00009
 dhcp-boot=tag:efi64-2,netboot.xyz.efi,,{{ pxe_server_ip }}
-{% endif %}
 
+{% endif %}
 domain={{ default_domain }}
 local=/{{ default_domain }}/

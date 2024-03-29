@@ -16,7 +16,7 @@
     state: directory
     owner: pihole
     group: pihole
-    mode: "0775"
+    mode: "0755"
   loop:
     - "{{ pihole_config_dir }}"
 
