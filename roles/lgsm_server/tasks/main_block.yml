@@ -2,6 +2,9 @@
 ---
 
 - name: Install, configure, and start the game server
+  # All tasks need to be done as the game server's service user
+  become: true
+  become_user: "{{ item }}"
   block:
 
     - name: See if LGSM server is installed
@@ -29,7 +32,3 @@
 
     - name: Start the server
       ansible.builtin.include_tasks: start_lgsm_server.yml
-
-  # All tasks need to be done as the game server's service user
-  become: true
-  become_user: "{{ item }}"
