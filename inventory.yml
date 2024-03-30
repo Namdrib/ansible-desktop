@@ -25,6 +25,13 @@ all:
       hosts:
         bomb:
         pi3:
+    intelhosts:
+      hosts:
+        beans:
+        complex-stonework:
+    nvidiahosts:
+      hosts:
+        apps01:
 
     # Physical location of servers (and, implicitly, network)
     east:

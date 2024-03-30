@@ -1,0 +1,9 @@
+# vim: et
+---
+
+- name: Install nvidia drivers for the host
+  ansible.builtin.include_tasks: install_nvidia_drivers.yml
+  args:
+    apply:
+      become: true
+  when: "'nvidiahosts' in group_names"

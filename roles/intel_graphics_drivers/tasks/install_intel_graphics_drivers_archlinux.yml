@@ -1,0 +1,9 @@
+# vim: et
+---
+
+- name: Install Intel graphics drivers (Arch Linux)
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ intel_graphics_drivers_archlinux }}"

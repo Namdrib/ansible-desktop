@@ -1,0 +1,14 @@
+# vim: et
+---
+
+intel_graphics_drivers_archlinux:
+  - intel-media-driver
+  - intel-gpu-tools
+
+intel_graphics_drivers_fedora:
+  - intel-media-driver
+  - intel-gpu-tools
+
+intel_graphics_drivers_ubuntu:
+  - intel-media-va-driver-non-free
+  - intel-gpu-tools

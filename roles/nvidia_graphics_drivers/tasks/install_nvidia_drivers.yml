@@ -1,0 +1,17 @@
+# vim: et
+---
+
+# Assumes the host runs Ubuntu. TODO: Make more generic
+# Consider https://github.com/NVIDIA/ansible-role-nvidia-driver
+- name: Install Nvidia drivers
+  become: true
+  ansible.builtin.command:
+    cmd: "ubuntu-drivers install {{ nvidia_graphics_drivers_version }}"
+
+- name: Install Nvidia container toolkit
+  become: true
+  ansible.builtin.package:
+    name:
+      - "nvidia-container-toolkit"
+    state: present
+  when: "'dockerhosts' in group_names"
