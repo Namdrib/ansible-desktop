@@ -39,7 +39,7 @@ dhcp_reservations:
   - { ip: "{{ network_subnet }}.67", mac: 82:fe:11:40:cf:de, hostname: gangsta-pudding } # Phone (Google Pixel 8)
 
   ## Servers
-  #- { ip: "{{ network_subnet }}.80", mac: dc:a6:32:41:23:d5, hostname: bomb } # Raspberry Pi4
+  # - { ip: "{{ network_subnet }}.80", mac: dc:a6:32:41:23:d5, hostname: bomb } # Raspberry Pi4
   - { ip: "{{ network_subnet }}.81", mac: 00:d8:61:a9:cb:96, hostname: proxmox } # Proxmox
   - { ip: "{{ network_subnet }}.83", mac: 52:36:ad:f0:4d:91, hostname: nas01 } # Network storage
   - { ip: "{{ network_subnet }}.85", mac: fa:e4:7e:2a:6e:e3, hostname: apps01 } # Docker host
