@@ -11,3 +11,7 @@
   when: running_as_container
   listen: "restart pihole dns"
   changed_when: false
+
+- name: Re-create DHCP lease file
+  ansible.builtin.include_tasks: refresh_dhcp_leases.yml
+  listen: "recreate dhcp lease file"
