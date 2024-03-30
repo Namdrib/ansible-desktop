@@ -1,0 +1,8 @@
+---
+
+roles:
+  - src: fuzzymistborn.autorestic
+
+collections:
+  - community.general
+  - kewlfft.aur

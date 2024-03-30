@@ -11,3 +11,6 @@ encrypt:
 decrypt:
 	ansible-vault decrypt group_vars/*/vault.yml
 
+# Install ansible requirements
+requirements:
+	ansible-galaxy install -r requirements.yml
