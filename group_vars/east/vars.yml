@@ -2,33 +2,34 @@ samba_host_name: beans
 
 # Home networking
 # See: https://blog.ktz.me/fully-automated-dns-and-dhcp-with-pihole-and-dnsmasq/
+network_subnet: 192.168.0
 default_domain: "home.arpa"
-network_cidr: 192.168.0.0/24
-dhcp_range_start: 192.168.0.200
-dhcp_range_end: 192.168.0.249
-dhcp_router: 192.168.0.254 # Firewall LAN port
+network_cidr: "{{ network_subnet }}.0/24"
+dhcp_range_start: "{{ network_subnet }}.200"
+dhcp_range_end: "{{ network_subnet }}.249"
+dhcp_router: "{{ network_subnet }}.254" # Firewall LAN port
 dhcp_active: "false"
 upstream_dns_1: 64.6.64.6
 upstream_dns_2: 9.9.9.9
 pihole_web_password: 0bff608e7d4c2c7eae6cbbe55d507a393f060458a9849c4bff534e2d2298ca70
 
 dns_overrides:
-  - { ip: 192.168.0.85, custom_dns: "dpho.duckdns.org" }
+  - { ip: "{{ network_subnet }}.85", custom_dns: "dpho.duckdns.org" }
 
 dhcp_reservations:
   ## Infra
-  - { ip: 192.168.0.254, mac: b0:95:75:e8:d4:b1, hostname: gateway } # Router Archer C7
+  - { ip: "{{ network_subnet }}.254", mac: b0:95:75:e8:d4:b1, hostname: gateway } # Router Archer C7
 
   ## Personal devices. Leaving space for wired and wireless
-  - { ip: 192.168.0.50, mac: 54:bf:64:90:2a:8b, hostname: complex-stonework } # Denton Optiplex 7060 (Wired)
-  - { ip: 192.168.0.51, mac: 18:56:80:80:75:d7, hostname: complex-stonework-wireless } # Denton Optiplex 7060 (Wireless)
-  - { ip: 192.168.0.52, mac: e4:54:e8:83:1c:37, hostname: DESKTOP-PPV3GBC } # Mum Optiplex 7070
-  - { ip: 192.168.0.53, mac: 4c:1d:96:8d:cd:6d, hostname: DESKTOP-PPV3GBC-wireless } # Mum Optiplex 7070
+  - { ip: "{{ network_subnet }}.50", mac: 54:bf:64:90:2a:8b, hostname: complex-stonework } # Denton Optiplex 7060 (Wired)
+  - { ip: "{{ network_subnet }}.51", mac: 18:56:80:80:75:d7, hostname: complex-stonework-wireless } # Denton Optiplex 7060 (Wireless)
+  - { ip: "{{ network_subnet }}.52", mac: e4:54:e8:83:1c:37, hostname: DESKTOP-PPV3GBC } # Mum Optiplex 7070
+  - { ip: "{{ network_subnet }}.53", mac: 4c:1d:96:8d:cd:6d, hostname: DESKTOP-PPV3GBC-wireless } # Mum Optiplex 7070
 
   ## Servers
-  #- { ip: 192.168.0.62, mac: b8:27:eb:7c:a8:db, hostname: pi3 } # Raspberry Pi3
-  - { ip: 192.168.0.60, mac: 1c:69:7a:6b:3a:cb, hostname: beans } # Intel NUC
+  # - { ip: "{{ network_subnet }}.62", mac: b8:27:eb:7c:a8:db, hostname: pi3 } # Raspberry Pi3
+  - { ip: "{{ network_subnet }}.60", mac: 1c:69:7a:6b:3a:cb, hostname: beans } # Intel NUC
 
   ## IoT devices
-  - { ip: 192.168.0.102, mac: 34:ab:95:a7:8a:b2, hostname: plug-mum-desk-2738 } # Athom Smart Plug (tasmota_A78AB2)
-  - { ip: 192.168.0.103, mac: 34:ab:95:a7:f5:9f, hostname: plug-d-desk-5535 } # Athom Smart Plug (tasmota_A7F59F)
+  - { ip: "{{ network_subnet }}.102", mac: 34:ab:95:a7:8a:b2, hostname: plug-mum-desk-2738 } # Athom Smart Plug (tasmota_A78AB2)
+  - { ip: "{{ network_subnet }}.103", mac: 34:ab:95:a7:f5:9f, hostname: plug-d-desk-5535 } # Athom Smart Plug (tasmota_A7F59F)
