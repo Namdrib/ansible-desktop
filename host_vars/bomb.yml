@@ -1,0 +1,48 @@
+# vim: et
+---
+
+main_username: bunny
+
+# Cronjobs
+cronjobs:
+  - name: Restic Backups (Media)
+    job: /usr/local/bin/autorestic backup -l home-assistant -c /home/{{ main_username }}/.autorestic.yml
+    user: "{{ main_username }}"
+    minute: 15
+    hour: 1
+    weekday: 0,3,5
+
+
+# Backup configuration
+autorestic_config_user: "{{ main_username }}"
+autorestic_user_directory: "/home/{{ main_username }}"
+autorestic_config_yaml:
+  version: 2
+  backends:
+    nas_docker_config:
+      type: sftp
+      path: nas01:/media/NAS_2/restic-backups/docker/home-assistant
+      key: "{{ restic_repo_key }}"
+
+  locations:
+    images:
+      from: '/media/NAS_1/images'
+      to:
+        - nas_images
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    music:
+      from: '/media/NAS_1/media/content/music'
+      to:
+        - nas_music
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+

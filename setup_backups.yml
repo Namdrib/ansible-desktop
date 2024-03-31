@@ -1,0 +1,9 @@
+# vim: et
+---
+
+- name: Setup backups
+  hosts: all
+
+  roles:
+    - role: cronjobs
+    - role: fuzzymistborn.autorestic

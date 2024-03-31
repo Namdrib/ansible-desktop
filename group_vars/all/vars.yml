@@ -1,0 +1,12 @@
+# vim: et
+---
+
+main_username: "{{ vault_main_username }}"
+main_groupname: "{{ main_username }}"
+
+main_uid: "1000"
+main_gid: "{{ main_uid }}"
+
+autorestic_config_user: "{{ main_username }}"
+
+restic_repo_key: "{{ vault_restic_repo_key }}"

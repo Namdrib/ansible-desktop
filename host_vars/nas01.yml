@@ -1,0 +1,118 @@
+# vim: et
+---
+
+# Cronjobs
+cronjobs:
+  - name: Restic Backups (Media)
+    job: /usr/local/bin/autorestic backup -l audiobooks -l books -l images -l lectures -l music -l playlists -l youtube -c /home/{{ main_username }}/.autorestic.yml
+    user: "{{ main_username }}"
+    minute: 15
+    hour: 1
+    weekday: 0,3,5
+
+# Backup configuration
+autorestic_config_user: "{{ main_username }}"
+autorestic_user_directory: "/home/{{ main_username }}"
+autorestic_config_yaml:
+  version: 2
+  backends:
+    nas_audiobooks:
+      type: sftp
+      path: nas01:/media/NAS_2/restic-backups/media/audiobooks
+      key: "{{ restic_repo_key }}"
+    nas_books:
+      type: sftp
+      path: nas01:/media/NAS_2/restic-backups/media/books
+      key: "{{ restic_repo_key }}"
+    nas_images:
+      type: sftp
+      path: nas01:/media/NAS_2/restic-backups/media/images
+      key: "{{ restic_repo_key }}"
+    nas_lectures:
+      type: sftp
+      path: nas01:/media/NAS_2/restic-backups/media/lectures
+      key: "{{ restic_repo_key }}"
+    nas_music:
+      type: sftp
+      path: nas01:/media/NAS_2/restic-backups/media/music
+      key: "{{ restic_repo_key }}"
+    nas_playlists:
+      type: sftp
+      path: nas01:/media/NAS_2/restic-backups/media/playlists
+      key: "{{ restic_repo_key }}"
+    nas_youtube:
+      type: sftp
+      path: nas01:/media/NAS_2/restic-backups/media/youtube
+      key: "{{ restic_repo_key }}"
+
+  locations:
+    audiobooks:
+      from: '/media/NAS_1/media/content/audiobooks'
+      to:
+        - nas_audiobooks
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    books:
+      from: '/media/NAS_1/media/content/books'
+      to:
+        - nas_books
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    images:
+      from: '/media/NAS_1/images'
+      to:
+        - nas_images
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    music:
+      from: '/media/NAS_1/media/content/music'
+      to:
+        - nas_music
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    lectures:
+      from: '/media/NAS_1/media/content/lectures'
+      to:
+        - nas_lectures
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    playlists:
+      from: '/media/NAS_1/media/content/playlists'
+      to:
+        - nas_playlists
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    youtube:
+      from: '/media/NAS_1/media/content/youtube'
+      to:
+        - nas_youtube
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1

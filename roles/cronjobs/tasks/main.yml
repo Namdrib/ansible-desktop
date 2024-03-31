@@ -1,0 +1,26 @@
+# vim: et
+# https://github.com/FuzzyMistborn/infra/blob/main/roles/cronjobs/tasks/main.yml
+---
+- name: Install Normal Cronjobs
+  cron:
+    name: "{{ item.name }}"
+    job: "{{ item.job }}"
+    user: "{{ item.user | default ('root') }}"
+    minute: "{{ item.minute | default ('*') }}"
+    hour: "{{ item.hour | default ('*') }}"
+    day: "{{ item.day | default ('*') }}"
+    month: "{{ item.month | default ('*') }}"
+    weekday: "{{ item.weekday | default ('*') }}"
+    state: present
+  loop: "{{ cronjobs }}"
+  when: item.special_time is not defined
+
+- name: Install Special Time Cronjobs
+  cron:
+    name: "{{ item.name }}"
+    job: "{{ item.job }}"
+    user: "{{ item.user | default ('root') }}"
+    special_time: "{{ item.special_time }}"
+    state: present
+  loop: "{{ cronjobs }}"
+  when: item.special_time is defined
