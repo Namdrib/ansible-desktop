@@ -13,3 +13,26 @@ This will:
 1. install dotfiles
 1. put some programs into autostart
 1. create mount points and fstab entries for samba shares
+
+## Recipes
+TODO: Make this into a Makefile
+
+### Setup autoretic backups
+```
+ansible-playbook -i inventory.yml setup_backups.yml --limit nas01 -D -K
+```
+
+### Setup graphics drivers
+```
+ansible-playbook -i inventory.yml setup_graphics_drivers.yml --limit apps01 -b -K -D
+```
+
+### Setup Pihole DNS/DHCP
+```
+ansible-playbook -i inventory.yml setup_pihole_dns_dhcp_server.yml --limit north-east -K -b -D
+```
+
+### Setup docker host
+```
+ansible-playbook -i inventory.yml setup_docker_host.yml --limit apps01 -u namdrib -K -D
+```
