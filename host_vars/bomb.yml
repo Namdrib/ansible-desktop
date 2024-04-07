@@ -6,7 +6,7 @@ main_username: bunny
 # Cronjobs
 cronjobs:
   - name: Restic Backups (Media)
-    job: /usr/local/bin/autorestic backup -l home-assistant -c /home/{{ main_username }}/.autorestic.yml
+    job: /usr/local/bin/autorestic backup -l home_assistant -l zigbee2mqtt -c /home/{{ main_username }}/.autorestic.yml
     user: "{{ main_username }}"
     minute: 15
     hour: 1
@@ -19,30 +19,33 @@ autorestic_user_directory: "/home/{{ main_username }}"
 autorestic_config_yaml:
   version: 2
   backends:
-    nas_docker_config:
+    nas_home_assistant_config:
       type: sftp
-      path: nas01:/media/NAS_2/restic-backups/docker/home-assistant
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/bomb/docker/home-assistant"
+      key: "{{ restic_repo_key }}"
+    nas_zigbee2mqtt_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/bomb/docker/zigbee2mqtt"
       key: "{{ restic_repo_key }}"
 
   locations:
-    images:
-      from: '/media/NAS_1/images'
+    home_assistant:
+      from: '/media/shared/hosting/config/home-assistant'
       to:
-        - nas_images
+        - nas_home_assistant_config
       options:
         forget:
           keep-daily: 2
           keep-weekly: 3
           keep-monthly: 3
           keep-yearly: 1
-    music:
-      from: '/media/NAS_1/media/content/music'
+    zigbee2mqtt:
+      from: '/media/shared/hosting/config/zigbee2mqtt'
       to:
-        - nas_music
+        - nas_zigbee2mqtt_config
       options:
         forget:
           keep-daily: 2
           keep-weekly: 3
           keep-monthly: 3
           keep-yearly: 1
-
