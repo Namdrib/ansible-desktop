@@ -18,6 +18,9 @@ This will:
 TODO: Make this into a Makefile
 
 ### Setup autoretic backups
+This may need to be run with `-b` the first time so it can properly install restic and autorestic
+Then without `-b` for subsequent runs
+It may also require the user to manually run `autorestic check` on the target
 ```
 ansible-playbook -i inventory.yml setup_backups.yml --limit nas01 -D -K
 ```
