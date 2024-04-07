@@ -18,31 +18,31 @@ autorestic_config_yaml:
   backends:
     nas_audiobooks:
       type: sftp
-      path: nas01:/media/NAS_2/restic-backups/media/audiobooks
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/media/audiobooks"
       key: "{{ restic_repo_key }}"
     nas_books:
       type: sftp
-      path: nas01:/media/NAS_2/restic-backups/media/books
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/media/books"
       key: "{{ restic_repo_key }}"
     nas_images:
       type: sftp
-      path: nas01:/media/NAS_2/restic-backups/media/images
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/media/images"
       key: "{{ restic_repo_key }}"
     nas_lectures:
       type: sftp
-      path: nas01:/media/NAS_2/restic-backups/media/lectures
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/media/lectures"
       key: "{{ restic_repo_key }}"
     nas_music:
       type: sftp
-      path: nas01:/media/NAS_2/restic-backups/media/music
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/media/music"
       key: "{{ restic_repo_key }}"
     nas_playlists:
       type: sftp
-      path: nas01:/media/NAS_2/restic-backups/media/playlists
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/media/playlists"
       key: "{{ restic_repo_key }}"
     nas_youtube:
       type: sftp
-      path: nas01:/media/NAS_2/restic-backups/media/youtube
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/media/youtube"
       key: "{{ restic_repo_key }}"
 
   locations:
