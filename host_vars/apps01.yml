@@ -1,0 +1,311 @@
+# vim: et
+---
+
+# Cronjobs
+cronjobs:
+  - name: Restic Backups (Docker Nextcloud stack)
+    # Only run on Sunday mornings to not be disruptive
+    # Should probably do the nextcloud db too
+    job: /usr/local/bin/autorestic backup -l nextcloud_appdata -l nextcloud_config -c /home/{{ main_username }}/.autorestic.yml
+    user: "{{ main_username }}"
+    minute: 0
+    hour: 6
+    weekday: 0
+
+  - name: Restic Backups (Docker mediastreaming stack)
+    job: /usr/local/bin/autorestic backup -l bazarr_backups -l jellyfin_config -l jellyfin_web -l lidarr_backups -l lms_config -l navidrome_config -l ombi_config -l prowlarr_backups -l radarr_backups -l readarr_backups -l sonarr_backups -c /home/{{ main_username }}/.autorestic.yml
+    user: "{{ main_username }}"
+    minute: 30
+    hour: 2
+
+  - name: Restic Backups (Docker appdata)
+    job: /usr/local/bin/autorestic backup -l paperless_appdata -l smokeping_appdata -c /home/{{ main_username }}/.autorestic.yml
+    user: "{{ main_username }}"
+    minute: 0
+    hour: 2
+
+  - name: Restic Backups (Docker configs)
+    # Should probably do the photoprism db too
+    job: /usr/local/bin/autorestic backup -l authelia_config -l photoprism_config -c /home/{{ main_username }}/.autorestic.yml
+    user: "{{ main_username }}"
+    minute: 15
+    hour: 2
+
+# Backup configuration
+autorestic_config_user: "{{ main_username }}"
+autorestic_user_directory: "/home/{{ main_username }}"
+autorestic_config_yaml:
+  version: 2
+  backends:
+    nas_nextcloud_appdata:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/nextcloud_appdata"
+      key: "{{ restic_repo_key }}"
+    nas_paperless_appdata:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/paperless_appdata"
+      key: "{{ restic_repo_key }}"
+    nas_smokeping_appdata:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/smokeping_appdata"
+      key: "{{ restic_repo_key }}"
+
+    nas_authelia_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/authelia_config"
+      key: "{{ restic_repo_key }}"
+    nas_nextcloud_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/nextcloud_config"
+      key: "{{ restic_repo_key }}"
+    nas_photoprism_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/photoprism_config"
+      key: "{{ restic_repo_key }}"
+
+    nas_bazarr_backups:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/bazarr_backups"
+      key: "{{ restic_repo_key }}"
+    nas_jellyfin_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/jellyfin_config"
+      key: "{{ restic_repo_key }}"
+    nas_jellyfin_web_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/jellyfin-web_config"
+      key: "{{ restic_repo_key }}"
+    nas_lidarr_backups:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/lidarr_backups"
+      key: "{{ restic_repo_key }}"
+    nas_lms_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/lms_config"
+      key: "{{ restic_repo_key }}"
+    nas_navidrome_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/navidrome_config"
+      key: "{{ restic_repo_key }}"
+    nas_ombi_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/ombi_config"
+      key: "{{ restic_repo_key }}"
+    nas_prowlarr_backups:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/prowlarr_backups"
+      key: "{{ restic_repo_key }}"
+    nas_qbittorrent_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/qbittorrent_config"
+      key: "{{ restic_repo_key }}"
+    nas_radarr_backups:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/radarr_backups"
+      key: "{{ restic_repo_key }}"
+    nas_readarr_backups:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/readarr_backups"
+      key: "{{ restic_repo_key }}"
+    nas_sonarr_backups:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/sonarr_backups"
+      key: "{{ restic_repo_key }}"
+
+  locations:
+    nextcloud_appdata:
+      from: '/media/shared/hosting/appdata/nextcloud'
+      to:
+        - nas_nextcloud_appdata
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    paperless_appdata:
+      from: '/media/shared/hosting/appdata/paperless'
+      to:
+        - nas_paperless_appdata
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    smokeping_appdata:
+      from: '/media/shared/hosting/appdata/smokeping'
+      to:
+        - nas_smokeping_appdata
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+
+    authelia_config:
+      from: '/media/shared/hosting/config/authelia'
+      to:
+        - nas_authelia_config
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    nextcloud_config:
+      from: '/media/shared/hosting/config/nextcloud'
+      to:
+        - nas_authelia_config
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+        backup:
+          exclude:
+            - 'www/nextcloud/apps'
+    photoprism_config:
+      from: '/media/shared/hosting/config/photoprism'
+      to:
+        - nas_photoprism_config
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+        backup:
+          exclude:
+            # This contains thumbnails. No point in backing up
+            - 'cache/thumbnails'
+
+    # Mediastraming backups
+    bazarr_backups:
+      from: '/media/shared/hosting/config/bazarr/backup'
+      to:
+        - nas_bazarr_backups
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    jellyfin_config:
+      from: '/media/shared/hosting/config/jellyfin'
+      to:
+        - nas_jellyfin_config
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+        backup:
+          exclude:
+            - 'cache'
+            - 'data/metadata'
+            - 'data/transcodes'
+            - 'data/transcoding-temp'
+    jellyfin_web:
+      from: '/media/shared/hosting/config/jellyfin-web'
+      to:
+        - nas_jellyfin_web_config
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    lidarr_backups:
+      from: '/media/shared/hosting/config/lidarr/Backups'
+      to:
+        - nas_lidarr_backups
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    lms_config:
+      from: '/media/shared/hosting/config/lms'
+      to:
+        - nas_lms_config
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+        backup:
+          exclude:
+            - 'cache'
+    navidrome_config:
+      from: '/media/shared/hosting/config/navidrome'
+      to:
+        - nas_navidrome_config
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+        backup:
+          exclude:
+            # This contains images and transcodes. No point in backing up
+            - 'cache'
+    ombi_config:
+      from: '/media/shared/hosting/config/ombi'
+      to:
+        - nas_ombi_config
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+        backup:
+          exclude:
+            - 'Logs'
+    prowlarr_backups:
+      from: '/media/shared/hosting/config/prowlarr/Backups'
+      to:
+        - nas_prowlarr_backups
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    radarr_backups:
+      from: '/media/shared/hosting/config/radarr/Backups'
+      to:
+        - nas_radarr_backups
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    readarr_backups:
+      from: '/media/shared/hosting/config/readarr/Backups'
+      to:
+        - nas_readarr_backups
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    sonarr_backups:
+      from: '/media/shared/hosting/config/sonarr/Backups'
+      to:
+        - nas_sonarr_backups
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
