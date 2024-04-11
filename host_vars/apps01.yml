@@ -17,12 +17,14 @@ cronjobs:
     user: "{{ main_username }}"
     minute: 30
     hour: 2
+    weekday: 2,4
 
   - name: Restic Backups (Docker appdata)
     job: /usr/local/bin/autorestic backup -l paperless_appdata -l smokeping_appdata -c /home/{{ main_username }}/.autorestic.yml
     user: "{{ main_username }}"
     minute: 0
     hour: 2
+    weekday: 2,4
 
   - name: Restic Backups (Docker configs)
     # Should probably do the photoprism db too
@@ -30,6 +32,7 @@ cronjobs:
     user: "{{ main_username }}"
     minute: 15
     hour: 2
+    weekday: 2,4
 
 # Backup configuration
 autorestic_config_user: "{{ main_username }}"
