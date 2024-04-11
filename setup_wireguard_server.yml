@@ -1,0 +1,10 @@
+# vim: et
+---
+
+# Set the host up as a wireguard server
+# Do not actually add any wireguard peer configs
+- name: Setup Wireguard host
+  hosts: piholes
+
+  roles:
+    - wireguard_server

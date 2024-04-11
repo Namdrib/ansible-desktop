@@ -1,0 +1,9 @@
+# vim: et
+---
+
+- name: Install packages (wireguard)
+  become: true
+  ansible.builtin.package:
+    name:
+      - wireguard
+    state: present

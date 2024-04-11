@@ -1,0 +1,6 @@
+---
+
+- name: Reload sysctl
+  become: true
+  ansible.builtin.command: sysctl -p
+  listen: "sysctl file changed"

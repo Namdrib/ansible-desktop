@@ -1,0 +1,15 @@
+# vim: et
+---
+
+# Install and configure system settings for wireguard, as described in
+# https://docs.pi-hole.net/guides/vpn/wireguard/internal/
+# Note: this does not take into account generating or otherwise importing any configs
+# That should be done manually prior to this
+- name: Install wireguard packages
+  ansible.builtin.include_tasks: install_wireguard_packages.yml
+
+- name: Enable IP Forwarding
+  ansible.builtin.include_tasks: enable_ip_forwarding.yml
+
+- name: Start wireguard
+  ansible.builtin.include_tasks: start_wireguard.yml
