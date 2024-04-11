@@ -60,3 +60,4 @@ dhcp_reservations:
   - { ip: "{{ network_subnet }}.212", mac: 34:ab:95:a7:90:98, hostname: tv-lounge-4248 } # Athom Smart Plug (tasmota_A79098)
   - { ip: "{{ network_subnet }}.213", mac: 34:ab:95:a7:8b:21, hostname: network-2849 } # Athom Smart Plug (tasmota_A78B21)
   - { ip: "{{ network_subnet }}.214", mac: 70:c9:32:30:d6:30, hostname: robovac } # Dreame L10s Ultra
+  - { ip: "{{ network_subnet }}.215", mac: ec:71:db:8d:a2:d0, hostname: doorbell } # Reolink PoE Video Doorbell
