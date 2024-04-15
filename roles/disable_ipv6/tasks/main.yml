@@ -1,0 +1,9 @@
+# vim: et
+---
+
+- name: Disable IPv6
+  become: true
+  ansible.builtin.template:
+    src: disable_ipv6.conf.template
+    dest: /etc/sysctl.d/10-disable-ipv6.conf
+  notify: load sysctl config

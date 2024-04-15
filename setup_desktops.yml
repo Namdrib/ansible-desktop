@@ -17,6 +17,7 @@
     - latex
     - mount_network_shares
     - kde_workstation
+    - disable_ipv6
 
   tasks:
     - name: Run programs on system startup

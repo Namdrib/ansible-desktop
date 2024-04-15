@@ -8,4 +8,5 @@
 
   roles:
     - common
+    - disable_ipv6
     - docker
