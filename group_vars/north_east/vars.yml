@@ -9,8 +9,8 @@ dhcp_range_start: "{{ network_subnet }}.5"
 dhcp_range_end: "{{ network_subnet }}.29"
 dhcp_router: "{{ network_subnet }}.1" # Firewall LAN port
 dhcp_active: "true"
-upstream_dns_1: 64.6.64.6
-upstream_dns_2: 9.9.9.9
+upstream_dns_1: 9.9.9.9
+upstream_dns_2: 64.6.64.6
 pihole_web_password: 823b5a68b570f50c9a862b46e3c7ca8804c8c297c95157540bda1805f36f06b0
 
 dns_overrides:
