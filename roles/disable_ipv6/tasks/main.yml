@@ -6,4 +6,7 @@
   ansible.builtin.template:
     src: disable_ipv6.conf.template
     dest: /etc/sysctl.d/10-disable-ipv6.conf
-  notify: load sysctl config
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Load sysctl config
