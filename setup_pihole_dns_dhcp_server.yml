@@ -7,3 +7,4 @@
 
   roles:
     - pihole_dns_dhcp_server
+    - disable_ipv6
