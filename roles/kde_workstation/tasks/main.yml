@@ -1,6 +1,9 @@
 # vim: et
 ---
 
+- name: Use the KDE desktop portal
+  ansible.builtin.import_tasks: setup_xdg_desktop_portal.yml
+
 - name: Setup virtual desktops
   ansible.builtin.import_tasks: setup_virtual_desktops.yml
 
