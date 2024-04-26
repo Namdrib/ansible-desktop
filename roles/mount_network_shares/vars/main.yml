@@ -10,5 +10,6 @@ samba_shares:
   - images
   - media
   - namdrib
+  - security-footage
   - share
   - software
