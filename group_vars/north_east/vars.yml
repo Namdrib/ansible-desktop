@@ -2,7 +2,7 @@ samba_host_name: nas01
 
 # Home networking
 # See: https://blog.ktz.me/fully-automated-dns-and-dhcp-with-pihole-and-dnsmasq/
-network_subnet: 192.168.90
+network_subnet: "{{ vault_network_subnet }}"
 default_domain: "home.arpa"
 network_cidr: "{{ network_subnet }}.0/24"
 dhcp_range_start: "{{ network_subnet }}.5"
