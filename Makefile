@@ -17,3 +17,6 @@ requirements:
 
 tasmota:
 	ansible-playbook -i inventory.yml setup_tasmota_devices.yml -D
+
+dhcp:
+	ansible-playbook -i inventory.yml setup_pihole_dns_dhcp_server.yml --limit north_east -K -b -D -C
