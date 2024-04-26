@@ -14,3 +14,6 @@ decrypt:
 # Install ansible requirements
 requirements:
 	ansible-galaxy install -r requirements.yml
+
+tasmota:
+	ansible-playbook -i inventory.yml setup_tasmota_devices.yml -D

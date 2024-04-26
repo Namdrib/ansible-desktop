@@ -2,6 +2,7 @@
 
 roles:
   - src: fuzzymistborn.autorestic
+  - src: tobias_richter.tasmota
 
 collections:
   - community.general

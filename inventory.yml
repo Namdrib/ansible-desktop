@@ -33,6 +33,25 @@ all:
       hosts:
         apps01:
 
+    tasmota:
+      hosts:
+        b-desktop-6168:
+          friendly_name: b-desktop
+        server-6090:
+          friendly_name: server
+        fridge-5939:
+          friendly_name: fridge
+        washing-machine-1735:
+          friendly_name: washing-machine
+        d-desktop-4696:
+          friendly_name: d-desktop
+        dishwasher-4111:
+          friendly_name: dishwasher
+        tv-lounge-4248:
+          friendly_name: tv-lounge
+        network-2849:
+          friendly_name: network
+
     # Physical location of servers (and, implicitly, network)
     east:
       hosts:
@@ -45,3 +64,11 @@ all:
         bomb:
         nas01:
         triple-coaster:
+        b-desktop-6168:
+        server-6090:
+        fridge-5939:
+        washing-machine-1735:
+        d-desktop-4696:
+        dishwasher-4111:
+        tv-lounge-4248:
+        network-2849:

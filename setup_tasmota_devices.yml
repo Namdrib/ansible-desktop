@@ -1,0 +1,27 @@
+# vim: et
+---
+
+- name: Set up Tasmota devices
+  hosts: tasmota
+  gather_facts: false
+
+  tasks:
+    - name: Set friendly name
+      # Note: MQTT will automatically be set after all commands run
+      ansible.builtin.include_role:
+        name: tobias_richter.tasmota
+      vars:
+        tasmota_commands:
+          - command: FriendlyName1
+            value: "{{ friendly_name }}"
+        # Vault variables should probably come from a location-specific vault,
+        # as that's where the local MQTT host would be
+        tasmota_mqtt_host: "{{ vault_tasmota_mqtt_host }}"
+        tasmota_mqtt_port: "{{ vault_tasmota_mqtt_port }}"
+        tasmota_mqtt_user: "{{ vault_tasmota_mqtt_user }}"
+        tasmota_mqtt_password: "{{ vault_tasmota_mqtt_password }}"
+        tasmota_mqtt_client: "DVES_%06X"
+        tasmota_mqtt_topic: "{{ friendly_name }}"
+        tasmota_mqtt_fulltopic: "%prefix%/%topic%/"
+        # Change to false for debugging
+        tasmota_mqtt_no_log: true
