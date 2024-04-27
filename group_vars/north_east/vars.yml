@@ -43,6 +43,8 @@ dhcp_reservations:
   - { ip: "{{ network_subnet }}.81", mac: 00:d8:61:a9:cb:96, hostname: proxmox } # Proxmox
   - { ip: "{{ network_subnet }}.83", mac: 52:36:ad:f0:4d:91, hostname: nas01 } # Network storage
   - { ip: "{{ network_subnet }}.85", mac: fa:e4:7e:2a:6e:e3, hostname: apps01 } # Docker host
+  - { ip: "{{ network_subnet }}.90", mac: 94:dd:f8:01:0b:b7, hostname: printer01 } # Printer (Brother MFC-L2880DW) wired
+  - { ip: "{{ network_subnet }}.91", mac: 00:41:0e:4a:68:46, hostname: printer01-wireless } # Printer (Brother MFC-L2880DW) wireless
 
   ## IoT devices
   - { ip: "{{ network_subnet }}.200", mac: 5c:a6:e6:27:3e:e4, hostname: plug-spare } # TP-Link Tapo P100 (Spare)
