@@ -1,0 +1,25 @@
+# vim: et
+---
+
+# The Brother scanner we have does not support scanning to Samba or SFTP - only
+# (S)FTP. This role is to support setting up an SFTP server so the scanner can
+# scan to it
+- name: Configure FTP directory
+  become: true
+  ansible.builtin.import_tasks: configure_ftp_directory.yml
+
+- name: Setup FTPS user
+  become: true
+  ansible.builtin.import_tasks: setup_ftps_user.yml
+
+- name: Install FTPS server
+  become: true
+  ansible.builtin.import_tasks: install_ftps_server.yml
+
+- name: Configure FTPS server
+  become: true
+  ansible.builtin.import_tasks: configure_ftps_server.yml
+
+- name: Reload FTPS server
+  become: true
+  ansible.builtin.import_tasks: start_ftps_server.yml

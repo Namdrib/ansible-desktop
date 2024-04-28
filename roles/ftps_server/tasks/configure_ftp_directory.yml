@@ -1,0 +1,9 @@
+# vim: et
+---
+
+- name: Change owner of FTP directory
+  ansible.builtin.file:
+    path: "{{ ftps_server_directory }}"
+    mode: '0755'
+    owner: root
+    group: root

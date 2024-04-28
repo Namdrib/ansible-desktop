@@ -1,0 +1,22 @@
+# vim: et
+---
+
+- name: Create FTPS user
+  ansible.builtin.user:
+    state: present
+    name: "{{ ftps_server_user }}"
+    comment: FTPS User
+    groups: ftp
+    append: true
+    password: "{{ ftps_server_user_password | password_hash }}"
+    home: "{{ ftps_server_directory }}/{{ ftps_server_user }}"
+    create_home: true
+
+# The parent will be the home directory of the FTPS user
+- name: Create FTPS scan directory
+  ansible.builtin.file:
+    path: "{{ ftps_server_directory }}/{{ ftps_server_user }}/scans"
+    state: directory
+    mode: '0755'
+    owner: "{{ ftps_server_user }}"
+    group: ftp

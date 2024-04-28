@@ -1,0 +1,6 @@
+# vim: et
+---
+
+ftps_server_directory: "/var/ftp"
+ftps_server_user: "ftps-user"
+ftps_server_user_password: "{{ vault_ftps_server_user_password }}"
