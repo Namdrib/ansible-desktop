@@ -1,0 +1,45 @@
+# vim: et
+---
+
+- name: Create mount point(s)
+  ansible.builtin.file:
+    path: "{{ item.mount_point }}"
+    state: directory
+    mode: "0700"
+  with_items: "{{ davfs_client_mounts }}"
+
+- name: Create davfs config directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.davfs2"
+    state: directory
+    mode: "0700"
+
+- name: Create user-specific secrets file
+  become: true
+  become_user: root
+  ansible.builtin.copy:
+    src: /etc/davfs2/secrets
+    dest: "/{{ ansible_env.HOME }}/.davfs2/"
+    mode: "0600"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    remote_src: true
+
+- name: Populate user-specific secrets file
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/.davfs2/secrets"
+    line: "{{ item.remote }} {{ item.user }} {{ item.password }}"
+    state: present
+  with_items: "{{ davfs_client_mounts }}"
+
+- name: Populate fstab with davfs mount points
+  become: true
+  become_user: root
+  ansible.posix.mount:
+    src: "{{ item.remote }}"
+    path: "{{ item.mount_point }}"
+    fstype: davfs
+    opts: "rw,user,uid={{ main_uid }},noauto"
+    backup: true
+    state: present
+  with_items: "{{ davfs_client_mounts }}"

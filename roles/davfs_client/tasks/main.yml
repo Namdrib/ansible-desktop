@@ -1,0 +1,10 @@
+# vim: et
+---
+
+# Set up a device with a davfs client
+- name: Install the davfs package
+  become: true
+  ansible.builtin.import_tasks: install_davfs_packages.yml
+
+- name: Configure davfs mounts
+  ansible.builtin.import_tasks: configure_mounts.yml

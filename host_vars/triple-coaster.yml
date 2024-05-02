@@ -1,0 +1,14 @@
+# vim: et
+---
+
+nextcloud_password: "{{ vault_nextcloud_password }}"
+
+davfs_client_mounts:
+  - remote: https://nextcloud.namdrib.duckdns.org/remote.php/dav/files/namdrib
+    mount_point: "{{ ansible_env.HOME }}/nextcloud"
+    user: namdrib
+    password: "{{ nextcloud_password }}"
+  - remote: https://nctest.namdrib.duckdns.org/remote.php/dav/files/namdrib
+    mount_point: "{{ ansible_env.HOME }}/nextcloud_2"
+    user: namdrib
+    password: "{{ nextcloud_password }}"

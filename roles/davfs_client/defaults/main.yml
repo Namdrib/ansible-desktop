@@ -1,0 +1,8 @@
+# vim: et
+---
+
+davfs_client_mounts:
+  - remote: replaceme
+    mount_point: replaceme
+    user: replaceme
+    password: replaceme

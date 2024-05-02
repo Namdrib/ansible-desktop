@@ -1,0 +1,9 @@
+# vim: et
+---
+
+- name: Install packages (davfs)
+  become: true
+  ansible.builtin.package:
+    name:
+      - davfs2
+    state: present
