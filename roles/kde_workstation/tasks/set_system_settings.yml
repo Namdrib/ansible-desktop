@@ -3,7 +3,7 @@
 
 - name: Settings - Highlight Non Default Settings
   community.general.ini_file:
-    path: ~/.config/systemsettingsrc
+    path: "{{ ansible_env.HOME }}/.config/systemsettingsrc"
     section: systemsettings_sidebar_mode
     option: HighlightNonDefaultSettings
     value: 'true'

@@ -4,7 +4,7 @@
 # Unsure whether the value of the GUID has any significance
 - name: Set virtual desktop IDs and names in kwinrc
   community.general.ini_file:
-    path: ~/.config/kwinrc
+    path: "{{ ansible_env.HOME }}/.config/kwinrc"
     section: Desktops
     option: "{{ item.key }}"
     value: "{{ item.value }}"

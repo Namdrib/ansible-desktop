@@ -2,6 +2,8 @@
 ---
 
 - name: Install the xdg-desktop-portal backend
+  become: true
+  become_user: root
   ansible.builtin.package:
     name: xdg-desktop-portal-kde
     state: present
