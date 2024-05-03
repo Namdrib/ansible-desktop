@@ -1,10 +1,15 @@
 # vim: et
 ---
 
+# To get non-free Intel graphics drivers
+- name: Setup RPM Fusion
+  ansible.builtin.include_role:
+    name: rpm_fusion
+
 - name: Install Intel graphics drivers (Fedora)
   become: true
   become_user: root
   ansible.builtin.package:
     name: "{{ item }}"
     state: present
-  loop: "{{ intel_graphics_drivers_fedora }}"
+  loop: "{{ intel_graphics_drivers_redhat }}"

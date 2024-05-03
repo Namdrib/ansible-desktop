@@ -2,19 +2,10 @@
 ---
 
 # See also: https://github.com/LukeShortCloud/ansible_role_gpu_driver
-- name: Install Fedora-specific Intel graphics drivers
-  # Using include instead of import prevents the stream of skip output
-  ansible.builtin.include_tasks: install_intel_graphics_drivers_fedora.yml
-  when: (ansible_facts['os_family']|lower == 'redhat' or
-        ansible_facts['os_family']|lower == 'nobara') and
-        'intelhosts' in group_names
-
-- name: Install Arch-specific Intel graphics drivers
-  ansible.builtin.include_tasks: install_intel_graphics_drivers_archlinux.yml
-  when: ansible_facts['os_family']|lower == 'archlinux' and
-        'intelhosts' in group_names
-
-- name: Install Ubuntu-specific Intel graphics drivers
-  ansible.builtin.include_tasks: install_intel_graphics_drivers_ubuntu.yml
-  when: ansible_facts['os_family']|lower == 'ubuntu' and
-        'intelhosts' in group_names
+- name: Install distro-specific Intel graphics drivers
+  # See the other tasks in the role for which ones are currently supported
+  # Individual task files exist rather than having one generic one in case extra
+  # steps are required for any particular distro (e.g RedHat needs RPM Fusion
+  # set up)
+  # It's possible debian would need some apt repositories set up
+  ansible.builtin.include_tasks: "install_intel_graphics_drivers_{{ ansible_facts['os_family'] | lower }}.yml"

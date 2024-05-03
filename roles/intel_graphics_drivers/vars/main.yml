@@ -5,10 +5,10 @@ intel_graphics_drivers_archlinux:
   - intel-media-driver
   - intel-gpu-tools
 
-intel_graphics_drivers_fedora:
+intel_graphics_drivers_redhat:
   - intel-media-driver
   - intel-gpu-tools
 
-intel_graphics_drivers_ubuntu:
+intel_graphics_drivers_debian:
   - intel-media-va-driver-non-free
   - intel-gpu-tools

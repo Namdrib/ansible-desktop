@@ -18,11 +18,4 @@
     name: "{{ item }}"
     state: present
   loop: "{{ rpm_fusion_packages_fedora }}"
-  register: rpm_fusion_installed
-
-- name: Update the core group
-  become: true
-  become_user: root
-  ansible.builtin.command:
-    cmd: dnf groupupdate core -y
-  when: rpm_fusion_installed.changed
+  notify: Update core group

@@ -1,0 +1,9 @@
+# vim: et
+---
+
+- name: Update the core group
+  become: true
+  become_user: root
+  ansible.builtin.command:
+    cmd: dnf groupupdate core -y
+  listen: "Update core group"

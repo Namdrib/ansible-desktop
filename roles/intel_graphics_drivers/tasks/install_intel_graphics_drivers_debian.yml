@@ -1,10 +1,10 @@
 # vim: et
 ---
 
-- name: Install Intel graphics drivers (Ubuntu)
+- name: Install Intel graphics drivers (Debian)
   become: true
   become_user: root
   ansible.builtin.package:
     name: "{{ item }}"
     state: present
-  loop: "{{ intel_graphics_drivers_ubuntu }}"
+  loop: "{{ intel_graphics_drivers_debian }}"
