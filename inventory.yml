@@ -30,6 +30,8 @@ all:
         proxmox01:
         proxmox02:
         proxmox02-wireless:
+      vars:
+        ansible_user: root
     intelhosts:
       hosts:
         beans:
