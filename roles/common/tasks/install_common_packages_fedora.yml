@@ -5,6 +5,7 @@
   become: true
   ansible.builtin.package:
     name:
+      - dnf-plugins-core
       - vim-X11
       - vim-enhanced
     state: present
