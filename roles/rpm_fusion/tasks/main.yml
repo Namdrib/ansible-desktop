@@ -1,0 +1,28 @@
+# vim: et
+---
+
+# See: https://rpmfusion.org/keys
+- name: Install RPM Fusion GPG Keys
+  become: true
+  become_user: root
+  ansible.builtin.rpm_key:
+    key: "{{ item }}"
+    state: present
+  loop: "{{ rpm_fusion_gpg_keys }}"
+
+# See: https://rpmfusion.org/Configuration
+- name: Enable RPM Fusion
+  become: true
+  become_user: root
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ rpm_fusion_packages_fedora }}"
+  register: rpm_fusion_installed
+
+- name: Update the core group
+  become: true
+  become_user: root
+  ansible.builtin.command:
+    cmd: dnf groupupdate core -y
+  when: rpm_fusion_installed.changed
