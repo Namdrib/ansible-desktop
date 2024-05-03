@@ -1,0 +1,11 @@
+# vim: et
+---
+
+# See: https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html#handling-os-and-distro-differences
+- name: "Get the distribution of hosts"
+  hosts: 'all:!tasmota'
+
+  tasks:
+    - name: Classify hosts depending on their OS distribution
+      ansible.builtin.debug:
+        msg: "distribution => {{ ansible_facts['distribution'] }}, os_family => {{ ansible_facts['os_family'] }}"
