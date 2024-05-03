@@ -22,16 +22,15 @@
 - name: Download Linux GPG key
   become: true
   become_user: root
-  ansible.builtin.get_url:
+  ansible.builtin.apt_key:
     # I've confirmed the Ubuntu and Debian keys are the same
     url: https://download.docker.com/linux/ubuntu/gpg
-    dest: "/etc/apt/keyrings/docker.asc"
-    mode: '0644'
-    group: root
-    owner: root
+    keyring: "/etc/apt/keyrings/docker.asc"
+    state: present
 
 - name: Add repo to apt sources (Debian)
   become: true
   become_user: root
   ansible.builtin.apt_repository:
     repo: "deb [arch={{ ansible_architecture }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    state: present

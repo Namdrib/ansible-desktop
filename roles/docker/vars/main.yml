@@ -1,14 +1,14 @@
 # vim: et
 ---
 
-docker_packages_RedHat:
+docker_packages_redhat:
   - docker-ce
   - docker-ce-cli
   - containerd.io
   - docker-buildx-plugin
   - docker-compose-plugin
 
-docker_packages_Debian:
+docker_packages_debian:
   - docker-ce
   - docker-ce-cli
   - containerd.io
