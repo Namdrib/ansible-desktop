@@ -25,6 +25,9 @@ all:
       hosts:
         bomb:
         pi3:
+    proxmoxhosts:
+      hosts:
+        proxmox:
     intelhosts:
       hosts:
         beans:
@@ -63,6 +66,7 @@ all:
         apps01:
         bomb:
         nas01:
+        proxmox:
         triple-coaster:
         b-desktop-6168:
         server-6090:
