@@ -27,7 +27,7 @@ all:
         pi3:
     proxmoxhosts:
       hosts:
-        proxmox:
+        proxmox01:
         proxmox02:
         proxmox02-wireless:
     intelhosts:
@@ -68,7 +68,7 @@ all:
         apps01:
         bomb:
         nas01:
-        proxmox:
+        proxmox01:
         proxmox02:
         proxmox02-wireless:
         triple-coaster:
