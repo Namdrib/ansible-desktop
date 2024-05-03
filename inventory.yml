@@ -28,6 +28,8 @@ all:
     proxmoxhosts:
       hosts:
         proxmox:
+        proxmox02:
+        proxmox02-wireless:
     intelhosts:
       hosts:
         beans:
@@ -67,6 +69,8 @@ all:
         bomb:
         nas01:
         proxmox:
+        proxmox02:
+        proxmox02-wireless:
         triple-coaster:
         b-desktop-6168:
         server-6090:
