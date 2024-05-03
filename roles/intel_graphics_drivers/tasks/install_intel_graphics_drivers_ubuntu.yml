@@ -3,6 +3,7 @@
 
 - name: Install Intel graphics drivers (Ubuntu)
   become: true
+  become_user: root
   ansible.builtin.package:
     name: "{{ item }}"
     state: present

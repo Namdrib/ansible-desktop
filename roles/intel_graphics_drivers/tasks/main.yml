@@ -8,22 +8,13 @@
   when: (ansible_facts['os_family']|lower == 'redhat' or
         ansible_facts['os_family']|lower == 'nobara') and
         'intelhosts' in group_names
-  args:
-    apply:
-      become: true
 
 - name: Install Arch-specific Intel graphics drivers
   ansible.builtin.include_tasks: install_intel_graphics_drivers_archlinux.yml
   when: ansible_facts['os_family']|lower == 'archlinux' and
         'intelhosts' in group_names
-  args:
-    apply:
-      become: true
 
 - name: Install Ubuntu-specific Intel graphics drivers
   ansible.builtin.include_tasks: install_intel_graphics_drivers_ubuntu.yml
   when: ansible_facts['os_family']|lower == 'ubuntu' and
         'intelhosts' in group_names
-  args:
-    apply:
-      become: true

@@ -3,6 +3,7 @@
 
 - name: Create network share mount points
   become: true
+  become_user: root
   ansible.builtin.file:
     dest: "{{ network_mount_dir }}/{{ item }}"
     state: directory
@@ -11,6 +12,7 @@
 
 - name: Write Samba network shares to /etc/fstab
   become: true
+  become_user: root
   ansible.posix.mount:
     src: "{{ samba_host }}/{{ item }}"
     path: "{{ network_mount_dir }}/{{ item }}"
@@ -22,6 +24,7 @@
 
 - name: Write Samba guest share to /etc/fstab
   become: true
+  become_user: root
   ansible.posix.mount:
     src: "{{ samba_host }}/guest"
     path: "{{ network_mount_dir }}/guest"
