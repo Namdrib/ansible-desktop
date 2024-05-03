@@ -1,0 +1,8 @@
+# vim: et
+---
+
+- name: Add docker DNF repo (RedHat)
+  become: true
+  become_user: root
+  ansible.builtin.command:
+    cmd: "dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo"

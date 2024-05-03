@@ -1,6 +1,20 @@
 # vim: et
 ---
 
-server_setup_repo_url: "git@github.com:Namdrib/server-setup"
-server_setup_clone_dir: "{{ ansible_env.HOME }}/coding/git/namdrib/server-setup"
-server_setup_install_dir: "{{ ansible_env.HOME }}/.server-setup"
+docker_packages_RedHat:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
+
+docker_packages_Debian:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
+
+docker_systemd_services:
+  - docker
+  - containerd

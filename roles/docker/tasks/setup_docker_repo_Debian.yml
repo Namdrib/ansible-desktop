@@ -1,0 +1,37 @@
+# vim: et
+---
+
+# https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+- name: Install dependencies
+  become: true
+  become_user: root
+  ansible.builtin.package:
+    name:
+      - ca-certificates
+      - curl
+    state: present
+
+- name: Create keyrings directory
+  become: true
+  become_user: root
+  ansible.builtin.file:
+    path: "/etc/apt/keyrings"
+    state: directory
+    mode: '0755'
+
+- name: Download Linux GPG key
+  become: true
+  become_user: root
+  ansible.builtin.get_url:
+    # I've confirmed the Ubuntu and Debian keys are the same
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: "/etc/apt/keyrings/docker.asc"
+    mode: '0644'
+    group: root
+    owner: root
+
+- name: Add repo to apt sources (Debian)
+  become: true
+  become_user: root
+  ansible.builtin.apt_repository:
+    repo: "deb [arch={{ ansible_architecture }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"

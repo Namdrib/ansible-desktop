@@ -1,8 +1,23 @@
 # vim: et
 ---
 
-- name: Install docker packages
-  ansible.builtin.import_tasks: install_docker_packages.yml
+- name: Setup docker repo (RedHat)
+  ansible.builtin.include_tasks: setup_docker_repo_RedHat.yml
+  when: ansible_facts['os_family'] == 'RedHat' or
+        ansible_facts['os_family'] == 'Nobara'
 
-- name: Clone server-setup repo
-  ansible.builtin.import_tasks: clone_server_setup_repo.yml
+- name: Setup docker repo (Debian)
+  ansible.builtin.include_tasks: setup_docker_repo_Debian.yml
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: Install docker packages (RedHat)
+  ansible.builtin.include_tasks: install_docker_packages_RedHat.yml
+  when: ansible_facts['os_family'] == 'RedHat' or
+        ansible_facts['os_family'] == 'Nobara'
+
+- name: Install docker packages (Debian)
+  ansible.builtin.include_tasks: install_docker_packages_Debian.yml
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: Run docker post-install steps
+  ansible.builtin.include_tasks: docker_post_install.yml

@@ -1,0 +1,5 @@
+# vim: et
+---
+
+- name: Clone server-setup repo
+  ansible.builtin.import_tasks: clone_server_setup_repo.yml

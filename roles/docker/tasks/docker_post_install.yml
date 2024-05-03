@@ -1,0 +1,10 @@
+# vim: et
+---
+
+- name: Enable docker systemd services
+  become: true
+  become_user: root
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    enabled: true
+  with_items: "{{ docker_systemd_services }}"
