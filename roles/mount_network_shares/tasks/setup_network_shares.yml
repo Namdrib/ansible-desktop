@@ -7,6 +7,8 @@
   ansible.builtin.file:
     dest: "{{ network_mount_dir }}/{{ item }}"
     state: directory
+    owner: "{{ mount_username }}"
+    group: "{{ mount_groupname }}"
     mode: '0755'
   with_items: "{{ samba_shares }}"
 
@@ -16,7 +18,7 @@
   ansible.posix.mount:
     src: "{{ samba_host }}/{{ item }}"
     path: "{{ network_mount_dir }}/{{ item }}"
-    opts: "vers=3,nofail,auto,x-systemd.automount,credentials={{ samba_credentials_file }},uid=1000,gid=users"
+    opts: "vers=3,nofail,auto,x-systemd.automount,credentials={{ samba_credentials_file }},uid={{ mount_username }},gid={{ mount_groupname }}"
     fstype: cifs
     backup: true
     state: present
@@ -28,7 +30,7 @@
   ansible.posix.mount:
     src: "{{ samba_host }}/guest"
     path: "{{ network_mount_dir }}/guest"
-    opts: "vers=3,nofail,auto,x-systemd.automount,guest,uid=1000,gid=users"
+    opts: "vers=3,nofail,auto,x-systemd.automount,guest,uid={{ mount_username }},gid={{ mount_groupname }}"
     fstype: cifs
     backup: true
     state: present

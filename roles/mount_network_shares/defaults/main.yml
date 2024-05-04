@@ -13,3 +13,6 @@ samba_shares:
   - security-footage
   - share
   - software
+
+mount_username: "{{ main_username }}"
+mount_groupname: users
