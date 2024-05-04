@@ -7,9 +7,6 @@ main_groupname: "{{ main_username }}"
 main_uid: "1000"
 main_gid: "{{ main_uid }}"
 
-network_share_username: "{{ main_username }}"
-network_share_password: "{{ vault_network_share_password }}"
-
 autorestic_config_user: "{{ main_username }}"
 
 restic_repo_key: "{{ vault_restic_repo_key }}"

@@ -1,10 +1,16 @@
 # vim: et
 ---
 
-network_mount_dir: /media/shared
+# Credentials
+samba_client_username: "{{ vault_samba_client_username }}"
+samba_client_password: "{{ vault_samba_client_password}}"
+samba_client_groupname: users
 samba_credentials_file: /root/.smbcredentials
-samba_host: "//{{ samba_host_name }}"
-samba_shares:
+
+# Mount configuration
+samba_client_mount_dir: /media/shared
+samba_client_server: "//{{ samba_host_name }}"
+samba_client_mounts:
   # Guest share not included in normal shares
   # There is a separate task to add it
   - images
@@ -13,5 +19,3 @@ samba_shares:
   - security-footage
   - share
   - software
-
-network_share_groupname: users
