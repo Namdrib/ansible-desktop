@@ -14,5 +14,4 @@ samba_shares:
   - share
   - software
 
-mount_username: "{{ main_username }}"
-mount_groupname: users
+network_share_groupname: users
