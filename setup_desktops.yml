@@ -16,7 +16,7 @@
     - desktop
     - gaming
     - latex
-    - mount_network_shares
+    - samba_client
     - kde_workstation
     - disable_ipv6
 
