@@ -5,6 +5,5 @@
   become: true
   become_user: root
   ansible.builtin.package:
-    name: "{{ item }}"
+    name: "{{ intel_graphics_drivers_archlinux }}"
     state: present
-  loop: "{{ intel_graphics_drivers_archlinux }}"

@@ -15,7 +15,6 @@
   become: true
   become_user: root
   ansible.builtin.package:
-    name: "{{ item }}"
+    name: "{{ rpm_fusion_packages_fedora }}"
     state: present
-  loop: "{{ rpm_fusion_packages_fedora }}"
   notify: Update core group

@@ -5,6 +5,5 @@
   become: true
   become_user: root
   ansible.builtin.package:
-    name: "{{ item }}"
+    name: "{{ docker_packages_redhat }}"
     state: present
-  loop: "{{ docker_packages_redhat }}"
