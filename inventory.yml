@@ -8,6 +8,7 @@ all:
     dockerhosts:
       hosts:
         apps01:
+        apps02:
         beans:
         bomb:
     desktops:
@@ -34,6 +35,7 @@ all:
         ansible_user: root
     intelhosts:
       hosts:
+        apps02:
         beans:
         complex-stonework:
     nvidiahosts:
@@ -68,6 +70,7 @@ all:
     north_east:
       hosts:
         apps01:
+        apps02:
         bomb:
         nas01:
         proxmox01:
