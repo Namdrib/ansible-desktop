@@ -1,7 +1,7 @@
 # vim: et
 ---
 
-- name: Install common packages (arch)
+- name: Install common packages (archlinux)
   become: true
   ansible.builtin.package:
     name:

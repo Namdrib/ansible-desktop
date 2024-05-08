@@ -1,7 +1,7 @@
 # vim: et
 ---
 
-- name: Install common packages (fedora)
+- name: Install common packages (redhat)
   become: true
   ansible.builtin.package:
     name:
