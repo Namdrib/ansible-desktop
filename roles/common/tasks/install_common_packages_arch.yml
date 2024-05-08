@@ -6,4 +6,5 @@
   ansible.builtin.package:
     name:
       - gvim # provides CLI vim as well
+      - plocate
     state: present
