@@ -3,9 +3,9 @@
 
 # Credentials
 samba_client_username: "{{ vault_samba_client_username }}"
-samba_client_password: "{{ vault_samba_client_password}}"
+samba_client_password: "{{ vault_samba_client_password }}"
 samba_client_groupname: users
-samba_credentials_file: /root/.smbcredentials
+samba_client_credentials_file: /root/.smbcredentials
 
 # Mount configuration
 samba_client_mount_dir: /media/shared
