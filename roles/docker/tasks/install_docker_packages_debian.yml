@@ -7,3 +7,4 @@
   ansible.builtin.package:
     name: "{{ docker_packages_debian }}"
     state: present
+    update_cache: yes
