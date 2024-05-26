@@ -1,7 +1,7 @@
 # vim: et
 ---
 
-- name: Install Intel graphics drivers
+- name: Install graphics drivers
   hosts: all
   roles:
     - intel_graphics_drivers

@@ -9,3 +9,4 @@
   # set up)
   # It's possible debian would need some apt repositories set up
   ansible.builtin.include_tasks: "install_intel_graphics_drivers_{{ ansible_facts['os_family'] | lower }}.yml"
+  when: "'intelhosts' in group_names"
