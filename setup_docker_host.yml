@@ -9,4 +9,13 @@
   roles:
     - common
     - disable_ipv6
+    # Some docker functions require network shares
+    - samba_client
+    # Most of the apps are hosted on docker
+    # Note: Different distros may have different steps involved
     - docker
+    # To make use of the integrated GPU for hardware-accelerated tasks, like
+    # transcoding
+    # - intel_graphics_drivers
+    # Setup the server-setup repo
+    - server_setup
