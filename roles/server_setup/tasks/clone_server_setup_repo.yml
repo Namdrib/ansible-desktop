@@ -7,6 +7,8 @@
     state: directory
     mode: '0755'
 
+# Note: This may require an SSH key to be used to clone
+# whether via SSH agent forwarding, or from the Ansible target having an SSH key already
 - name: Clone server_setup repo
   ansible.builtin.git:
     dest: "{{ server_setup_clone_dir }}"
