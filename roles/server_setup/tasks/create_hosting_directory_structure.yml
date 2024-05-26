@@ -1,0 +1,36 @@
+# vim: et
+---
+
+- name: Create appdata directory
+  ansible.builtin.file:
+    path: /media/shared/hosting/appdata
+    owner: "{{ main_username }}"
+    group: users
+    mode: '0770'
+    state: directory
+
+- name: Create config directory
+  ansible.builtin.file:
+    path: /media/shared/hosting/config
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    mode: '0750'
+    state: directory
+
+- name: Create cache directory
+  ansible.builtin.file:
+    path: /media/shared/hosting/cache
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    mode: '0750'
+    state: directory
+
+# This file provides an explanation for the directory structure
+# and information for what data sould go where
+- name: Copy directory structure readme
+  ansible.builtin.copy:
+    src: README.md
+    dest: /media/shared/hosting/
+    owner: "{{ main_username }}"
+    group: users
+    mode: '0644'

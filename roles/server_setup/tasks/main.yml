@@ -3,3 +3,8 @@
 
 - name: Clone server-setup repo
   ansible.builtin.import_tasks: clone_server_setup_repo.yml
+
+- name: Create hosting directory structure
+  become: true
+  become_user: root
+  ansible.builtin.import_tasks: create_hosting_directory_structure.yml
