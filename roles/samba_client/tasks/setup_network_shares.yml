@@ -23,6 +23,7 @@
     backup: true
     state: present
   with_items: "{{ samba_client_mounts }}"
+  notify: Reload fstab
 
 - name: Write Samba guest share to /etc/fstab
   become: true
@@ -34,3 +35,5 @@
     fstype: cifs
     backup: true
     state: present
+  when: "'guest' in extra_mounts"
+  notify: Reload fstab

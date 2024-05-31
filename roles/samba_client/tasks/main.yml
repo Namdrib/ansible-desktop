@@ -1,6 +1,9 @@
 # vim: et
 ---
 
+- name: Build up list of shares
+  ansible.builtin.import_tasks: build_shares_list.yml
+
 - name: Create samba credentials file
   ansible.builtin.import_tasks: create_samba_credentials_file.yml
 

@@ -13,9 +13,28 @@ samba_client_server: "//{{ samba_host_name }}"
 samba_client_mounts:
   # Guest share not included in normal shares
   # There is a separate task to add it
-  - images
-  - media
   - namdrib
-  - security-footage
   - share
+
+# Start off empty, each host should add to the list depending on what they need
+# Each entry should correspond to one of the variables below, which provides a
+# list of extra mounts to mount
+extra_mounts: []
+
+samba_client_image_mounts:
+  - images
+
+samba_client_media_mounts:
+  - media
+
+samba_client_scan_mounts:
+  - scans
+
+samba_client_security_footage_mounts:
+  - security-footage
+
+samba_client_software_mounts:
   - software
+
+# Verify that no mounts is valid
+samba_client_empty_mounts: []
