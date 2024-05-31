@@ -1,6 +1,10 @@
 # vim: et
 ---
 
+# Samba shares
+# For paperless
+extra_mounts: ['scans', 'software']
+
 # Cronjobs
 cronjobs:
   - name: Restic Backups (Docker Nextcloud stack)

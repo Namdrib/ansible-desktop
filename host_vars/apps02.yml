@@ -1,0 +1,6 @@
+# vim: et
+---
+
+# Samba shares
+# PhotoPrism, mediastreaming, frigate
+extra_mounts: ['images', 'media', 'security-footage']

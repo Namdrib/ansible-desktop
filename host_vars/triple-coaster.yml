@@ -1,6 +1,9 @@
 # vim: et
 ---
 
+# Samba shares
+extra_mounts: ['images', 'media', 'scans', 'security-footage', 'software', 'guest']
+
 nextcloud_password: "{{ vault_nextcloud_password }}"
 
 davfs_client_mounts:
