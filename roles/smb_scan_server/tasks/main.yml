@@ -1,0 +1,20 @@
+# vim: et
+---
+
+- name: Setup scan user
+  become: true
+  ansible.builtin.import_tasks: setup_scan_user.yml
+
+- name: Configure scan directory
+  become: true
+  ansible.builtin.import_tasks: configure_scan_directory.yml
+
+- name: Install SMB package(s)
+  become: true
+  ansible.builtin.import_tasks: install_smb_server.yml
+
+# TODO: Define the SMB share in /etc/samba/smb.conf
+
+- name: Reload SMB server
+  become: true
+  ansible.builtin.import_tasks: reload_smb_server.yml

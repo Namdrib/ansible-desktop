@@ -1,0 +1,16 @@
+# vim: et
+---
+
+# The user is used by the scanner to authenticate to the network share.
+# The group should be used by everyone who will access the share as the SGID
+# will be set.
+- name: Create SMB scanner user
+  ansible.builtin.user:
+    state: present
+    name: "{{ smb_scan_server_user }}"
+    comment: Scanner user
+    groups: scanner
+    append: true
+    password: "{{ smb_scan_server_user_password | password_hash }}"
+    create_home: false
+    shell: "/usr/sbin/nologin"

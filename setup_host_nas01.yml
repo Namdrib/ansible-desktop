@@ -1,0 +1,10 @@
+# vim: et
+---
+
+- name: Setup nas01
+  hosts: nas01
+
+  roles:
+    - disable_ipv6
+    - ftps_server
+    - smb_scan_server

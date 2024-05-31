@@ -1,0 +1,11 @@
+# vim: et
+---
+
+- name: Change owner of FTP directory
+  ansible.builtin.file:
+    path: "{{ ftps_server_directory }}"
+    state: directory
+    # Set SGID so all scanners can access the files
+    mode: '2775'
+    owner: "{{ smb_scan_server_user }}"
+    group: "{{ smb_scan_server_group }}"

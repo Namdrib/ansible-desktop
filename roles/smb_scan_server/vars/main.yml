@@ -1,0 +1,7 @@
+# vim: et
+---
+
+smb_scan_server_directory: "/media/NAS_1/scans"
+smb_scan_server_user: "scan-user"
+smb_scan_server_group: "scanner"
+smb_scan_server_user_password: "{{ vault_smb_scan_server_user_password }}"

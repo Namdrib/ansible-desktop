@@ -1,0 +1,13 @@
+# vim: et
+---
+
+- name: Enable smbd
+  ansible.builtin.systemd_service:
+    name: smbd
+    enabled: true
+
+- name: Reload smbd
+  ansible.builtin.systemd_service:
+    state: reloaded
+    name: smbd
+    daemon_reload: true

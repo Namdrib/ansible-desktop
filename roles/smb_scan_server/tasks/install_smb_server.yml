@@ -1,0 +1,8 @@
+# vim: et
+---
+
+- name: Install SMB server
+  ansible.builtin.package:
+    name:
+      - samba
+    state: present
