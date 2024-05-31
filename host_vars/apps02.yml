@@ -3,4 +3,4 @@
 
 # Samba shares
 # PhotoPrism, mediastreaming, frigate
-extra_mounts: ['images', 'media', 'security-footage']
+samba_client_extra_mounts: ['appdata', 'images', 'media', 'security-footage']

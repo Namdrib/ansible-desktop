@@ -2,8 +2,8 @@
 ---
 
 # Samba shares
-# For paperless
-extra_mounts: ['scans', 'software']
+# For paperless, nextcloud, starr
+samba_client_extra_mounts: ['appdata', 'media', 'scans', 'software']
 
 # Cronjobs
 cronjobs:
