@@ -9,3 +9,7 @@
 
 - name: Write network shares to /etc/fstab
   ansible.builtin.import_tasks: setup_network_shares.yml
+
+- name: Write appdata share to /etc/fstab
+  ansible.builtin.import_tasks: setup_appdata_share.yml
+  when: "'appdata' in samba_client_extra_mounts"

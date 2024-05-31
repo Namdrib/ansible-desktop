@@ -1,0 +1,24 @@
+# vim: et
+---
+
+- name: Create appdata mount point
+  become: true
+  become_user: root
+  ansible.builtin.file:
+    dest: "{{ samba_client_mount_dir }}/hosting/appdata"
+    state: directory
+    owner: "{{ samba_client_username }}"
+    group: "{{ samba_client_groupname }}"
+    mode: '0770'
+
+- name: Write Samba appdata share to /etc/fstab
+  become: true
+  become_user: root
+  ansible.posix.mount:
+    src: "{{ samba_client_server }}/appdata"
+    path: "{{ samba_client_mount_dir }}/hosting/appdata"
+    opts: "vers=3,nofail,auto,x-systemd.automount,credentials={{ samba_client_credentials_file }},uid={{ samba_client_username }},gid={{ samba_client_groupname }},file_mode=0770,dir_mode=0770"
+    fstype: cifs
+    backup: true
+    state: present
+  notify: Reload fstab
