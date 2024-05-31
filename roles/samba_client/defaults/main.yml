@@ -19,7 +19,7 @@ samba_client_mounts:
 # Start off empty, each host should add to the list depending on what they need
 # Each entry should correspond to one of the variables below, which provides a
 # list of extra mounts to mount
-extra_mounts: []
+samba_client_extra_mounts: []
 
 samba_client_image_mounts:
   - images

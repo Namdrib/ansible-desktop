@@ -8,30 +8,27 @@
 - name: Add image mounts, if applicable
   ansible.builtin.set_fact:
     samba_client_mounts: "{{ samba_client_mounts + samba_client_image_mounts }}"
-  # when: mounts_images
-  when: "'images' in extra_mounts"
+  when: "'images' in samba_client_extra_mounts"
 
 - name: Add media mounts, if applicable
   ansible.builtin.set_fact:
     samba_client_mounts: "{{ samba_client_mounts + samba_client_media_mounts }}"
-  # when: mounts_media
-  when: "'media' in extra_mounts"
+  when: "'media' in samba_client_extra_mounts"
 
 - name: Add scan mounts, if applicable
   ansible.builtin.set_fact:
     samba_client_mounts: "{{ samba_client_mounts + samba_client_scan_mounts }}"
-  # when: mounts_scans
-  when: "'scans' in extra_mounts"
+  when: "'scans' in samba_client_extra_mounts"
 
 - name: Add security footage mounts, if applicable
   ansible.builtin.set_fact:
     samba_client_mounts: "{{ samba_client_mounts + samba_client_security_footage_mounts }}"
-  when: "'security-footage' in extra_mounts"
+  when: "'security-footage' in samba_client_extra_mounts"
 
 - name: Add software mounts, if applicable
   ansible.builtin.set_fact:
     samba_client_mounts: "{{ samba_client_mounts + samba_client_software_mounts }}"
-  when: "'software' in extra_mounts"
+  when: "'software' in samba_client_extra_mounts"
 
 - name: Add empty mounts, if applicable
   ansible.builtin.set_fact:

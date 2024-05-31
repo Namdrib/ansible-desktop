@@ -35,5 +35,5 @@
     fstype: cifs
     backup: true
     state: present
-  when: "'guest' in extra_mounts"
+  when: "'guest' in samba_client_extra_mounts"
   notify: Reload fstab
