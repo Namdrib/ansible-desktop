@@ -16,8 +16,8 @@ cronjobs:
     hour: 6
     weekday: 0
 
-  - name: Restic Backups (Docker mediastreaming stack)
-    job: /usr/local/bin/autorestic backup -l bazarr_backups -l jellyfin_config -l jellyfin_web -l lidarr_backups -l lms_config -l navidrome_config -l ombi_config -l prowlarr_backups -l radarr_backups -l readarr_backups -l sonarr_backups -c /home/{{ main_username }}/.autorestic.yml
+  - name: Restic Backups (Docker starr stack)
+    job: /usr/local/bin/autorestic backup -l bazarr_backups -l lidarr_backups -l lms_config -l ombi_config -l prowlarr_backups -l radarr_backups -l readarr_backups -l sonarr_backups -c /home/{{ main_username }}/.autorestic.yml
     user: "{{ main_username }}"
     minute: 30
     hour: 2
@@ -31,8 +31,7 @@ cronjobs:
     weekday: 2,4
 
   - name: Restic Backups (Docker configs)
-    # Should probably do the photoprism db too
-    job: /usr/local/bin/autorestic backup -l authelia_config -l frigate_config -l photoprism_config -c /home/{{ main_username }}/.autorestic.yml
+    job: /usr/local/bin/autorestic backup -l authelia_config -c /home/{{ main_username }}/.autorestic.yml
     user: "{{ main_username }}"
     minute: 15
     hour: 2
@@ -46,81 +45,81 @@ autorestic_config_yaml:
   backends:
     nas_nextcloud_appdata:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/nextcloud_appdata"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/nextcloud_appdata"
       key: "{{ restic_repo_key }}"
     nas_paperless_appdata:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/paperless_appdata"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/paperless_appdata"
       key: "{{ restic_repo_key }}"
     nas_smokeping_appdata:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/smokeping_appdata"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/smokeping_appdata"
       key: "{{ restic_repo_key }}"
 
     nas_authelia_config:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/authelia_config"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/authelia_config"
       key: "{{ restic_repo_key }}"
     nas_frigate_config:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/frigate_config"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/frigate_config"
       key: "{{ restic_repo_key }}"
     nas_nextcloud_config:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/nextcloud_config"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/nextcloud_config"
       key: "{{ restic_repo_key }}"
     nas_photoprism_config:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/photoprism_config"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/photoprism_config"
       key: "{{ restic_repo_key }}"
 
     nas_bazarr_backups:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/bazarr_backups"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/bazarr_backups"
       key: "{{ restic_repo_key }}"
     nas_jellyfin_config:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/jellyfin_config"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/jellyfin_config"
       key: "{{ restic_repo_key }}"
     nas_jellyfin_web_config:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/jellyfin-web_config"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/jellyfin-web_config"
       key: "{{ restic_repo_key }}"
     nas_lidarr_backups:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/lidarr_backups"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/lidarr_backups"
       key: "{{ restic_repo_key }}"
     nas_lms_config:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/lms_config"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/lms_config"
       key: "{{ restic_repo_key }}"
     nas_navidrome_config:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/navidrome_config"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/navidrome_config"
       key: "{{ restic_repo_key }}"
     nas_ombi_config:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/ombi_config"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/ombi_config"
       key: "{{ restic_repo_key }}"
     nas_prowlarr_backups:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/prowlarr_backups"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/prowlarr_backups"
       key: "{{ restic_repo_key }}"
     nas_qbittorrent_config:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/qbittorrent_config"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/qbittorrent_config"
       key: "{{ restic_repo_key }}"
     nas_radarr_backups:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/radarr_backups"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/radarr_backups"
       key: "{{ restic_repo_key }}"
     nas_readarr_backups:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/readarr_backups"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/readarr_backups"
       key: "{{ restic_repo_key }}"
     nas_sonarr_backups:
       type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/apps01/docker/sonarr_backups"
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/sonarr_backups"
       key: "{{ restic_repo_key }}"
 
   locations:
