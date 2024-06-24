@@ -4,3 +4,120 @@
 # Samba shares
 # PhotoPrism, mediastreaming, frigate
 samba_client_extra_mounts: ['appdata', 'images', 'media', 'security-footage']
+
+# Cronjobs
+cronjobs:
+  - name: Restic Backups (Docker mediastreaming stack)
+    job: /usr/local/bin/autorestic backup -l jellyfin_config -l jellyfin_web -l navidrome_config -c /home/{{ main_username }}/.autorestic.yml
+    user: "{{ main_username }}"
+    minute: 30
+    hour: 2
+    weekday: 2,4
+
+  - name: Restic Backups (Docker configs)
+    # Should probably do the photoprism db too
+    job: /usr/local/bin/autorestic backup -l frigate_config -l photoprism_config -c /home/{{ main_username }}/.autorestic.yml
+    user: "{{ main_username }}"
+    minute: 15
+    hour: 2
+    weekday: 2,4
+
+# Backup configuration
+autorestic_config_user: "{{ main_username }}"
+autorestic_user_directory: "/home/{{ main_username }}"
+autorestic_config_yaml:
+  version: 2
+  backends:
+
+    nas_frigate_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/frigate_config"
+      key: "{{ restic_repo_key }}"
+    nas_photoprism_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/photoprism_config"
+      key: "{{ restic_repo_key }}"
+
+    nas_jellyfin_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/jellyfin_config"
+      key: "{{ restic_repo_key }}"
+    nas_jellyfin_web_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/jellyfin-web_config"
+      key: "{{ restic_repo_key }}"
+    nas_navidrome_config:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/navidrome_config"
+      key: "{{ restic_repo_key }}"
+
+  locations:
+    frigate_config:
+      from: '/media/shared/hosting/config/frigate'
+      to:
+        - nas_frigate_config
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+        backup:
+          exclude:
+            - 'model_cache' # This will be re-generated if it doesn't exist
+    photoprism_config:
+      from: '/media/shared/hosting/config/photoprism'
+      to:
+        - nas_photoprism_config
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+        backup:
+          exclude:
+            # This contains thumbnails. No point in backing up
+            - 'cache/thumbnails'
+
+    # Mediastraming backups
+    jellyfin_config:
+      from: '/media/shared/hosting/config/jellyfin'
+      to:
+        - nas_jellyfin_config
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+        backup:
+          exclude:
+            - 'cache'
+            - 'data/metadata'
+            - 'data/transcodes'
+            - 'data/transcoding-temp'
+    jellyfin_web:
+      from: '/media/shared/hosting/config/jellyfin-web'
+      to:
+        - nas_jellyfin_web_config
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    navidrome_config:
+      from: '/media/shared/hosting/config/navidrome'
+      to:
+        - nas_navidrome_config
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+        backup:
+          exclude:
+            # This contains images and transcodes. No point in backing up
+            - 'cache'
