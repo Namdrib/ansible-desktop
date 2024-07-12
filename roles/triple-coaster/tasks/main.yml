@@ -1,0 +1,8 @@
+# vim: et
+---
+
+- name: Create XDG symlinks which are used by the shared symlinks
+  ansible.builtin.import_tasks: create_xdg_symlinks.yml
+
+- name: Create shared symlinks
+  ansible.builtin.import_tasks: create_shared_symlinks.yml

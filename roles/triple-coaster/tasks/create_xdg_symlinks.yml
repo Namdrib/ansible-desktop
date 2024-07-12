@@ -1,0 +1,58 @@
+# vim: et
+---
+
+- name: Symlink Documents (XDG)
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ shared_drive }}/documents"
+    dest: "{{ mount_point }}/{{ external_xdg_location }}/documents"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Downloads (XDG)
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ shared_drive }}/downloads"
+    dest: "{{ mount_point }}/{{ external_xdg_location }}/downloads"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Music (XDG)
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ shared_drive }}/music"
+    dest: "{{ mount_point }}/{{ external_xdg_location }}/music"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Pictures (XDG)
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ shared_drive }}/images"
+    dest: "{{ mount_point }}/{{ external_xdg_location }}/pictures"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Public (XDG)
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ shared_drive }}/public"
+    dest: "{{ mount_point }}/{{ external_xdg_location }}/public"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Templates (XDG)
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ shared_drive }}/templates"
+    dest: "{{ mount_point }}/{{ external_xdg_location }}/templates"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Videos (XDG)
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ shared_drive }}/videos"
+    dest: "{{ mount_point }}/{{ external_xdg_location }}/videos"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link

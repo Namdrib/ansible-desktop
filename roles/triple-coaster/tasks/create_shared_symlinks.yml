@@ -1,0 +1,101 @@
+# vim: et
+---
+
+# This file create symlinks in the main user's home directory for various
+# directories, such as documents and downloads. This is to make it more
+# re-usable between different distributions. Things can live in one common place
+# that is referred to by potentially multiple Linux installations.
+#
+# They mostly link off to the linux_drive (defined in defaults). Some of the
+# links to the linux_drive are, in turn, links to the shared_drive, mostly in
+# the interest of capacity, and sharing things with the parallel Windows
+# installation on this machine
+
+- name: Symlink Applications
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ linux_drive }}/app-images"
+    dest: "/home/{{ main_username }}/Applications"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Audio
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ shared_drive }}/audio-recordings"
+    dest: "/home/{{ main_username }}/Audio"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Documents
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ external_xdg_location }}/documents"
+    dest: "/home/{{ main_username }}/Documents"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Downloads
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ external_xdg_location }}/downloads"
+    dest: "/home/{{ main_username }}/Downloads"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Games
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ linux_drive }}/games"
+    dest: "/home/{{ main_username }}/Games"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Music
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ external_xdg_location }}/music"
+    dest: "/home/{{ main_username }}/Music"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Pictures
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ external_xdg_location }}/pictures"
+    dest: "/home/{{ main_username }}/Pictures"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Public
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ external_xdg_location }}/public"
+    dest: "/home/{{ main_username }}/Public"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink Templates
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ external_xdg_location }}/templates"
+    dest: "/home/{{ main_username }}/Templates"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+
+- name: Symlink Videos
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ external_xdg_location }}/videos"
+    dest: "/home/{{ main_username }}/Videos"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+
+- name: Symlink VirtualBox VMs
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ shared_drive }}/VMs/Virtual Box VMs"
+    dest: "/home/{{ main_username }}/VirtualBox VMs"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link

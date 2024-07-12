@@ -1,0 +1,7 @@
+# vim: et
+---
+
+mount_point: /mnt
+linux_drive: linux-ssd-1tb
+shared_drive: shared-hdd-3tb
+external_xdg_location: "{{ linux_drive }}/xdg"
