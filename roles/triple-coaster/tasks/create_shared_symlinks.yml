@@ -92,6 +92,8 @@
     group: "{{ main_username }}"
     state: link
 
+# Otherwise it takes up way too much space on the root partition
+# Also makes them accessible from other OSes
 - name: Symlink VirtualBox VMs
   ansible.builtin.file:
     src: "{{ mount_point }}/{{ shared_drive }}/VMs/Virtual Box VMs"

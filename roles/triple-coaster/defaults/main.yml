@@ -2,6 +2,14 @@
 ---
 
 mount_point: /mnt
+
 linux_drive: linux-ssd-1tb
+linux_drive_uuid: 8f69b0af-ac56-408c-85fc-6d94e3cf45e8
+
 shared_drive: shared-hdd-3tb
+shared_drive_uuid: 1E90FB1890FAF4DD
+
+windows_drive: windows-hdd-1tb
+windows_drive_uuid: 58EA1A91EA1A6B8E
+
 external_xdg_location: "{{ linux_drive }}/xdg"

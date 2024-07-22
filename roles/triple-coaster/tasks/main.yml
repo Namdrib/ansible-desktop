@@ -1,6 +1,10 @@
 # vim: et
 ---
 
+# Network drives are handled by the samba_client role
+- name: Mount local drives
+  ansible.builtin.import_tasks: mount_local_drives.yml
+
 - name: Create XDG symlinks which are used by the shared symlinks
   ansible.builtin.import_tasks: create_xdg_symlinks.yml
 

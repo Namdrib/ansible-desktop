@@ -1,0 +1,55 @@
+# vim: et
+---
+
+- name: Create top-level mount point
+  become: true
+  become_user: root
+  ansible.builtin.file:
+    dest: "{{ mount_point }}/"
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Create local drive mount points
+  become: true
+  # Because the top-level mount point is owned by root
+  become_user: root
+  ansible.builtin.file:
+    dest: "{{ mount_point }}/{{ item }}"
+    state: directory
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    mode: '0755'
+  loop:
+    - "{{ linux_drive }}"
+    - "{{ shared_drive }}"
+    - "{{ windows_drive }}"
+
+- name: Configure the shared drive in the fstab file
+  ansible.posix.mount:
+    src: "UUID={{ shared_drive_uuid }}"
+    path: "{{ mount_point }}/{{ shared_drive }}"
+    opts: "rw,auto,nofail,noatime,big_writes,lazytime,uid=1000,gid=1000,dmask=022,fmask=022"
+    fstype: ntfs-3g
+    backup: true
+    state: mounted
+
+- name: Configure the Linux drive in the fstab file
+  ansible.posix.mount:
+    src: "UUID={{ linux_drive_uuid }}"
+    path: "{{ mount_point }}/{{ linux_drive }}"
+    opts: "defaults"
+    fstype: ext4
+    backup: true
+    state: mounted
+
+- name: Configure the Windows drive in the fstab file
+  ansible.posix.mount:
+    src: "UUID={{ windows_drive_uuid }}"
+    path: "{{ mount_point }}/{{ windows_drive }}"
+    opts: "rw,auto,nofail,noatime,big_writes,lazytime,uid=1000"
+    fstype: ntfs-3g
+    backup: true
+    # This should be mounted on-demand, rather than always mounted
+    state: present
