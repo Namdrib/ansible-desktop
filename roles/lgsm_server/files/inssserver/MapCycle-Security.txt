@@ -15,3 +15,4 @@ Scenario_Refinery_Checkpoint_Security
 Scenario_Summit_Checkpoint_Security
 Scenario_Tell_Checkpoint_Security
 Scenario_Tideway_Checkpoint_Security
+Scenario_Trainyard_Checkpoint_Security

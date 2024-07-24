@@ -32,3 +32,5 @@
 (Scenario="Scenario_Tell_Checkpoint_Security",Lighting="Night")
 (Scenario="Scenario_Tideway_Checkpoint_Insurgents",Lighting="Night")
 (Scenario="Scenario_Tideway_Checkpoint_Security",Lighting="Night")
+(Scenario="Scenario_Trainyard_Checkpoint_Insurgents",Lighting="Night")
+(Scenario="Scenario_Trainyard_Checkpoint_Security",Lighting="Night")
