@@ -30,13 +30,35 @@ insserver_templates:
 # Config files for inssserver
 inssserver_files:
   - { source: Admins.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
-  - { source: MapCycleDay.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
-  - { source: MapCycleNight.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
-  - { source: MapCycle-Insurgents.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
-  - { source: MapCycle-Security.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
-  - { source: MapCycle.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
   - { source: common.cfg, dest: /home/inssserver/lgsm/config-lgsm/inssserver/ }
 
 inssserver_templates:
   - { source: Game.ini.j2, dest: /home/inssserver/serverfiles/Insurgency/Saved/Config/LinuxServer/Game.ini }
+  - { source: MapCycle.txt.j2, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/MapCycle.txt }
+  - { source: MapCycleDay.txt.j2, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/MapCycleDay.txt }
+  - { source: MapCycleNight.txt.j2, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/MapCycleNight.txt }
+  - { source: MapCycle-Insurgents.txt.j2, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/MapCycle-Insurgents.txt }
+  - { source: MapCycle-Security.txt.j2, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/MapCycle-Security.txt }
   - { source: inssserver.cfg.j2, dest: /home/inssserver/lgsm/config-lgsm/inssserver/inssserver.cfg }
+
+# A list of scenarios to include in the server map rotation
+# These are inserted into the MapCycle templates
+inssserver_scenarios:
+  - Bab
+  - Citadel
+  - Crossing
+  - Farmhouse
+  - Gap
+  - Hideout
+  - Hillside
+  - LastLight
+  - Ministry
+  - Outskirts
+  - PowerPlant
+  - Precinct
+  - Prison
+  - Refinery
+  - Summit
+  - Tell
+  - Tideway
+  - Trainyard

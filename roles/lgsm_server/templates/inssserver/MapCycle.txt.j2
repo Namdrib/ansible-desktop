@@ -1,0 +1,6 @@
+{% for scenario_name in inssserver_scenarios %}
+(Scenario="Scenario_{{ scenario_name }}_Checkpoint_Insurgents",Lighting="Day")
+(Scenario="Scenario_{{ scenario_name }}_Checkpoint_Insurgents",Lighting="Night")
+(Scenario="Scenario_{{ scenario_name }}_Checkpoint_Security",Lighting="Day")
+(Scenario="Scenario_{{ scenario_name }}_Checkpoint_Security",Lighting="Night")
+{% endfor %}
