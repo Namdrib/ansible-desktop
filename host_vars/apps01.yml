@@ -77,14 +77,6 @@ autorestic_config_yaml:
       type: sftp
       path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/bazarr_backups"
       key: "{{ restic_repo_key }}"
-    nas_jellyfin_config:
-      type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/jellyfin_config"
-      key: "{{ restic_repo_key }}"
-    nas_jellyfin_web_config:
-      type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/jellyfin-web_config"
-      key: "{{ restic_repo_key }}"
     nas_lidarr_backups:
       type: sftp
       path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/lidarr_backups"
@@ -92,10 +84,6 @@ autorestic_config_yaml:
     nas_lms_config:
       type: sftp
       path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/lms_config"
-      key: "{{ restic_repo_key }}"
-    nas_navidrome_config:
-      type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/navidrome_config"
       key: "{{ restic_repo_key }}"
     nas_ombi_config:
       type: sftp
@@ -216,32 +204,6 @@ autorestic_config_yaml:
           keep-weekly: 3
           keep-monthly: 3
           keep-yearly: 1
-    jellyfin_config:
-      from: '/media/shared/hosting/config/jellyfin'
-      to:
-        - nas_jellyfin_config
-      options:
-        forget:
-          keep-daily: 2
-          keep-weekly: 3
-          keep-monthly: 3
-          keep-yearly: 1
-        backup:
-          exclude:
-            - 'cache'
-            - 'data/metadata'
-            - 'data/transcodes'
-            - 'data/transcoding-temp'
-    jellyfin_web:
-      from: '/media/shared/hosting/config/jellyfin-web'
-      to:
-        - nas_jellyfin_web_config
-      options:
-        forget:
-          keep-daily: 2
-          keep-weekly: 3
-          keep-monthly: 3
-          keep-yearly: 1
     lidarr_backups:
       from: '/media/shared/hosting/config/lidarr/Backups'
       to:
@@ -264,20 +226,6 @@ autorestic_config_yaml:
           keep-yearly: 1
         backup:
           exclude:
-            - 'cache'
-    navidrome_config:
-      from: '/media/shared/hosting/config/navidrome'
-      to:
-        - nas_navidrome_config
-      options:
-        forget:
-          keep-daily: 2
-          keep-weekly: 3
-          keep-monthly: 3
-          keep-yearly: 1
-        backup:
-          exclude:
-            # This contains images and transcodes. No point in backing up
             - 'cache'
     ombi_config:
       from: '/media/shared/hosting/config/ombi'
