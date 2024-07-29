@@ -11,4 +11,4 @@ autorestic_config_user: "{{ main_username }}"
 
 restic_repo_key: "{{ vault_restic_repo_key }}"
 
-restic_backup_dir: "/media/NAS_2/restic-backups"
+restic_backup_dir: "/mnt/NAS_2/restic-backups"
