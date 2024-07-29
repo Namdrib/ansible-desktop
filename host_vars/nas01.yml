@@ -47,7 +47,7 @@ autorestic_config_yaml:
 
   locations:
     audiobooks:
-      from: '/media/NAS_1/media/content/audiobooks'
+      from: '/mnt/NAS_1/media/content/audiobooks'
       to:
         - nas_audiobooks
       options:
@@ -57,7 +57,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     books:
-      from: '/media/NAS_1/media/content/books'
+      from: '/mnt/NAS_1/media/content/books'
       to:
         - nas_books
       options:
@@ -67,7 +67,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     images:
-      from: '/media/NAS_1/images'
+      from: '/mnt/NAS_1/images'
       to:
         - nas_images
       options:
@@ -77,7 +77,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     music:
-      from: '/media/NAS_1/media/content/music'
+      from: '/mnt/NAS_1/media/content/music'
       to:
         - nas_music
       options:
@@ -87,7 +87,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     lectures:
-      from: '/media/NAS_1/media/content/lectures'
+      from: '/mnt/NAS_1/media/content/lectures'
       to:
         - nas_lectures
       options:
@@ -97,7 +97,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     playlists:
-      from: '/media/NAS_1/media/content/playlists'
+      from: '/mnt/NAS_1/media/content/playlists'
       to:
         - nas_playlists
       options:
@@ -107,7 +107,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     youtube:
-      from: '/media/NAS_1/media/content/youtube'
+      from: '/mnt/NAS_1/media/content/youtube'
       to:
         - nas_youtube
       options:
