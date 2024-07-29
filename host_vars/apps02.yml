@@ -8,7 +8,7 @@ samba_client_extra_mounts: ['appdata', 'images', 'media', 'security-footage']
 # Cronjobs
 cronjobs:
   - name: Restic Backups (Docker mediastreaming stack)
-    job: /usr/local/bin/autorestic backup -l jellyfin_config -l jellyfin_web -l navidrome_config -c /home/{{ main_username }}/.autorestic.yml
+    job: /usr/local/bin/autorestic backup -l jellyfin_config -l navidrome_config -c /home/{{ main_username }}/.autorestic.yml
     user: "{{ main_username }}"
     minute: 30
     hour: 2
@@ -41,10 +41,6 @@ autorestic_config_yaml:
     nas_jellyfin_config:
       type: sftp
       path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/jellyfin_config"
-      key: "{{ restic_repo_key }}"
-    nas_jellyfin_web_config:
-      type: sftp
-      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/jellyfin-web_config"
       key: "{{ restic_repo_key }}"
     nas_navidrome_config:
       type: sftp
@@ -97,16 +93,6 @@ autorestic_config_yaml:
             - 'data/metadata'
             - 'data/transcodes'
             - 'data/transcoding-temp'
-    jellyfin_web:
-      from: '/media/shared/hosting/config/jellyfin-web'
-      to:
-        - nas_jellyfin_web_config
-      options:
-        forget:
-          keep-daily: 2
-          keep-weekly: 3
-          keep-monthly: 3
-          keep-yearly: 1
     navidrome_config:
       from: '/media/shared/hosting/config/navidrome'
       to:
