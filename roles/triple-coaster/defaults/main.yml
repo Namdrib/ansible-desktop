@@ -1,8 +1,6 @@
 # vim: et
 ---
 
-mount_point: /mnt
-
 linux_drive: linux-ssd-1tb
 linux_drive_uuid: 8f69b0af-ac56-408c-85fc-6d94e3cf45e8
 
