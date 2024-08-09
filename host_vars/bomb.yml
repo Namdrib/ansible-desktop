@@ -49,3 +49,6 @@ autorestic_config_yaml:
           keep-weekly: 3
           keep-monthly: 3
           keep-yearly: 1
+
+autorestic_distro: linux_arm64
+restic_distro: linux_arm64
