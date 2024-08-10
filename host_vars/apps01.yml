@@ -112,7 +112,7 @@ autorestic_config_yaml:
 
   locations:
     nextcloud_appdata:
-      from: '/media/shared/hosting/appdata/nextcloud'
+      from: '{{ docker_appdata_dir }}/nextcloud'
       to:
         - nas_nextcloud_appdata
       options:
@@ -122,7 +122,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     paperless_appdata:
-      from: '/media/shared/hosting/appdata/paperless'
+      from: '{{ docker_appdata_dir }}/paperless'
       to:
         - nas_paperless_appdata
       options:
@@ -132,7 +132,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     smokeping_appdata:
-      from: '/media/shared/hosting/appdata/smokeping'
+      from: '{{ docker_appdata_dir }}/smokeping'
       to:
         - nas_smokeping_appdata
       options:
@@ -143,7 +143,7 @@ autorestic_config_yaml:
           keep-yearly: 1
 
     authelia_config:
-      from: '/media/shared/hosting/config/authelia'
+      from: '{{ docker_config_dir }}/authelia'
       to:
         - nas_authelia_config
       options:
@@ -153,7 +153,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     frigate_config:
-      from: '/media/shared/hosting/config/frigate'
+      from: '{{ docker_config_dir }}/frigate'
       to:
         - nas_frigate_config
       options:
@@ -166,7 +166,7 @@ autorestic_config_yaml:
           exclude:
             - 'model_cache' # This will be re-generated if it doesn't exist
     nextcloud_config:
-      from: '/media/shared/hosting/config/nextcloud'
+      from: '{{ docker_config_dir }}/nextcloud'
       to:
         - nas_authelia_config
       options:
@@ -179,7 +179,7 @@ autorestic_config_yaml:
           exclude:
             - 'www/nextcloud/apps'
     photoprism_config:
-      from: '/media/shared/hosting/config/photoprism'
+      from: '{{ docker_config_dir }}/photoprism'
       to:
         - nas_photoprism_config
       options:
@@ -195,7 +195,7 @@ autorestic_config_yaml:
 
     # Mediastraming backups
     bazarr_backups:
-      from: '/media/shared/hosting/config/bazarr/backup'
+      from: '{{ docker_config_dir }}/bazarr/backup'
       to:
         - nas_bazarr_backups
       options:
@@ -205,7 +205,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     lidarr_backups:
-      from: '/media/shared/hosting/config/lidarr/Backups'
+      from: '{{ docker_config_dir }}/lidarr/Backups'
       to:
         - nas_lidarr_backups
       options:
@@ -215,7 +215,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     lms_config:
-      from: '/media/shared/hosting/config/lms'
+      from: '{{ docker_config_dir }}/lms'
       to:
         - nas_lms_config
       options:
@@ -228,7 +228,7 @@ autorestic_config_yaml:
           exclude:
             - 'cache'
     ombi_config:
-      from: '/media/shared/hosting/config/ombi'
+      from: '{{ docker_config_dir }}/ombi'
       to:
         - nas_ombi_config
       options:
@@ -241,7 +241,7 @@ autorestic_config_yaml:
           exclude:
             - 'Logs'
     prowlarr_backups:
-      from: '/media/shared/hosting/config/prowlarr/Backups'
+      from: '{{ docker_config_dir }}/prowlarr/Backups'
       to:
         - nas_prowlarr_backups
       options:
@@ -251,7 +251,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     radarr_backups:
-      from: '/media/shared/hosting/config/radarr/Backups'
+      from: '{{ docker_config_dir }}/radarr/Backups'
       to:
         - nas_radarr_backups
       options:
@@ -261,7 +261,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     readarr_backups:
-      from: '/media/shared/hosting/config/readarr/Backups'
+      from: '{{ docker_config_dir }}/readarr/Backups'
       to:
         - nas_readarr_backups
       options:
@@ -271,7 +271,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     sonarr_backups:
-      from: '/media/shared/hosting/config/sonarr/Backups'
+      from: '{{ docker_config_dir }}/sonarr/Backups'
       to:
         - nas_sonarr_backups
       options:
