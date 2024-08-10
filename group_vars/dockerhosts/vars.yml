@@ -1,0 +1,6 @@
+# vim: et
+---
+
+hosting_dir: "{{ mount_point }}/hosting"
+docker_appdata_dir: "{{ hosting_dir }}/appdata"
+docker_config_dir: "{{ hosting_dir }}/config"

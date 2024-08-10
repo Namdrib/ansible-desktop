@@ -8,7 +8,7 @@ samba_client_groupname: users
 samba_client_credentials_file: /root/.smbcredentials
 
 # Mount configuration
-samba_client_mount_dir: /media/shared
+samba_client_mount_dir: "{{ mount_point }}"
 samba_client_server: "//{{ samba_host_name }}"
 samba_client_mounts:
   # Guest share not included in normal shares

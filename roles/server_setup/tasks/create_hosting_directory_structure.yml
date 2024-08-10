@@ -7,7 +7,7 @@
 
 - name: Create config directory
   ansible.builtin.file:
-    path: /media/shared/hosting/config
+    path: "{{ docker_config_dir }}"
     owner: "{{ main_username }}"
     group: "{{ main_username }}"
     mode: '0751'
@@ -15,10 +15,10 @@
 
 - name: Create cache directory
   ansible.builtin.file:
-    path: /media/shared/hosting/cache
+    path: "{{ hosting_dir }}/cache"
     owner: "{{ main_username }}"
     group: "{{ main_username }}"
-    mode: '0755'
+    mode: '0751'
     state: directory
 
 # This file provides an explanation for the directory structure and information
@@ -26,7 +26,7 @@
 - name: Copy directory structure readme
   ansible.builtin.copy:
     src: README.md
-    dest: /media/shared/hosting/
+    dest: "{{ hosting_dir }}/"
     owner: "{{ main_username }}"
     group: users
     mode: '0644'

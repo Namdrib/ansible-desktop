@@ -49,7 +49,7 @@ autorestic_config_yaml:
 
   locations:
     frigate_config:
-      from: '/media/shared/hosting/config/frigate'
+      from: '{{ docker_config_dir }}/frigate'
       to:
         - nas_frigate_config
       options:
@@ -62,7 +62,7 @@ autorestic_config_yaml:
           exclude:
             - 'model_cache' # This will be re-generated if it doesn't exist
     photoprism_config:
-      from: '/media/shared/hosting/config/photoprism'
+      from: '{{ docker_config_dir }}/photoprism'
       to:
         - nas_photoprism_config
       options:
@@ -78,7 +78,7 @@ autorestic_config_yaml:
 
     # Mediastraming backups
     jellyfin_config:
-      from: '/media/shared/hosting/config/jellyfin'
+      from: '{{ docker_config_dir }}/jellyfin'
       to:
         - nas_jellyfin_config
       options:
@@ -94,7 +94,7 @@ autorestic_config_yaml:
             - 'data/transcodes'
             - 'data/transcoding-temp'
     navidrome_config:
-      from: '/media/shared/hosting/config/navidrome'
+      from: '{{ docker_config_dir }}/navidrome'
       to:
         - nas_navidrome_config
       options:
