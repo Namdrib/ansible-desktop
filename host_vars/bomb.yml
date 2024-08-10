@@ -30,7 +30,7 @@ autorestic_config_yaml:
 
   locations:
     home_assistant:
-      from: '/media/shared/hosting/config/home-assistant'
+      from: '{{ docker_config_dir }}/home-assistant'
       to:
         - nas_home_assistant_config
       options:
@@ -40,7 +40,7 @@ autorestic_config_yaml:
           keep-monthly: 3
           keep-yearly: 1
     zigbee2mqtt:
-      from: '/media/shared/hosting/config/zigbee2mqtt'
+      from: '{{ docker_config_dir }}/zigbee2mqtt'
       to:
         - nas_zigbee2mqtt_config
       options:
