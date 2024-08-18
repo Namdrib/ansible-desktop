@@ -1,0 +1,36 @@
+# vim: et
+---
+
+- name: Setup apps01 (root portion)
+  become: true
+  hosts: apps01
+
+  roles:
+    - kde_server
+    - nvidia_graphics_drivers
+    - samba_client
+
+- name: Setup apps01 (user portion)
+  remote_user: "{{ main_username }}"
+  hosts: apps01
+
+  roles:
+    - common
+    - server_setup
+
+- name: Setup backups
+  hosts: apps01
+  roles:
+    - role: cronjobs
+    - role: fuzzymistborn.autorestic
+
+- name: Setup Linux Game Server Manager
+  hosts: apps01
+
+  roles:
+    # Handles one-time configuration, done as root
+    - role: lgsm_dependencies
+      become: true
+
+    # Handles per-game configuration, done as the game server
+    - role: lgsm_server
