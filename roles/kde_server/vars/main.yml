@@ -1,0 +1,18 @@
+---
+# vars file for kde_server
+
+packages_to_install:
+  - xrdp
+
+packages_to_remove:
+  - "akonadi*"
+  - akregator
+  - Box2D
+  - dragon
+  - elisaplayer
+  - kamera
+  - kamoso
+  - kaddressbook
+  - kdiagram
+  - keditbookmarks
+  - kmail
