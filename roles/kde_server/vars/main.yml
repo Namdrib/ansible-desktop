@@ -1,10 +1,10 @@
 ---
 # vars file for kde_server
 
-packages_to_install:
+kde_server_packages_to_install:
   - xrdp
 
-packages_to_remove:
+kde_server_packages_to_remove:
   - "akonadi*"
   - akregator
   - Box2D
