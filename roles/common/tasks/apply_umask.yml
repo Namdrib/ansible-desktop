@@ -1,0 +1,18 @@
+# vim: et
+---
+
+- name: Apply global umask via profile
+  become: true
+  ansible.builtin.copy:
+    src: umask-all-users.sh
+    dest: /etc/profile.d/
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Apply umask for new user home dirs
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/login.defs
+    regexp: '^UMASK'
+    line: 'UMASK 027'

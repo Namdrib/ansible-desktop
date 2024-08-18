@@ -16,3 +16,6 @@
 
 - name: Install fzf
   ansible.builtin.import_tasks: install_fzf.yml
+
+- name: Apply umask
+  ansible.builtin.import_tasks: apply_umask.yml
