@@ -2,12 +2,12 @@
 ---
 
 - name: Make sure git is installed
-  package:
+  ansible.builtin.package:
     name: git
     state: present
 
 - name: Fetch fzf from GitHub
-  git:
+  ansible.builtin.git:
     repo: 'https://github.com/junegunn/fzf.git'
     dest: "/tmp/fzf"
     # dest: "{{ ansible_env.HOME }}/.fzf"
