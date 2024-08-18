@@ -5,4 +5,5 @@
   hosts: triple-coaster
 
   roles:
+    - common
     - triple-coaster

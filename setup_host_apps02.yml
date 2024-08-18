@@ -17,3 +17,9 @@
   roles:
     - common
     - server_setup
+
+- name: Setup backups
+  hosts: apps02
+  roles:
+    - role: cronjobs
+    - role: fuzzymistborn.autorestic
