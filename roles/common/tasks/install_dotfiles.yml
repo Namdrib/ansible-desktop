@@ -5,7 +5,7 @@
   ansible.builtin.file:
     path: "{{ dotfiles_clone_dir }}"
     state: directory
-    mode: '0755'
+    mode: '0750'
 
 - name: Clone dotfiles repo
   ansible.builtin.git:
@@ -19,7 +19,7 @@
     dest: "{{ dotfiles_install_dir }}"
     state: link
     force: true
-    mode: '0755'
+    mode: '0750'
 
 - name: Install the dotfiles
   ansible.builtin.script: "{{ dotfiles_install_dir }}/install.sh"
