@@ -1,0 +1,18 @@
+# vim: et
+---
+
+- name: Setup apps02 (root portion)
+  become: true
+  hosts: apps02
+
+  roles:
+    - kde_server
+    - intel_graphics_drivers
+
+- name: Setup apps02 (user portion)
+  remote_user: "{{ main_username }}"
+  hosts: apps02
+
+  roles:
+    - common
+    - server_setup
