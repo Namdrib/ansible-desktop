@@ -4,7 +4,5 @@
 - name: Install common packages (debian)
   become: true
   ansible.builtin.package:
-    name:
-      - mlocate
-      - vim
+    name: "{{ common_packages_debian }}"
     state: present

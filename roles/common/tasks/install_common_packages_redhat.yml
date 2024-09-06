@@ -4,9 +4,5 @@
 - name: Install common packages (redhat)
   become: true
   ansible.builtin.package:
-    name:
-      - dnf-plugins-core
-      - plocate
-      - vim-X11
-      - vim-enhanced
+    name: "{{ common_packages_redhat }}"
     state: present

@@ -1,0 +1,33 @@
+# vim: et
+---
+
+common_packages:
+  - autojump
+  - bat
+  - flameshot
+  - git
+  - htop
+  - iotop
+  - ncdu
+  - neofetch
+  - nethogs
+  - net-tools
+  - redshift
+  - syncthing
+  - timeshift
+  - tmux
+  - yakuake
+
+common_packages_archlinux:
+  - gvim # provides CLI vim as well
+  - plocate
+
+common_packages_debian:
+  - mlocate
+  - vim
+
+common_packages_redhat:
+  - dnf-plugins-core
+  - plocate
+  - vim-X11
+  - vim-enhanced

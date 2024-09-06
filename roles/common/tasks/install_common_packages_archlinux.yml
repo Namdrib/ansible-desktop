@@ -4,7 +4,5 @@
 - name: Install common packages (archlinux)
   become: true
   ansible.builtin.package:
-    name:
-      - gvim # provides CLI vim as well
-      - plocate
+    name: "{{ common_packages_archlinux }}"
     state: present

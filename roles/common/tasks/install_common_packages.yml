@@ -4,20 +4,5 @@
 - name: Install common packages
   become: true
   ansible.builtin.package:
-    name:
-      - autojump
-      - bat
-      - flameshot
-      - git
-      - htop
-      - iotop
-      - ncdu
-      - neofetch
-      - nethogs
-      - net-tools
-      - redshift
-      - syncthing
-      - timeshift
-      - tmux
-      - yakuake
+    name: "{{ common_packages }}"
     state: present
