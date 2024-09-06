@@ -1,0 +1,18 @@
+# vim: et
+---
+
+dev_packages_common:
+  - ansible
+  - ansible-lint
+  - make
+  - qtcreator
+  - screenkey
+
+dev_packages_archlinux:
+  - python-pylint
+  - shellcheck
+
+dev_packages_redhat:
+  - codium
+  - pylint
+  - ShellCheck

@@ -10,11 +10,8 @@
   loop:
     - vscodium.repo
 
-- name: Install dev packages (fedora)
+- name: Install dev packages (Fedora)
   become: true
   ansible.builtin.package:
-    name:
-      - codium
-      - pylint
-      - ShellCheck
+    name: "{{ dev_packages_fedora}}"
     state: present

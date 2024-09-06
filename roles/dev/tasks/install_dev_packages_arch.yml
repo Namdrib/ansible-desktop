@@ -4,7 +4,5 @@
 - name: Install dev packages (arch)
   become: true
   ansible.builtin.package:
-    name:
-      - python-pylint
-      - shellcheck
+    name: "{{ dev_packages_archlinux }}"
     state: present
