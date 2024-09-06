@@ -1,0 +1,19 @@
+# vim: et
+---
+
+desktop_packages_common:
+  - discord
+  - pinta
+  - strawberry
+  - vlc
+
+desktop_packages_archlinux:
+  - bitwarden
+  - kdeconnect
+  - obsidian
+  - signal-desktop
+  - ttf-fira-code
+
+desktop_packages_redhat:
+  - fira-code-fonts
+  - kde-connect

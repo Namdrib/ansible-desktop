@@ -2,21 +2,8 @@
 ---
 
 - name: Install common desktop packages
-  ansible.builtin.import_tasks: install_desktop_packages.yml
   become: true
+  ansible.builtin.import_tasks: install_desktop_packages.yml
 
-- name: Install Fedora-specific common packages
-  # Using include instead of import prevents the stream of skip output
-  ansible.builtin.include_tasks: install_desktop_packages_fedora.yml
-  when: ansible_facts['os_family']|lower == 'redhat' or
-        ansible_facts['os_family']|lower == 'nobara'
-  args:
-    apply:
-      become: true
-
-- name: Install Arch-specific desktop packages
-  ansible.builtin.include_tasks: install_desktop_packages_arch.yml
-  when: ansible_facts['os_family']|lower == 'archlinux'
-  args:
-    apply:
-      become: true
+- name: Install distro-specific desktop packages
+  ansible.builtin.include_tasks: "install_desktop_packages_{{ ansible_facts['os_family'] | lower }}.yml"

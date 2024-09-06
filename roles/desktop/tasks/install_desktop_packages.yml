@@ -4,9 +4,5 @@
 - name: Install packages (desktop)
   become: true
   ansible.builtin.package:
-    name:
-      - discord
-      - pinta
-      - strawberry
-      - vlc
+    name: "{{ desktop_packages_common }}"
     state: present

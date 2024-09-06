@@ -1,13 +1,8 @@
 # vim: et
 ---
 
-- name: Install desktop packages (arch)
+- name: Install desktop packages (Arch Linux)
   become: true
   ansible.builtin.package:
-    name:
-      - bitwarden
-      - kdeconnect
-      - obsidian
-      - signal-desktop
-      - ttf-fira-code
+    name: "{{ desktop_packages_archlinux }}"
     state: present

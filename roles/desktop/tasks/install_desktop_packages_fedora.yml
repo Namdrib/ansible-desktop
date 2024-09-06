@@ -1,10 +1,8 @@
 # vim: et
 ---
 
-- name: Install desktop packages (fedora)
+- name: Install desktop packages (Fedora)
   become: true
   ansible.builtin.package:
-    name:
-      - fira-code-fonts
-      - kde-connect
+    name: "{{ desktop_packages_redhat }}"
     state: present
