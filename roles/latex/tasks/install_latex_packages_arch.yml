@@ -4,7 +4,5 @@
 - name: Install LaTeX packages (arch)
   become: true
   ansible.builtin.package:
-    name:
-      - texlive-fontsextra
-      - texlive-latexextra
+    name: "{{ latex_packages_archlinux }}"
     state: present
