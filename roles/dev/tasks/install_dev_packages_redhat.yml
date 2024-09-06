@@ -13,5 +13,5 @@
 - name: Install dev packages (Fedora)
   become: true
   ansible.builtin.package:
-    name: "{{ dev_packages_fedora}}"
+    name: "{{ dev_packages_redhat }}"
     state: present
