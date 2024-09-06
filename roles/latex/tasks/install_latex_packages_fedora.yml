@@ -1,8 +1,0 @@
-# vim: et
----
-
-- name: Install LaTeX packages (fedora)
-  become: true
-  ansible.builtin.package:
-    name: "{{ latex_packages_fedora }}"
-    state: present

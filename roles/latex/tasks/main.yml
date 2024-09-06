@@ -3,20 +3,6 @@
 
 - name: Install common LaTeX packages
   ansible.builtin.import_tasks: install_latex_packages.yml
-  become: true
 
-- name: Install Fedora-specific LaTeX packages
-  # Using include instead of import prevents the stream of skip output
-  ansible.builtin.include_tasks: install_latex_packages_fedora.yml
-  when: ansible_facts['os_family']|lower == 'redhat' or
-        ansible_facts['os_family']|lower == 'nobara'
-  args:
-    apply:
-      become: true
-
-- name: Install Arch-specific LaTeX packages
-  ansible.builtin.include_tasks: install_latex_packages_arch.yml
-  when: ansible_facts['os_family']|lower == 'archlinux'
-  args:
-    apply:
-      become: true
+- name: Install distro-specific LaTeX packages
+  ansible.builtin.include_tasks: "install_latex_packages_{{ ansible_facts['os_family'] | lower }}.yml"
