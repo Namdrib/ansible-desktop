@@ -13,3 +13,5 @@ latex_packages_redhat:
   - texlive-multirow
   - texlive-relsize
   - texlive-tabu
+  - texlive-metafont
+  - texlive-mfware
