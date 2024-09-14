@@ -9,3 +9,12 @@
     value: 'true'
     no_extra_spaces: true
     mode: '0644'
+
+- name: Settings - Don't pause media players on sleep
+  community.general.ini_file:
+    path: "{{ ansible_env.HOME }}/.config/powerdevilrc"
+    section: 'General'
+    option: pausePlayersOnSuspend
+    value: 'false'
+    no_extra_spaces: true
+    mode: '0644'
