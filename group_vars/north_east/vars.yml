@@ -58,7 +58,7 @@ dhcp_reservations:
   - { ip: "{{ network_subnet }}.206", mac: 4c:eb:d6:dd:d2:58, hostname: d-desktop-4696 } # Athom Smart Plug (tasmota_DDD258)
   - { ip: "{{ network_subnet }}.207", mac: 4c:eb:d6:dd:50:0f, hostname: dishwasher-4111 } # Athom Smart Plug (tasmota_DD500F)
   - { ip: "{{ network_subnet }}.208", mac: 48:e1:e9:b6:54:7f, hostname: garage-door-opener-1 } # Meross Smart Garage Door Opener
-  - { ip: "{{ network_subnet }}.209", mac: a0:b7:65:ca:60:90, hostname: wled-ca6090 } # Garage door opener (Meross MSG100)
+  - { ip: "{{ network_subnet }}.209", mac: a0:b7:65:ca:60:90, hostname: wled-ca6090 } # WLED controller for LG TV backlight (QuinLED-dig2go)
   - { ip: "{{ network_subnet }}.210", mac: e8:fd:f8:c3:0f:2a, hostname: HF-LPT230 } # GoodWe MS6000 Inverter
   - { ip: "{{ network_subnet }}.211", mac: 28:9c:6e:23:11:83, hostname: HF-A21 } # GoodWe HK1000 Consumption Meter
   - { ip: "{{ network_subnet }}.212", mac: 34:ab:95:a7:90:98, hostname: tv-lounge-4248 } # Athom Smart Plug (tasmota_A79098)
