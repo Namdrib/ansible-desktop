@@ -25,4 +25,4 @@
   ansible.builtin.cron:
     name: Monitor {{ item }}
     minute: '*/5'
-    job: '/home/{{ item }}/{{ item }}/update > /home/{{ item }}/logs/update.log'
+    job: '/home/{{ item }}/{{ item }}/monitor > /home/{{ item }}/logs/monitor.log'
