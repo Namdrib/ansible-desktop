@@ -26,3 +26,12 @@
   loop: "{{ lookup('vars', item + '_templates') }}"
   loop_control:
     loop_var: template_file
+
+- name: Disable analytics
+  ansible.builtin.lineinfile:
+    path: "/home/{{ item }}/lgsm/config-lgsm/{{ item }}/common.cfg"
+    regexp: '^stats=".*"'
+    line: 'stats="off"'
+    mode: '0664'
+    owner: "{{ item }}"
+    group: "{{ item }}"

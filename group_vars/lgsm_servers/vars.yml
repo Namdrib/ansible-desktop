@@ -30,7 +30,6 @@ insserver_templates:
 # Config files for inssserver
 inssserver_files:
   - { source: Admins.txt, dest: /home/inssserver/serverfiles/Insurgency/Config/Server/ }
-  - { source: common.cfg, dest: /home/inssserver/lgsm/config-lgsm/inssserver/ }
 
 inssserver_templates:
   - { source: Game.ini.j2, dest: /home/inssserver/serverfiles/Insurgency/Saved/Config/LinuxServer/Game.ini }
