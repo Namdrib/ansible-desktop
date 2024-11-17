@@ -6,6 +6,7 @@
     name: smbd
     enabled: true
 
+# Ideally, this should be a handler, not a step that runs every time
 - name: Reload smbd
   ansible.builtin.systemd_service:
     state: reloaded

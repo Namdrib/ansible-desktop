@@ -3,7 +3,7 @@
 
 - name: Change owner of FTP directory
   ansible.builtin.file:
-    path: "{{ ftps_server_directory }}"
+    path: "{{ smb_scan_server_directory }}"
     state: directory
     # Set SGID so all scanners can access the files
     mode: '2775'
