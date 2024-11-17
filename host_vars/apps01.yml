@@ -24,7 +24,7 @@ cronjobs:
     weekday: 2,4
 
   - name: Restic Backups (Docker appdata)
-    job: /usr/local/bin/autorestic backup -l paperless_appdata -l smokeping_appdata -c /home/{{ main_username }}/.autorestic.yml
+    job: /usr/local/bin/autorestic backup -l paperless_appdata -l smokeping_appdata -l syncthing_appdata -c /home/{{ main_username }}/.autorestic.yml
     user: "{{ main_username }}"
     minute: 0
     hour: 2
@@ -54,6 +54,10 @@ autorestic_config_yaml:
     nas_smokeping_appdata:
       type: sftp
       path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/smokeping_appdata"
+      key: "{{ restic_repo_key }}"
+    nas_syncthing_appdata:
+      type: sftp
+      path: "{{ samba_host_name }}:{{ restic_backup_dir }}/{{ inventory_hostname }}/docker/syncthing_appdata"
       key: "{{ restic_repo_key }}"
 
     nas_authelia_config:
@@ -135,6 +139,16 @@ autorestic_config_yaml:
       from: '{{ docker_appdata_dir }}/smokeping'
       to:
         - nas_smokeping_appdata
+      options:
+        forget:
+          keep-daily: 2
+          keep-weekly: 3
+          keep-monthly: 3
+          keep-yearly: 1
+    syncthing_appdata:
+      from: '{{ docker_appdata_dir }}/syncthing-consume'
+      to:
+        - nas_syncthing_appdata
       options:
         forget:
           keep-daily: 2
