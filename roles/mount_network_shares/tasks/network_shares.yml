@@ -1,0 +1,21 @@
+# vim: et
+---
+
+- name: Create network share mount points
+  become: true
+  ansible.builtin.file:
+    dest: "{{ network_mount_dir }}/{{ item }}"
+    state: directory
+    mode: '0755'
+  with_items: "{{ samba_shares }}"
+
+- name: Write Samba network shares to /etc/fstab
+  become: true
+  ansible.posix.mount:
+    src: "{{ samba_host }}/{{ item }}"
+    path: "{{ network_mount_dir }}/{{ item }}"
+    opts: "vers=3,nofail,_netdev,credentials={{ samba_credentials_file }},uid=1000"
+    fstype: cifs
+    backup: true
+    state: present
+  with_items: "{{ samba_shares }}"
