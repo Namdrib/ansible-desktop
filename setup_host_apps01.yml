@@ -23,6 +23,7 @@
   roles:
     - role: cronjobs
     - role: fuzzymistborn.autorestic
+      become: true
 
 - name: Setup Linux Game Server Manager
   hosts: apps01

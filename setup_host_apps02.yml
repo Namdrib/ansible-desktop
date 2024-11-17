@@ -23,3 +23,4 @@
   roles:
     - role: cronjobs
     - role: fuzzymistborn.autorestic
+      become: true
