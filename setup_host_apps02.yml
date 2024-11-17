@@ -8,6 +8,7 @@
   roles:
     - kde_server
     - intel_graphics_drivers
+    - monitoring
     - samba_client
 
 - name: Setup apps02 (user portion)

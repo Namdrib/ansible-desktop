@@ -7,4 +7,5 @@
   roles:
     - disable_ipv6
     # - ftps_server
+    - monitoring
     - smb_scan_server

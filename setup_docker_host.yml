@@ -17,5 +17,6 @@
     # To make use of the integrated GPU for hardware-accelerated tasks, like
     # transcoding
     # - intel_graphics_drivers
+    - monitoring
     # Setup the server-setup repo
     - server_setup

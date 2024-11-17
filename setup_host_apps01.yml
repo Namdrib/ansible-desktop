@@ -7,6 +7,7 @@
 
   roles:
     - kde_server
+    - monitoring
     - nvidia_graphics_drivers
     - samba_client
 
