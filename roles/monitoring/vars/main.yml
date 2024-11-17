@@ -1,0 +1,10 @@
+# vim: et
+---
+
+monitoring_packages:
+  - htop
+  - iotop
+  - ncdu
+  - nethogs
+  - net-tools
+  - s-tui

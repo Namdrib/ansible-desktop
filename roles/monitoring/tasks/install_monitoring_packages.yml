@@ -1,0 +1,8 @@
+# vim: et
+---
+
+- name: Install monitoring packages
+  become: true
+  ansible.builtin.package:
+    name: "{{ monitoring_packages }}"
+    state: present
