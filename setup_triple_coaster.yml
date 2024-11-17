@@ -6,4 +6,5 @@
 
   roles:
     - common
+    - kde_workstation
     - triple-coaster
