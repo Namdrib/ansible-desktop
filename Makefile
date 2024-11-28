@@ -20,3 +20,12 @@ tasmota:
 
 dhcp:
 	ansible-playbook -i inventory.yml setup_pihole_dns_dhcp_server.yml --limit north_east -K -b -D -C
+
+apps01:
+	ansible-playbook setup_host_apps01.yml -K -D
+
+apps02:
+	ansible-playbook setup_host_apps02.yml -K -D
+
+triple-coaster:
+	ansible-playbook setup_triple_coaster.yml -K -D
