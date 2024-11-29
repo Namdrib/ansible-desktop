@@ -1,0 +1,11 @@
+# vim: et
+---
+
+- name: Install PADD
+  ansible.builtin.import_tasks: install_padd.yml
+
+- name: Install touchscreen driver
+  ansible.builtin.import_tasks: install_tft_driver.yml
+
+- name: Configure PADD to run on screen
+  ansible.builtin.import_tasks: run_padd_on_screen.yml
