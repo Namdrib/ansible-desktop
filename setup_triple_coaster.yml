@@ -8,4 +8,5 @@
     - common
     - monitoring
     - kde_workstation
+    - ssh_agent_user_service
     - triple-coaster

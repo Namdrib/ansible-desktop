@@ -1,0 +1,19 @@
+# vim: et
+---
+
+# This is an alternative to having to set the ssh-agent process to start in
+# dotfiles for each shell, such as
+# https://gist.github.com/gerbsen/5fd8aa0fde87ac7a2cae and
+# https://stackoverflow.com/questions/17846529/could-not-open-a-connection-to-your-authentication-agent/24347344#24347344
+
+# See: https://wiki.archlinux.org/title/SSH_keys#Start_ssh-agent_with_systemd_user
+# To make use of it, the user should have the environment variable SSH_AUTH_SOCK
+# set to $XDG_RUNTIME_DIR/ssh-agent.socket.
+# Note that this may differ depending on the shell being used.
+# This could be provisioned by dotfiles in the dotfiles ~/.extra dir
+- name: Enable ssh-agent systemd service
+  become: false
+  ansible.builtin.systemd:
+    name: ssh-agent
+    enabled: true
+    scope: user
