@@ -7,7 +7,7 @@ intel_graphics_drivers_archlinux:
 
 intel_graphics_drivers_redhat:
   - intel-media-driver
-  - intel-gpu-tools
+  - igt-gpu-tools
 
 intel_graphics_drivers_debian:
   - intel-media-va-driver-non-free
