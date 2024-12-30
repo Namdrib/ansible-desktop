@@ -7,3 +7,7 @@
     apply:
       become: true
   when: "'nvidiahosts' in group_names"
+
+- name: Allow sudo-less Nvidia monitoring
+  ansible.builtin.include_tasks: create_nvidia_monitoring_sudoers_template.yml
+  when: "'nvidiahosts' in group_names"

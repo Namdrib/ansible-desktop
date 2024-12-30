@@ -1,0 +1,12 @@
+# vim: et
+---
+
+- name: Create monitoring sudoers template
+  become: true
+  ansible.builtin.template:
+    src: monitoring-nvidia.j2
+    dest: /etc/sudoers.d/monitoring-nvidia
+    mode: '0600'
+    owner: root
+    group: root
+    validate: /usr/sbin/visudo -cf %s
