@@ -2,3 +2,4 @@
 ---
 
 nvidia_graphics_drivers_version: nvidia-driver-545
+nvidia_graphics_drivers_container_toolkit_key: /usr/share/keyrings/nvidia-container-toolkit.gpg
