@@ -5,6 +5,7 @@ common_packages:
   - autojump
   - bat
   - flameshot
+  - fzf
   - git
   - htop
   - iotop
