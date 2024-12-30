@@ -18,7 +18,7 @@
 - name: Install GPG key
   become: true
   become_user: root
-  ansible.builtin.shell: yes | gpg --dearmor -o {{ nvidia_graphics_drivers_container_toolkit_key }} /tmp/nvidia-container-toolkit-keyring.asc
+  ansible.builtin.shell: "yes | gpg --dearmor -o {{ nvidia_graphics_drivers_container_toolkit_key }} /tmp/nvidia-container-toolkit-keyring.asc"
   when: new_key.changed
 
 # It needs to be world-readable for apt to read it
@@ -26,7 +26,7 @@
   become: true
   become_user: root
   ansible.builtin.file:
-    path: {{ nvidia_graphics_drivers_container_toolkit_key }}
+    path: "{{ nvidia_graphics_drivers_container_toolkit_key }}"
     owner: root
     group: root
     mode: '0644'
