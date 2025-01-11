@@ -1,0 +1,10 @@
+# vim: et
+---
+
+- name: Set main shell theme file
+  ansible.builtin.copy:
+    src: powerline_shell_theme_file.json
+    dest: "{{ powerline_shell_theme_file }}"
+    mode: '0644'
+    owner: root
+    group: root

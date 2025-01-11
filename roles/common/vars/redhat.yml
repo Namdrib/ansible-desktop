@@ -1,0 +1,4 @@
+# vim: et
+---
+
+powerline_shell_theme_file: /etc/xdg/powerline/themes/shell/__main__.json
