@@ -25,6 +25,8 @@
     - role: cronjobs
     - role: fuzzymistborn.autorestic
       become: true
+  tags:
+    backups_tag
 
 - name: Setup Linux Game Server Manager
   hosts: apps01
@@ -36,3 +38,5 @@
 
     # Handles per-game configuration, done as the game server
     - role: lgsm_server
+  tags:
+    lgsm_tag

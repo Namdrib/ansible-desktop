@@ -25,3 +25,5 @@
     - role: cronjobs
     - role: fuzzymistborn.autorestic
       become: true
+  tags:
+    backups_tag
