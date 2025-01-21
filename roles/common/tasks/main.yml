@@ -28,13 +28,11 @@
   ansible.builtin.import_tasks: customise_bat.yml
   tags:
     - bat
-    - now
 
 - name: Customise ncdu
   ansible.builtin.import_tasks: customise_ncdu.yml
   tags:
     - ncdu
-    - now
 
 - name: Apply umask
   ansible.builtin.import_tasks: apply_umask.yml
