@@ -1,0 +1,18 @@
+# vim: et
+---
+
+- name: Create ncdu config directory
+  ansible.builtin.file:
+    dest: "{{ ansible_env.HOME }}/.config/ncdu"
+    state: directory
+    mode: '0755'
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+
+- name: Copy the ncdu configuration file
+  ansible.builtin.copy:
+    src: ncdu_config
+    dest: "{{ ansible_env.HOME }}/.config/ncdu/config"
+    mode: '0644'
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"

@@ -1,0 +1,18 @@
+# vim: et
+---
+
+- name: Create bat config directory
+  ansible.builtin.file:
+    dest: "{{ ansible_env.HOME }}/.config/bat"
+    state: directory
+    mode: '0755'
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+
+- name: Copy the bat config file
+  ansible.builtin.copy:
+    src: bat_config
+    dest: "{{ ansible_env.HOME }}/.config/bat/config"
+    mode: '0644'
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
