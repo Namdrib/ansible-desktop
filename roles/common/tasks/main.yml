@@ -8,16 +8,23 @@
 
 - name: Install common common packages
   ansible.builtin.import_tasks: install_common_packages.yml
+  tags:
+    - install_packages
 
 - name: Install distro-specific common packages
   ansible.builtin.include_tasks: "install_common_packages_{{ ansible_facts['os_family'] | lower }}.yml"
+  tags:
+    - install_packages
 
 - name: Install VimPlug
   ansible.builtin.import_tasks: install_vimplug.yml
+  tags:
+    - vimplug
 
 - name: Install dotfiles
   ansible.builtin.import_tasks: install_dotfiles.yml
-  tags: dotfiles
+  tags:
+    - dotfiles
 
 - name: Customise powerline
   ansible.builtin.import_tasks: customise_powerline.yml
