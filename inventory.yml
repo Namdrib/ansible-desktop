@@ -18,6 +18,15 @@ all:
       vars:
         # I only ever want to run against desktops from the desktops themselves
         ansible_connection: local
+    # Hosts that might be used in a graphical user environment
+    # Note there may be some hosts with graphics installed (like the pis) that
+    # aren't intended to be used graphically
+    graphical_hosts:
+      hosts:
+        apps01:
+        beans:
+        complex-stonework:
+        triple-coaster:
     lgsm_servers:
       hosts:
         apps01:

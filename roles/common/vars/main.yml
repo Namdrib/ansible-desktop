@@ -4,15 +4,17 @@
 common_packages:
   - autojump
   - bat
-  - flameshot
   - fzf
   - git
   - neofetch
   - powerline
-  - redshift
   - syncthing
   - timeshift
   - tmux
+
+common_graphical_packages:
+  - flameshot
+  - redshift
   - yakuake
 
 common_packages_archlinux:
@@ -24,6 +26,7 @@ common_packages_debian:
   - vim
 
 common_packages_redhat:
+  - autojump-fish
   - dnf-plugins-core
   - plocate
   - vim-X11

@@ -6,3 +6,10 @@
   ansible.builtin.package:
     name: "{{ common_packages }}"
     state: present
+
+- name: Install common graphical packages
+  become: true
+  ansible.builtin.package:
+    name: "{{ common_graphical_packages }}"
+    state: present
+  when: "'graphical_hosts' in group_names"
