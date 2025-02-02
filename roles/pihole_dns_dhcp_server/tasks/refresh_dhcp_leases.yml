@@ -2,12 +2,14 @@
 ---
 
 - name: Revoke existing leases if dhcpd file changed (delete)
+  become: true
   ansible.builtin.file:
     path: "{{ pihole_config_dir }}/dhcp.leases"
     state: absent
   # when: dhcp_changed.changed
 
 - name: Revoke existing leases if dhcpd file changed (re-create)
+  become: true
   ansible.builtin.file:
     path: "{{ pihole_config_dir }}/dhcp.leases"
     state: touch

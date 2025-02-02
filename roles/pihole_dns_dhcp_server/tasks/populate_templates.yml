@@ -1,6 +1,7 @@
 ---
 
 - name: Ensure target dirs exists
+  become: true
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
@@ -11,6 +12,7 @@
     - "{{ dnsmasq_config_dir }}"
 
 - name: Ensure target dirs exists
+  become: true
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
@@ -21,6 +23,7 @@
     - "{{ pihole_config_dir }}"
 
 - name: Write setupVars file
+  become: true
   ansible.builtin.template:
     src: pihole-setupVars.conf.j2
     dest: "{{ pihole_config_dir }}/setupVars.conf"
@@ -29,6 +32,7 @@
     mode: "0644"
 
 - name: Write dns file
+  become: true
   ansible.builtin.template:
     src: dns-overrides.conf.j2
     dest: "{{ dnsmasq_config_dir }}/03-dns-overrides.conf"
@@ -41,6 +45,7 @@
 # but if we don't put it here ourselves then it never gets created
 # because we're too clever with our automation ;)
 - name: Write pihole dhcp configuration file
+  become: true
   ansible.builtin.template:
     src: pihole-dhcp.conf.j2
     dest: "{{ dnsmasq_config_dir }}/02-pihole-dhcp.conf"
@@ -50,6 +55,7 @@
   notify: restart pihole dns
 
 - name: Write static dhcp file
+  become: true
   ansible.builtin.template:
     src: static-dhcp.conf.j2
     dest: "{{ dnsmasq_config_dir }}/04-pihole-static-dhcp.conf"

@@ -2,6 +2,7 @@
 
 # https://docs.pi-hole.net/ftldns/configfile/
 - name: Ensure target dirs exists
+  become: true
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
@@ -12,12 +13,14 @@
     - "{{ pihole_config_dir }}"
 
 - name: Set maximum query age in database
+  become: true
   ansible.builtin.lineinfile:
     path: "{{ pihole_config_dir }}/pihole-FTL.conf"
     regexp: '^MAXDBDAYS='
     line: 'MAXDBDAYS=180'
 
 - name: Ignore localhost queries
+  become: true
   ansible.builtin.lineinfile:
     path: "{{ pihole_config_dir }}/pihole-FTL.conf"
     regexp: '^IGNORE_LOCALHOST='
