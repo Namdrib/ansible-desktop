@@ -20,6 +20,7 @@ dhcp_reservations:
   ## Infra
   - { ip: "{{ network_subnet }}.1", mac: f8:ca:59:ae:f1:6b, hostname: firewall01 } # Protectli Vault (FW4C)
   - { ip: "{{ network_subnet }}.2", mac: 82:bf:24:fe:62:8b, hostname: wap01 } # Travel router / Wi-Fi AP
+  - { ip: "{{ network_subnet }}.3", mac: 8c:90:2d:17:73:fc, hostname: wap02 } # TP-Link EAP650
 
   ## Entertainment. Leaving space for wired and wireless
   - { ip: "{{ network_subnet }}.40", mac: b4:b2:91:ed:04:f6, hostname: lg-tv01 } # TV (LG TVUP8000) wired
