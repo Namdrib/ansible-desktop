@@ -27,6 +27,8 @@
     - "{{ windows_drive }}"
 
 - name: Configure the shared drive in the fstab file
+  become: true
+  become_user: root
   ansible.posix.mount:
     src: "UUID={{ shared_drive_uuid }}"
     path: "{{ mount_point }}/{{ shared_drive }}"
@@ -36,6 +38,8 @@
     state: mounted
 
 - name: Configure the Linux drive in the fstab file
+  become: true
+  become_user: root
   ansible.posix.mount:
     src: "UUID={{ linux_drive_uuid }}"
     path: "{{ mount_point }}/{{ linux_drive }}"
@@ -45,6 +49,8 @@
     state: mounted
 
 - name: Configure the Windows drive in the fstab file
+  become: true
+  become_user: root
   ansible.posix.mount:
     src: "UUID={{ windows_drive_uuid }}"
     path: "{{ mount_point }}/{{ windows_drive }}"
