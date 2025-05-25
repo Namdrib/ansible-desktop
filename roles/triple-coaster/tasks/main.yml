@@ -10,3 +10,6 @@
 
 - name: Create shared symlinks
   ansible.builtin.import_tasks: create_shared_symlinks.yml
+
+- name: Create user symlinks
+  ansible.builtin.import_tasks: create_user_symlinks.yml

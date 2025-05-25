@@ -1,0 +1,28 @@
+# vim: et
+---
+
+# This file create symlinks in the main user's home directory for various
+# directories, such as Steam and qBittorrent. This is to make it more
+# re-usable between different distributions. Things can live in one common place
+# that is referred to by potentially multiple Linux installations.
+#
+# They mostly link off to the shared_drive and linux_drive (defined in defaults),
+# mostly in the interest of capacity, and sharing things with the parallel
+# Windows installation on this machine
+
+- name: Symlink qBittorrent
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ shared_drive }}/qBittorrent"
+    dest: "/home/{{ main_username }}/.local/share/qBittorrent"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
+    # force: true
+
+# - name: Symlink Steam
+#   ansible.builtin.file:
+#     src: "{{ mount_point }}/{{ linux_drive }}/qBittorrent"
+#     dest: "/home/{{ main_username }}/.local/share/Steam"
+#     owner: "{{ main_username }}"
+#     group: "{{ main_username }}"
+#     state: link
