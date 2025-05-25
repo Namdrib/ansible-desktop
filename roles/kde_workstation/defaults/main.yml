@@ -1,0 +1,7 @@
+# vim: et
+---
+
+# List of KDE-specific applications to install ona KDE workstation
+kde_workstation_packages_to_install:
+  - kate
+  - partitionmanager
