@@ -2,7 +2,6 @@
 ---
 
 - name: Perform common desktop setup
-  hosts: triple-coaster
   ansible.builtin.import_playbook: setup_desktops.yml
 
 - name: Setup specific to triple-coaster, regardless of the distribution
