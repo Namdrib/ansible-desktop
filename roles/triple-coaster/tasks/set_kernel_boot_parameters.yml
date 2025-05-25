@@ -18,13 +18,15 @@
 # screen, but still going at idle power)
 # Maybe also fixes inability to wake from sleep properly
 - name: Insert apm=power_off if missing
+  become: true
+  become_user: root
   ansible.builtin.lineinfile:
     backrefs: true
     path: /etc/default/grub
     regexp: "^(GRUB_CMDLINE_LINUX=\".*)\"$"
     line: '\1 apm=power_off"'
   when: apm_grub_check.found == 0
-  notify: update grub
+  notify: Update grub
   tags:
     - grub
     - fix

@@ -5,3 +5,8 @@
   become: true
   ansible.builtin.systemd_service:
     daemon_reload: true
+
+- name: Update grub
+  become: true
+  become_user: root
+  ansible.builtin.command: update-grub
