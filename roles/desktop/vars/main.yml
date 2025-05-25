@@ -4,6 +4,7 @@
 desktop_packages_common:
   - discord
   - pinta
+  - picard
   - strawberry
   - vlc
 
