@@ -68,5 +68,5 @@ dhcp_reservations:
   - { ip: "{{ network_subnet }}.215", mac: ec:71:db:8d:a2:d0, hostname: doorbell } # Reolink PoE Video Doorbell
   - { ip: "{{ network_subnet }}.216", mac: ec:71:db:4e:8c:c9, hostname: indoor-cam } # Reolink E1 Zoom Indoor Cam wired
   - { ip: "{{ network_subnet }}.217", mac: d0:12:55:85:98:40, hostname: indoor-cam-wireless } # Reolink E1 Zoom Indoor Cam wireless
-  - { ip: "{{ network_subnet }}.218", mac: ec:71:db:6a:b4:c3, hostname: courtyard-cam } # Reolink CX410 (The big side verandah)
-  - { ip: "{{ network_subnet }}.219", mac: ec:71:db:39:5f:6c, hostname: back-cam } # Reolink CX410 (Back yard)
+  - { ip: "{{ network_subnet }}.218", mac: ec:71:db:6a:b4:c3, hostname: carport-cam } # Reolink CX410
+  - { ip: "{{ network_subnet }}.219", mac: ec:71:db:39:5f:6c, hostname: back-cam } # Reolink CX410
