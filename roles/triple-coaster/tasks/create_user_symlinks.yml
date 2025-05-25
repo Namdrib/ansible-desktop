@@ -12,12 +12,11 @@
 
 - name: Symlink qBittorrent
   ansible.builtin.file:
-    src: "{{ mount_point }}/{{ shared_drive }}/qBittorrent"
+    src: "{{ mount_point }}/{{ shared_drive }}/shared/qBittorrent"
     dest: "/home/{{ main_username }}/.local/share/qBittorrent"
     owner: "{{ main_username }}"
     group: "{{ main_username }}"
     state: link
-    # force: true
 
 # - name: Symlink Steam
 #   ansible.builtin.file:
