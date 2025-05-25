@@ -1,0 +1,30 @@
+# vim: et
+---
+
+- name: Check if apm is configured in the GRUB boot command
+  ansible.builtin.lineinfile:
+    backup: true
+    path: /etc/default/grub
+    regexp: '^GRUB_CMDLINE_LINUX=".*apm=power_off'
+    state: absent
+  check_mode: true
+  register: apm_grub_check
+  changed_when: false
+  tags:
+    - grub
+    - fix
+
+# This addresses an issue where the desktop doesn't shut down properly (blank
+# screen, but still going at idle power)
+# Maybe also fixes inability to wake from sleep properly
+- name: Insert apm=power_off if missing
+  ansible.builtin.lineinfile:
+    backrefs: true
+    path: /etc/default/grub
+    regexp: "^(GRUB_CMDLINE_LINUX=\".*)\"$"
+    line: '\1 apm=power_off"'
+  when: apm_grub_check.found == 0
+  notify: update grub
+  tags:
+    - grub
+    - fix

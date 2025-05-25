@@ -13,3 +13,6 @@
 
 - name: Create user symlinks
   ansible.builtin.import_tasks: create_user_symlinks.yml
+
+- name: Set kernel boot parameters
+  ansible.builtin.import_tasks: set_kernel_boot_parameters.yml
