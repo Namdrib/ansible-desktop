@@ -5,9 +5,9 @@
   hosts: desktops
 
   vars:
-    - applications_dir: /usr/share/applications
-    - autostart_dir: "{{ ansible_env.HOME }}/.config/autostart"
-    - user: namdrib
+    applications_dir: /usr/share/applications
+    autostart_dir: "{{ ansible_env.HOME }}/.config/autostart"
+    user: namdrib
 
   roles:
     - common
