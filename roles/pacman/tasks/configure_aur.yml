@@ -1,0 +1,21 @@
+# vim: et
+---
+
+- name: Install AUR packages
+  become: true
+  ansible.builtin.package:
+    name:
+      - chaotic-mirrorlist
+      - yay
+    state: present
+
+- name: Set up pacman.conf - Add chaoric AUR mirror list
+  become: true
+  ansible.builtin.blockinfile:
+    path: /etc/pacman.conf
+    block: |
+      [chaotic-aur]
+      Include = /etc/pacman.d/chaotic-mirrorlist
+    owner: root
+    group: root
+    mode: '0644'

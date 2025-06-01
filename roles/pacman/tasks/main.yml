@@ -1,0 +1,10 @@
+# vim: et
+---
+
+- name: Set up pacman.conf
+  ansible.builtin.import_tasks: setup_pacman_config.yml
+  when: "ansible_facts['os_family'] == 'Archlinux'"
+
+- name: Configure AUR
+  ansible.builtin.import_tasks: configure_aur.yml
+  when: "ansible_facts['os_family'] == 'Archlinux'"

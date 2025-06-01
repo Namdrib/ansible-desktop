@@ -1,0 +1,32 @@
+# vim: et
+---
+
+- name: Set up pacman.conf - Colour
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/pacman.conf
+    regexp: '#?Color'
+    line: Color
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Set up pacman.conf - Eye Candy
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/pacman.conf
+    regexp: '#?ILoveCandy'
+    line: ILoveCandy
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Set up pacman.conf - Check Space
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/pacman.conf
+    regexp: '#?CheckSpace'
+    line: CheckSpace
+    owner: root
+    group: root
+    mode: '0644'
