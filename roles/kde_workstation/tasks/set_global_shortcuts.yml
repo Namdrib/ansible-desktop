@@ -46,6 +46,24 @@
     no_extra_spaces: true
     mode: '0644'
 
+- name: Shortcut - Toggle Overview (Disable)
+  community.general.ini_file:
+    path: "{{ ansible_env.HOME}}/.config/kglobalshortcutsrc"
+    section: kwin
+    option: Overview
+    value: none,Meta+W,Toggle Overview
+    no_extra_spaces: true
+    mode: '0644'
+
+- name: Shortcut - Window Maximise
+  community.general.ini_file:
+    path: "{{ ansible_env.HOME}}/.config/kglobalshortcutsrc"
+    section: kwin
+    option: Window Maximise
+    value: Meta+W\tMeta+PgUp,Meta+PgUp,Maximise Window
+    no_extra_spaces: true
+    mode: '0644'
+
 - name: Shortcut - Dolphin
   community.general.ini_file:
     path: "{{ ansible_env.HOME }}/.config/kglobalshortcutsrc"
