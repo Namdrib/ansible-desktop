@@ -9,4 +9,5 @@
 
   roles:
     - ssh_agent_user_service
+    - pacman
     - triple-coaster
