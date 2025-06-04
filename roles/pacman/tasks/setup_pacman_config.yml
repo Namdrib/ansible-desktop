@@ -3,22 +3,20 @@
 
 - name: Set up pacman.conf - Colour
   become: true
-  ansible.builtin.lineinfile:
+  community.general.ini_file:
     path: /etc/pacman.conf
-    regexp: '#?Color'
-    line: Color
-    owner: root
-    group: root
+    section: options
+    option: Color
+    allow_no_value: True
     mode: '0644'
 
 - name: Set up pacman.conf - Eye Candy
   become: true
-  ansible.builtin.lineinfile:
+  community.general.ini_file:
     path: /etc/pacman.conf
-    regexp: '#?ILoveCandy'
-    line: ILoveCandy
-    owner: root
-    group: root
+    section: options
+    option: ILoveCandy
+    allow_no_value: True
     mode: '0644'
 
 - name: Set up pacman.conf - Check Space
