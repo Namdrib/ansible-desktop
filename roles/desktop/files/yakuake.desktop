@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Yakuake
+StartupWMClass=yakuake
+Comment=A drop-down terminal emulator based on KDE Konsole technology.
+GenericName=Drop-down Terminal
+Exec=/usr/bin/yakuake
+Icon=yakuake
+Type=Application
+Categories=System;
+Path=/usr/bin

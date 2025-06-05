@@ -1,0 +1,10 @@
+# vim: et
+---
+
+- name: Create autostart config for yakuake
+  ansible.builtin.copy:
+    src: yakuake.desktop
+    dest: "{{ ansible_env.HOME }}/.config/autostart/"
+    mode: '0644'
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"

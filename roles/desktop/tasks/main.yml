@@ -7,3 +7,8 @@
 
 - name: Install distro-specific desktop packages
   ansible.builtin.include_tasks: "install_desktop_packages_{{ ansible_facts['os_family'] | lower }}.yml"
+
+- name: Setup yakuake
+  ansible.builtin.import_tasks: autostart_yakuake.yml
+  tags:
+    - yakuake

@@ -11,7 +11,7 @@
 
   roles:
     - common
-    - davfs_client
+    #- davfs_client
     - dev
     - desktop
     - gaming
