@@ -5,7 +5,7 @@
   ansible.builtin.lineinfile:
     backup: true
     path: /etc/default/grub
-    regexp: '^GRUB_CMDLINE_LINUX=".*apm=power_off'
+    regexp: '^GRUB_CMDLINE_LINUX_DEFAULT=".*apm=power_off'
     state: absent
   check_mode: true
   register: apm_grub_check
@@ -23,7 +23,7 @@
   ansible.builtin.lineinfile:
     backrefs: true
     path: /etc/default/grub
-    regexp: "^(GRUB_CMDLINE_LINUX=\".*)\"$"
+    regexp: "^(GRUB_CMDLINE_LINUX_DEFAULT=\".*)\"$"
     line: '\1 apm=power_off"'
   when: apm_grub_check.found == 0
   notify: Update grub
