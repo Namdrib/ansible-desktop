@@ -2,6 +2,8 @@
 ---
 
 # Network drives are handled by the samba_client role
+# This needs to be done before the symlinks, as some symlinks run across
+# multiple drives
 - name: Mount local drives
   ansible.builtin.import_tasks: mount_local_drives.yml
 

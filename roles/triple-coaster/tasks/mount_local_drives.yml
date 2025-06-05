@@ -54,7 +54,7 @@
   ansible.posix.mount:
     src: "UUID={{ windows_drive_uuid }}"
     path: "{{ mount_point }}/{{ windows_drive }}"
-    opts: "rw,auto,nofail,noatime,big_writes,lazytime,uid=1000"
+    opts: "rw,auto,nofail,noatime,big_writes,lazytime,uid=1000,gid=1000,dmask=022,fmask=022"
     fstype: ntfs-3g
     backup: true
     # This should be mounted on-demand, rather than always mounted
