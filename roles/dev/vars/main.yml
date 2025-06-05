@@ -9,8 +9,10 @@ dev_packages_common:
   - screenkey
 
 dev_packages_archlinux:
+  - code # VS Code
   - python-pylint
   - shellcheck
+  - unityhub # From AUR
 
 dev_packages_redhat:
   - codium
