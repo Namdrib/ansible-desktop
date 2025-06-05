@@ -1,7 +1,9 @@
 # vim: et
 ---
 
-- name: Set main shell theme file
+- name: Set powerline main shell theme file
+  become: true
+  become_user: root
   ansible.builtin.copy:
     src: powerline_shell_theme_file.json
     dest: "{{ powerline_shell_theme_file }}"
