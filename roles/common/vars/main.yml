@@ -15,7 +15,6 @@ common_packages:
 common_graphical_packages:
   - flameshot
   - redshift
-  - yakuake
 
 common_packages_archlinux:
   - gvim # provides CLI vim as well
