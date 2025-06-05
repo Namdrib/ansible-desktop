@@ -1,9 +1,6 @@
 # vim: et
 ---
 
-- name: Perform common desktop setup
-  ansible.builtin.import_playbook: setup_desktops.yml
-
 - name: Setup specific to triple-coaster, regardless of the distribution
   hosts: triple-coaster
 
@@ -11,3 +8,6 @@
     - ssh_agent_user_service
     - pacman
     - triple-coaster
+
+- name: Perform common desktop setup
+  ansible.builtin.import_playbook: setup_desktops.yml
