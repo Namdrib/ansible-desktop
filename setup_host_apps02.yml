@@ -15,6 +15,7 @@
 
   roles:
     - kde_server
+    - docker
     - intel_graphics_drivers
     - monitoring
     - samba_client
