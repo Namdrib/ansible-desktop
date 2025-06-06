@@ -1,6 +1,14 @@
 # vim: et
 ---
 
+# Note: From Fedora 42 and onwards, the package `python3-libdnf5` is required
+# to be installed, otherwise the following error is seen:
+# fatal: "msg": "Could not import the libdnf5 python module using
+# /usr/bin/python3.13 (3.13.3 (main, Apr 22 2025, 00:00:00) [GCC 15.0.1 20250418
+# (Red Hat 15.0.1-0)]). Please install python3-libdnf5 package or ensure you
+# have specified the correct ansible_python_interpreter. (attempted
+# ['/usr/libexec/platform-python', '/usr/bin/python3', '/usr/bin/python'])"
+
 - name: Setup apps02 (root portion)
   become: true
   hosts: apps02

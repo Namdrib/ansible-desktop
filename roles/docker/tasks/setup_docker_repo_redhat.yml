@@ -1,8 +1,17 @@
 # vim: et
 ---
 
+- name: Check whether Docker repo exist
+  ansible.builtin.command:
+    cmd: 'dnf repolist'
+  register: repolist
+  changed_when: false
+
 - name: Add docker DNF repo (RedHat)
   become: true
   become_user: root
   ansible.builtin.command:
-    cmd: "dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo"
+    cmd: "dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo"
+  register: add_docker_repo
+  changed_when: '"already exists" not in add_docker_repo.stderr'
+  when: "'docker-ce-stable' not in repolist.stdout"
