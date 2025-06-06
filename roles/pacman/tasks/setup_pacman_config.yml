@@ -7,7 +7,7 @@
     path: /etc/pacman.conf
     section: options
     option: Color
-    allow_no_value: True
+    allow_no_value: true
     mode: '0644'
 
 - name: Set up pacman.conf - Eye Candy
@@ -16,7 +16,7 @@
     path: /etc/pacman.conf
     section: options
     option: ILoveCandy
-    allow_no_value: True
+    allow_no_value: true
     mode: '0644'
 
 - name: Set up pacman.conf - Check Space

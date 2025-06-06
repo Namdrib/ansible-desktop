@@ -26,6 +26,7 @@
     # I've confirmed the Ubuntu and Debian keys are the same
     url: https://download.docker.com/linux/ubuntu/gpg
     dest: /etc/apt/keyrings/docker.asc
+    mode: '0644'
 
 - name: Add repo to apt sources (Debian)
   become: true
