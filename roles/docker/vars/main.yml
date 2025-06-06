@@ -1,12 +1,22 @@
 # vim: et
 ---
 
-docker_packages_redhat:
+# These are the packages for Docker CE (Docker)
+docker_packages_redhat_docker:
   - docker-ce
   - docker-ce-cli
   - containerd.io
   - docker-buildx-plugin
   - docker-compose-plugin
+
+# These are the packages for Docker (Fedora)
+docker_packages_redhat:
+  - moby-engine
+  - docker-cli
+  - containerd
+  - docker-buildx
+  - docker-compose
+  - docker-compose-switch
 
 docker_packages_debian:
   - docker-ce
