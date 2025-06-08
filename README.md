@@ -1,11 +1,26 @@
 # ansible-desktop
-Ansible setup for my desktop(s) so I can get up to speed quicker
+Ansible setup for my various compute devies so I can get up to speed quicker
 
-Assumes the desktops will be running Linux. Intended for Manjaro and Fedora/Nobara installations
+This includes:
+- desktop (various installations)
+- servers
+- helper tasks like fetching host variables
+
+Assumes the desktops will be running Linux.
+Some roles have branching execution depending on the target OS family.
+For example, some packages may be named differently, or not exist, across different distros
+The main targets are:
+- Manjaro Linux
+- Fedora/Nobara
+- Ubuntu
 
 To run:
 ```
-ansible-playbook -K main.yml
+# Dry run
+ansible-playbook -D -C -K <playbook.yml>
+
+# Actual run
+ansible-playbook -D -K <playbook.yml>
 ```
 
 This will:
@@ -22,20 +37,26 @@ This may need to be run with `-b` the first time so it can properly install rest
 Then without `-b` for subsequent runs
 It may also require the user to manually run `autorestic check` on the target
 ```
-ansible-playbook -i inventory.yml setup_backups.yml --limit nas01 -D -K
+ansible-playbook setup_backups.yml --limit nas01 -D -K
 ```
 
 ### Setup graphics drivers
 ```
-ansible-playbook -i inventory.yml setup_graphics_drivers.yml --limit apps01 -b -K -D
+ansible-playbook setup_graphics_drivers.yml --limit apps01 -b -K -D
 ```
 
 ### Setup Pihole DNS/DHCP
 ```
-ansible-playbook -i inventory.yml setup_pihole_dns_dhcp_server.yml --limit north-east -K -b -D
+ansible-playbook setup_pihole_dns_dhcp_server.yml --limit north-east -K -b -D
 ```
 
 ### Setup docker host
 ```
-ansible-playbook -i inventory.yml setup_docker_host.yml --limit apps01 -u namdrib -K -D
+ansible-playbook setup_docker_host.yml --limit apps01 -u namdrib -K -D
 ```
+
+### Setup main host
+```
+ansible-playbook setup_triple_coster.yml --limit triple-coaster -D -K -C
+```
+
