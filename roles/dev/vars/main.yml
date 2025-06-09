@@ -10,6 +10,7 @@ dev_packages_common:
 
 dev_packages_archlinux:
   - code # VS Code
+  - python-lsp-server
   - python-pylint
   - shellcheck
   - unityhub # From AUR
@@ -17,4 +18,5 @@ dev_packages_archlinux:
 dev_packages_redhat:
   - codium
   - pylint
+  - python3-lsp-server
   - ShellCheck
