@@ -25,3 +25,12 @@
 #     owner: "{{ main_username }}"
 #     group: "{{ main_username }}"
 #     state: link
+
+# Saves a lot of space and re-download time for the Unity Editors
+- name: Symlink Unity
+  ansible.builtin.file:
+    src: "{{ mount_point }}/{{ linux_drive }}/dev/Unity"
+    dest: "/home/{{ main_username }}/Unity"
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+    state: link
