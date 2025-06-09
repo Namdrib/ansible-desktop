@@ -8,6 +8,11 @@ dev_packages_common:
   - qtcreator
   - screenkey
 
+dev_packages_debian:
+  - python3-pylsp
+  - pylint
+  - shellcheck
+
 dev_packages_archlinux:
   - code # VS Code
   - python-lsp-server
