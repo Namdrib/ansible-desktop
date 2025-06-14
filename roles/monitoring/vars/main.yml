@@ -6,6 +6,7 @@ monitoring_packages:
   - iotop
   - lnav # Log navigator
   - ncdu
+  - nmap
   - nethogs
   - net-tools
   - s-tui
