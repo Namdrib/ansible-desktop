@@ -10,3 +10,12 @@ monitoring_packages:
   - nethogs
   - net-tools
   - s-tui
+
+monitoring_packages_archlinux:
+  - bind
+
+monitoring_packages_redhat:
+  - bind-utils
+
+monitoring_packages_debian:
+  - bind9-utils

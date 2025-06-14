@@ -1,0 +1,8 @@
+# vim: et
+---
+
+- name: Install monitoring packages (Fedora)
+  become: true
+  ansible.builtin.package:
+    name: "{{ monitoring_packages_redhat }}"
+    state: present

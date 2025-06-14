@@ -4,8 +4,8 @@
 - name: Install common monitoring packages
   ansible.builtin.import_tasks: install_monitoring_packages.yml
 
-# - name: Install distro-specific monitoring packages
-#   ansible.builtin.include_tasks: "install_monitoring_packages_{{ ansible_facts['os_family'] | lower }}.yml"
+- name: Install distro-specific monitoring packages
+  ansible.builtin.include_tasks: "install_monitoring_packages_{{ ansible_facts['os_family'] | lower }}.yml"
 
 - name: Create sudoers for monitoring tools
   ansible.builtin.import_tasks: create_monitoring_sudoers_template.yml
