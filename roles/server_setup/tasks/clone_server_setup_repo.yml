@@ -13,6 +13,7 @@
   ansible.builtin.git:
     dest: "{{ server_setup_clone_dir }}"
     repo: "{{ server_setup_repo_url }}"
+    accept_newhostkey: true
     update: false
 
 - name: Symlink the server_setup repo to ~/.server_setup

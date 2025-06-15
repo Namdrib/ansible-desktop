@@ -11,6 +11,7 @@
   ansible.builtin.git:
     dest: "{{ dotfiles_clone_dir }}"
     repo: "{{ dotfiles_repo_url }}"
+    accept_newhostkey: true
     update: false
 
 - name: Symlink the dotfiles repo to ~/.dotfiles
