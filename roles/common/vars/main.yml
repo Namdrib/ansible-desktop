@@ -6,7 +6,6 @@ common_packages:
   - bat
   - fzf
   - git
-  - neofetch
   - powerline
   - syncthing
   - timeshift
