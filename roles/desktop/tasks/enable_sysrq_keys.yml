@@ -1,0 +1,11 @@
+# vim: et
+---
+
+- name: Enable SysRq keys
+  become: true
+  ansible.builtin.copy:
+    src: 20-enable-magic-sysrq.conf
+    dest: /etc/sysctl.d/20-enable-magic-sysrq.conf
+    owner: root
+    group: root
+    mode: '0644'
