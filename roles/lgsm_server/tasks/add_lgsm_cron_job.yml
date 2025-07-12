@@ -5,7 +5,7 @@
   ansible.builtin.file:
     path: "/home/{{ item }}/logs"
     state: directory
-    mode: '0755'
+    mode: '0750'
 
 - name: Cron job - Update LGSM
   ansible.builtin.cron:
@@ -13,16 +13,16 @@
     minute: '00'
     hour: '3'
     day: '6'
-    job: '/home/{{ item }}/{{ item }}/update-lgsm > /home/{{ item }}/logs/update-lgsm.log'
+    job: '/home/{{ item }}/{{ item }} update-lgsm > /home/{{ item }}/logs/update-lgsm.log'
 
 - name: Cron job - Update Server
   ansible.builtin.cron:
     name: Update {{ item }}
     minute: '*/30'
-    job: '/home/{{ item }}/{{ item }}/update > /home/{{ item }}/logs/update.log'
+    job: '/home/{{ item }}/{{ item }} update > /home/{{ item }}/logs/update.log'
 
 - name: Cron job - Monitor Server
   ansible.builtin.cron:
     name: Monitor {{ item }}
     minute: '*/5'
-    job: '/home/{{ item }}/{{ item }}/monitor > /home/{{ item }}/logs/monitor.log'
+    job: '/home/{{ item }}/{{ item }} monitor > /home/{{ item }}/logs/monitor.log'
