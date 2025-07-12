@@ -1,0 +1,12 @@
+# vim: et
+---
+
+- name: Create wireguard config file
+  become: true
+  become_user: root
+  ansible.builtin.file:
+    path: /etc/wireguard/wg0.conf
+    state: file
+    owner: root
+    group: root
+    mode: '0600'
