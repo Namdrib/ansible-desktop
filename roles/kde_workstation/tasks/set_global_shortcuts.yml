@@ -48,7 +48,7 @@
 
 - name: Shortcut - Toggle Overview (Disable)
   community.general.ini_file:
-    path: "{{ ansible_env.HOME}}/.config/kglobalshortcutsrc"
+    path: "{{ ansible_env.HOME }}/.config/kglobalshortcutsrc"
     section: kwin
     option: Overview
     value: none,Meta+W,Toggle Overview
@@ -57,7 +57,7 @@
 
 - name: Shortcut - Window Maximise
   community.general.ini_file:
-    path: "{{ ansible_env.HOME}}/.config/kglobalshortcutsrc"
+    path: "{{ ansible_env.HOME }}/.config/kglobalshortcutsrc"
     section: kwin
     option: Window Maximize
     value: Meta+W\tMeta+PgUp,Meta+PgUp,Maximize Window
