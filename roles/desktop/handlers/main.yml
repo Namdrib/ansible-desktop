@@ -3,5 +3,6 @@
 
 - name: Reload sysctl config
   become: true
+  become_user: root
   ansible.builtin.command: sysctl --system
   changed_when: false
