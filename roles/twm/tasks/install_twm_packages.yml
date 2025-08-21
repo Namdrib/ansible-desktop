@@ -1,0 +1,7 @@
+# vim: et
+---
+
+- name: Install packages we want
+  ansible.builtin.package:
+    name: "{{ twm_packages_to_install }}"
+    state: present

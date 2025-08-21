@@ -1,0 +1,15 @@
+# vim: et
+---
+
+# List of packages to install for a workstation with standalone WM
+twm_packages_to_install:
+  - darkman # Dark/light settings
+  - fuzzel # Application launcher
+  - geoclue # Optional depenency of darkman to determine the location
+  - mako # Notification manager
+  - niri # Scrolling window manager
+  - sawyidle # Idle manager
+  - swaybg # Wallpaper manager
+  - swaylock # Lock screen manager
+  - waybar # Panel manager
+  - xwayland-satellite # X application bridge

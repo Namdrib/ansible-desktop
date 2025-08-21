@@ -1,0 +1,11 @@
+# vim: et
+---
+
+- name: Install twm packages
+  become: true
+  become_user: root
+  ansible.builtin.import_tasks: install_twm_packages.yml
+  tags:
+    - install_packages
+    - twm
+    - wayland
