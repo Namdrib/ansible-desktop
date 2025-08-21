@@ -9,3 +9,8 @@
     - install_packages
     - twm
     - wayland
+
+- name: Set twm dependencies
+  # become: true
+  # become_user: root
+  ansible.builtin.import_tasks: set_wm_service_dependencies.yml

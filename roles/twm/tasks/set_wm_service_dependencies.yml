@@ -1,0 +1,30 @@
+# vim: et
+---
+
+# Used to set systemctl dependencies for the main TWM service
+# This lets these services be started/restarted on demand
+# This is useful for reloading configs -> restart service
+
+# Check if the dependency is already there
+# TODO: Run systemctl --user show niri
+# Register the output
+- name: Check what the WM service wants
+  ansible.builtin.systemd_service:
+    name: niri
+    scope: user
+  changed_when: False
+  register: twm_status
+
+# Add the dependency if it isn't already wanted
+- name: Add WM service dependencies
+  ansible.builtin.command: 'systemctl --user add-wants niri.service {{ item }}.service'
+  when: item not in twm_status.status.Wants
+  register: add_wants_out
+  changed_when: "'Created symlink' not in add_wants_out.stdout"
+  with_items:
+    # For light/dark theming, wallpaper (via swaybg)
+    - darkman
+    # For notifications
+    - mako
+    # For status bar
+    - waybar
