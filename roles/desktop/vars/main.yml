@@ -5,6 +5,7 @@ desktop_packages_common:
   - discord
   - pinta # From AUR
   - picard
+  - putty
   - qbittorrent
   - strawberry
   - vlc
