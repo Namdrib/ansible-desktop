@@ -14,6 +14,9 @@
         tasmota_commands:
           - command: FriendlyName1
             value: "{{ friendly_name }}"
+          # Logging frequency, in seconds
+          - command: TelePeriod
+            value: 15
         # Vault variables should probably come from a location-specific vault,
         # as that's where the local MQTT host would be
         tasmota_mqtt_host: "{{ vault_tasmota_mqtt_host }}"
