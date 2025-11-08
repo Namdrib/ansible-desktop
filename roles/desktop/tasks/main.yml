@@ -1,12 +1,12 @@
 # vim: et
 ---
 
-- name: Install common desktop packages
+- name: Include platform-specific variables
+  ansible.builtin.include_tasks: include_platform_specific_vars.yml
+
+- name: Install desktop packages
   become: true
   ansible.builtin.import_tasks: install_desktop_packages.yml
-
-- name: Install distro-specific desktop packages
-  ansible.builtin.include_tasks: "install_desktop_packages_{{ ansible_facts['os_family'] | lower }}.yml"
 
 - name: Install distro-specific desktop packages
   ansible.builtin.import_tasks: enable_sysrq_keys.yml

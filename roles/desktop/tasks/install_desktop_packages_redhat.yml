@@ -1,8 +1,0 @@
-# vim: et
----
-
-- name: Install desktop packages (Fedora)
-  become: true
-  ansible.builtin.package:
-    name: "{{ desktop_packages_redhat }}"
-    state: present

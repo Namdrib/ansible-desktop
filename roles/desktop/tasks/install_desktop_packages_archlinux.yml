@@ -1,8 +1,0 @@
-# vim: et
----
-
-- name: Install desktop packages (Arch Linux)
-  become: true
-  ansible.builtin.package:
-    name: "{{ desktop_packages_archlinux }}"
-    state: present

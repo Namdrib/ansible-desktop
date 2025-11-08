@@ -1,7 +1,10 @@
 # vim: et
 ---
 
-desktop_packages_common:
+__desktop_required_facts:
+  - os_family
+
+desktop_packages:
   - discord
   - pinta # From AUR
   - picard
@@ -11,17 +14,3 @@ desktop_packages_common:
   - vlc
   - yakuake
   - yt-dlp
-
-desktop_packages_archlinux:
-  - bitwarden
-  - kdeconnect
-  - obsidian
-  - onlyoffice-desktopeditors
-  - signal-desktop
-  - sweethome3d
-  - ttf-fira-code
-  - veracrypt
-
-desktop_packages_redhat:
-  - fira-code-fonts
-  - kde-connect

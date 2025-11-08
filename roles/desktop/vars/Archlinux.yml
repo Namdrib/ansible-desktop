@@ -1,0 +1,12 @@
+# vim: et
+---
+
+desktop_packages_platform_specific:
+  - bitwarden
+  - kdeconnect
+  - obsidian
+  - onlyoffice-desktopeditors
+  - signal-desktop
+  - sweethome3d
+  - ttf-fira-code
+  - veracrypt

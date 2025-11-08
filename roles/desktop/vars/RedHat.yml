@@ -1,0 +1,6 @@
+# vim: et
+---
+
+desktop_packages_platform_specific:
+  - fira-code-fonts
+  - kde-connect

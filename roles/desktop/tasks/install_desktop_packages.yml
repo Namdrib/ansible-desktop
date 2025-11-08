@@ -4,5 +4,5 @@
 - name: Install packages (desktop)
   become: true
   ansible.builtin.package:
-    name: "{{ desktop_packages_common }}"
+    name: "{{ desktop_packages + desktop_packages_platform_specific }}"
     state: present
