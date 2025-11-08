@@ -1,8 +1,8 @@
 # vim: et
 ---
 
-- name: Install common LaTeX packages
-  ansible.builtin.import_tasks: install_latex_packages.yml
+- name: Include platform-specific variables
+  ansible.builtin.include_tasks: include_platform_specific_vars.yml
 
-- name: Install distro-specific LaTeX packages
-  ansible.builtin.include_tasks: "install_latex_packages_{{ ansible_facts['os_family'] | lower }}.yml"
+- name: Install LaTeX packages
+  ansible.builtin.import_tasks: install_latex_packages.yml

@@ -1,8 +1,0 @@
-# vim: et
----
-
-- name: Install LaTeX packages (Arch Linux)
-  become: true
-  ansible.builtin.package:
-    name: "{{ latex_packages_archlinux }}"
-    state: present

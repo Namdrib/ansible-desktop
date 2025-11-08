@@ -1,0 +1,10 @@
+# vim: et
+---
+
+latex_packages_platform_specific:
+  - texlive-fontawesome
+  - texlive-multirow
+  - texlive-relsize
+  - texlive-tabu
+  - texlive-metafont
+  - texlive-mfware

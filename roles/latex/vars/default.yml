@@ -1,0 +1,4 @@
+# This exists so this variable is guaranteed to be defined
+# Each platform that has a specific list of packages should re-define this
+# variable in another file
+latex_packages_platform_specific: []

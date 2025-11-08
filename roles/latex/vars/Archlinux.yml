@@ -1,0 +1,6 @@
+# vim: et
+---
+
+latex_packages_platform_specific:
+  - texlive-fontsextra
+  - texlive-latexextra

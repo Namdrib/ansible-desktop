@@ -1,17 +1,8 @@
 # vim: et
 ---
 
-latex_packages_common:
+__latex_required_facts:
+  - os_family
+
+latex_packages:
   - texstudio
-
-latex_packages_archlinux:
-  - texlive-fontsextra
-  - texlive-latexextra
-
-latex_packages_redhat:
-  - texlive-fontawesome
-  - texlive-multirow
-  - texlive-relsize
-  - texlive-tabu
-  - texlive-metafont
-  - texlive-mfware

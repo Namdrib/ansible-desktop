@@ -4,5 +4,5 @@
 - name: Install packages (LaTeX)
   become: true
   ansible.builtin.package:
-    name: "{{ latex_packages_common }}"
+    name: "{{ latex_packages + latex_packages_platform_specific }}"
     state: present
