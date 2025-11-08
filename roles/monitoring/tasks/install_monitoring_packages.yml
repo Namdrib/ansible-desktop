@@ -4,5 +4,5 @@
 - name: Install monitoring packages
   become: true
   ansible.builtin.package:
-    name: "{{ monitoring_packages }}"
+    name: "{{ monitoring_packages + monitoring_packages_platform_specific }}"
     state: present

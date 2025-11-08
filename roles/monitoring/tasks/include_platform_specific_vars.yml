@@ -1,0 +1,17 @@
+# vim: et
+---
+
+- name: Ensure ansible_facts used by role
+  ansible.builtin.setup:
+    gather_subset: min
+  when: not ansible_facts.keys() | list |
+    intersect(__monitoring_required_facts) == __monitoring_required_facts
+
+- name: Set platform/version specific variables
+  ansible.builtin.include_vars: "{{ __rolename_vars_file }}"
+  loop:
+    - default.yml
+    - "{{ ansible_facts['os_family'] }}.yml"
+  vars:
+    __rolename_vars_file: "{{ role_path }}/vars/{{ item }}"
+  when: __rolename_vars_file is file

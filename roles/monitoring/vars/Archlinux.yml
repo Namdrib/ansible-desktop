@@ -1,0 +1,3 @@
+
+monitoring_packages_platform_specific:
+  - bind

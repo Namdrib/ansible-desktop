@@ -1,11 +1,11 @@
 # vim: et
 ---
 
-- name: Install common monitoring packages
-  ansible.builtin.import_tasks: install_monitoring_packages.yml
+- name: Include platform-specific variables
+  ansible.builtin.include_tasks: include_platform_specific_vars.yml
 
-- name: Install distro-specific monitoring packages
-  ansible.builtin.include_tasks: "install_monitoring_packages_{{ ansible_facts['os_family'] | lower }}.yml"
+- name: Install monitoring packages
+  ansible.builtin.import_tasks: install_monitoring_packages.yml
 
 - name: Create sudoers for monitoring tools
   ansible.builtin.import_tasks: create_monitoring_sudoers_template.yml

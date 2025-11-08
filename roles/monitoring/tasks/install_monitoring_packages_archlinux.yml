@@ -1,8 +1,0 @@
-# vim: et
----
-
-- name: Install monitoring packages (Arch Linux)
-  become: true
-  ansible.builtin.package:
-    name: "{{ monitoring_packages_archlinux }}"
-    state: present

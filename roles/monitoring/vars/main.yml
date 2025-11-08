@@ -1,6 +1,12 @@
 # vim: et
 ---
 
+__monitoring_required_facts:
+  - os_family
+
+# This is the set of monitoring packages common across all supported platforms
+# Any packages that are specific to a platform should be defined in a
+# platform-specific vars file
 monitoring_packages:
   - htop
   - iotop
@@ -10,12 +16,3 @@ monitoring_packages:
   - nethogs
   - net-tools
   - s-tui
-
-monitoring_packages_archlinux:
-  - bind
-
-monitoring_packages_redhat:
-  - bind-utils
-
-monitoring_packages_debian:
-  - bind9-utils
