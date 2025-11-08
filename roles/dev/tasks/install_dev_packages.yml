@@ -4,5 +4,5 @@
 - name: Install packages (dev)
   become: true
   ansible.builtin.package:
-    name: "{{ dev_packages_common }}"
+    name: "{{ dev_packages + dev_packages_platform_specific }}"
     state: present

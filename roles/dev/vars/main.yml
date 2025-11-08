@@ -1,27 +1,12 @@
 # vim: et
 ---
 
-dev_packages_common:
+__dev_required_facts:
+  - os_family
+
+dev_packages:
   - ansible
   - ansible-lint
   - make
   - qtcreator
   - screenkey
-
-dev_packages_debian:
-  - python3-pylsp
-  - pylint
-  - shellcheck
-
-dev_packages_archlinux:
-  - code # VS Code
-  - python-lsp-server
-  - python-pylint
-  - shellcheck
-  - unityhub # From AUR
-
-dev_packages_redhat:
-  - codium
-  - pylint
-  - python3-lsp-server
-  - ShellCheck

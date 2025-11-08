@@ -1,0 +1,7 @@
+# vim: et
+---
+
+dev_packages_platform_specific:
+  - python3-pylsp
+  - pylint
+  - shellcheck

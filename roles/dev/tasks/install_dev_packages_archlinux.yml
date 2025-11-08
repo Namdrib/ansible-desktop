@@ -1,8 +1,0 @@
-# vim: et
----
-
-- name: Install dev packages (arch)
-  become: true
-  ansible.builtin.package:
-    name: "{{ dev_packages_archlinux }}"
-    state: present

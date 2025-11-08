@@ -1,0 +1,11 @@
+# vim: et
+---
+
+- name: Install custom DNF repos
+  become: true
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: /etc/yum.repos.d/
+    mode: '0644'
+  loop:
+    - vscodium.repo

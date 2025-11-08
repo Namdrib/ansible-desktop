@@ -1,0 +1,9 @@
+# vim: et
+---
+
+dev_packages_platform_specific:
+  - code # VS Code
+  - python-lsp-server
+  - python-pylint
+  - shellcheck
+  - unityhub # From AUR

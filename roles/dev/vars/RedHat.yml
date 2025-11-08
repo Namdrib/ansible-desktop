@@ -1,0 +1,8 @@
+# vim: et
+---
+
+dev_packages_platform_specific:
+  - codium
+  - pylint
+  - python3-lsp-server
+  - ShellCheck

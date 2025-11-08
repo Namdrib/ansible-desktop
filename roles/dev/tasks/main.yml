@@ -1,8 +1,12 @@
 # vim: et
 ---
 
-- name: Install common dev packages
-  ansible.builtin.import_tasks: install_dev_packages.yml
+- name: Include platform-specific variables
+  ansible.builtin.include_tasks: include_platform_specific_vars.yml
 
-- name: Install Fedora-specific dev packages
-  ansible.builtin.include_tasks: "install_dev_packages_{{ ansible_facts['os_family'] | lower }}.yml"
+- name: Set up RedHat repos
+  ansible.builtin.include_tasks: "setup_dnf_repo_files.yml"
+  when: ansible_facts['os_family'] in ['RedHat', 'Nobara']
+
+- name: Install dev packages
+  ansible.builtin.import_tasks: install_dev_packages.yml
