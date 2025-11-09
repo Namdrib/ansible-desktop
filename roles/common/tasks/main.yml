@@ -1,18 +1,11 @@
 # vim: et
 ---
 
-- name: Load distro-specific variables
-  ansible.builtin.include_vars: "{{ ansible_facts['os_family'] | lower }}.yml"
-  tags:
-    always
+- name: Include platform-specific variables
+  ansible.builtin.include_tasks: include_platform_specific_vars.yml
 
-- name: Install common common packages
+- name: Install common packages
   ansible.builtin.import_tasks: install_common_packages.yml
-  tags:
-    - install_packages
-
-- name: Install distro-specific common packages
-  ansible.builtin.include_tasks: "install_common_packages_{{ ansible_facts['os_family'] | lower }}.yml"
   tags:
     - install_packages
 

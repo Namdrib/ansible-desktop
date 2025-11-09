@@ -1,0 +1,11 @@
+# vim: et
+---
+
+powerline_shell_theme_file: /etc/xdg/powerline/themes/shell/__main__.json
+
+common_packages_platform_specific:
+  - autojump-fish
+  - dnf-plugins-core
+  - plocate
+  - vim-X11
+  - vim-enhanced

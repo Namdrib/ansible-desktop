@@ -4,7 +4,7 @@
 - name: Install common packages
   become: true
   ansible.builtin.package:
-    name: "{{ common_packages }}"
+    name: "{{ common_packages + common_packages_platform_specific }}"
     state: present
 
 - name: Install common graphical packages

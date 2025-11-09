@@ -1,6 +1,9 @@
 # vim: et
 ---
 
+__common_required_facts:
+  - os_family
+
 common_packages:
   - autojump
   - bat
@@ -14,18 +17,3 @@ common_packages:
 common_graphical_packages:
   - flameshot
   - redshift
-
-common_packages_archlinux:
-  - gvim # provides CLI vim as well
-  - plocate
-
-common_packages_debian:
-  - mlocate
-  - vim
-
-common_packages_redhat:
-  - autojump-fish
-  - dnf-plugins-core
-  - plocate
-  - vim-X11
-  - vim-enhanced
