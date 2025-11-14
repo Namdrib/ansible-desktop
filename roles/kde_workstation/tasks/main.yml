@@ -1,6 +1,9 @@
 # vim: et
 ---
 
+- name: Include platform-specific variables
+  ansible.builtin.include_tasks: include_platform_specific_vars.yml
+
 - name: Use the KDE desktop portal
   ansible.builtin.import_tasks: setup_xdg_desktop_portal.yml
 

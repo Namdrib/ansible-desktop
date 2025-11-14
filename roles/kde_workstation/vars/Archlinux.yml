@@ -1,0 +1,5 @@
+# vim: et
+---
+
+kde_workstation_packages_platform_specific:
+  - partitionmanager

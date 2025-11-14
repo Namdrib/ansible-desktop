@@ -1,8 +1,10 @@
 # vim: et
 ---
 
+__kde_workstation_required_facts:
+  - os_family
+
 # List of KDE-specific packages to install on a KDE workstation
 kde_workstation_packages_to_install:
   - kate
   - kwallet
-  - partitionmanager
