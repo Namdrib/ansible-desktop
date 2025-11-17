@@ -1,0 +1,6 @@
+# vim: et
+---
+
+intel_graphics_drivers_packages_platform_specific:
+  - intel-media-driver
+  - intel-gpu-tools

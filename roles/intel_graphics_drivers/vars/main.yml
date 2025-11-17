@@ -1,14 +1,7 @@
 # vim: et
 ---
 
-intel_graphics_drivers_archlinux:
-  - intel-media-driver
-  - intel-gpu-tools
+__intel_graphics_drivers_required_facts:
+  - os_family
 
-intel_graphics_drivers_redhat:
-  - intel-media-driver
-  - igt-gpu-tools
-
-intel_graphics_drivers_debian:
-  - intel-media-va-driver-non-free
-  - intel-gpu-tools
+intel_graphics_drivers_packages: []

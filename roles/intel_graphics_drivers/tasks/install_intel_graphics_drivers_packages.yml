@@ -1,0 +1,8 @@
+# vim: et
+---
+
+- name: Install packages (Intel graphics drivers)
+  become: true
+  ansible.builtin.package:
+    name: "{{ intel_graphics_drivers_packages + intel_graphics_drivers_packages_platform_specific }}"
+    state: present

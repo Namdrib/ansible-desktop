@@ -1,14 +1,18 @@
 # vim: et
 ---
 
+- name: Include platform-specific variables
+  ansible.builtin.include_tasks: include_platform_specific_vars.yml
+
+# To get non-free Intel graphics drivers
+- name: Setup RPM Fusion
+  ansible.builtin.include_role:
+    name: rpm_fusion
+  when: ansible_facts['os_family'] in ['RedHat', 'Nobara']
+
 # See also: https://github.com/LukeShortCloud/ansible_role_gpu_driver
-- name: Install distro-specific Intel graphics drivers
-  # See the other tasks in the role for which ones are currently supported
-  # Individual task files exist rather than having one generic one in case extra
-  # steps are required for any particular distro (e.g RedHat needs RPM Fusion
-  # set up)
-  # It's possible debian would need some apt repositories set up
-  ansible.builtin.include_tasks: "install_intel_graphics_drivers_{{ ansible_facts['os_family'] | lower }}.yml"
+- name: Install Intel graphics drivers
+  ansible.builtin.include_tasks: "install_intel_graphics_drivers_packages.yml"
   when: "'intelhosts' in group_names"
 
 - name: Allow sudo-less Intel monitoring

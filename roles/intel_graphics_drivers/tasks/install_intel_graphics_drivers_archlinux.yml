@@ -1,9 +1,0 @@
-# vim: et
----
-
-- name: Install Intel graphics drivers (Arch Linux)
-  become: true
-  become_user: root
-  ansible.builtin.package:
-    name: "{{ intel_graphics_drivers_archlinux }}"
-    state: present

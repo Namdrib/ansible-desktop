@@ -1,9 +1,0 @@
-# vim: et
----
-
-- name: Install Intel graphics drivers (Debian)
-  become: true
-  become_user: root
-  ansible.builtin.package:
-    name: "{{ intel_graphics_drivers_debian }}"
-    state: present
