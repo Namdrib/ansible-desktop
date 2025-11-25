@@ -12,15 +12,15 @@
   ansible.builtin.systemd_service:
     name: niri
     scope: user
-  changed_when: False
+  changed_when: false
   register: twm_status
 
 # Add the dependency if it isn't already wanted
 - name: Add WM service dependencies
   ansible.builtin.command: 'systemctl --user add-wants niri.service {{ item }}.service'
   when: item not in twm_status.status.Wants
-  register: add_wants_out
-  changed_when: "'Created symlink' not in add_wants_out.stdout"
+  register: twm_add_wants_out
+  changed_when: "'Created symlink' not in twm_add_wants_out.stdout"
   with_items:
     # For light/dark theming, wallpaper (via swaybg)
     - darkman
