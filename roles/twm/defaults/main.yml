@@ -8,7 +8,7 @@ twm_packages_to_install:
   - geoclue # Optional depenency of darkman to determine the location
   - mako # Notification manager
   - niri # Scrolling window manager
-  - sawyidle # Idle manager
+  - swayidle # Idle manager
   - swaybg # Wallpaper manager
   - swaylock # Lock screen manager
   - waybar # Panel manager
