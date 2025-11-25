@@ -1,0 +1,20 @@
+# vim: et
+---
+
+- name: Check for plasma-applications.menu
+  ansible.builtin.stat:
+    path: /etc/xdg/menus/plasma-applications.menu
+  register: plasma_applications
+
+# This is so when using KDE as the main underlying ecosystem, launching files
+# from Dolphin opens with the correct program
+- name: Link applications to KDE 
+  become: true
+  become_user: root
+  ansible.builtin.file:
+    src: /etc/xdg/menus/plasma-applications.menu
+    dest: /etc/xdg/menus/applications.menu
+    state: link
+    owner: root
+    group: root
+  when: plasma_applications.stat.exists

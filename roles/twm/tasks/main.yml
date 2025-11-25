@@ -14,3 +14,6 @@
   # become: true
   # become_user: root
   ansible.builtin.import_tasks: set_wm_service_dependencies.yml
+
+- name: Use default applications
+  ansible.builtin.import_tasks: use_default_applications.yml
