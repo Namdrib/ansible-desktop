@@ -24,3 +24,6 @@
 
 - name: Use default applications
   ansible.builtin.import_tasks: use_default_applications.yml
+
+- name: Set cursor theme
+  ansible.builtin.import_tasks: set_cursor_theme.yml

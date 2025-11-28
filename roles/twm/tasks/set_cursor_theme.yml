@@ -1,0 +1,10 @@
+# vim: et
+---
+
+# See: https://wiki.archlinux.org/title/Cursor_themes#The_default_cursor_theme
+
+- name: Set cursor theme
+  ansible.builtin.file:
+    src: "/usr/share/icons/breeze_cursors"
+    dest: "{{ ansible_env.HOME }}/.local/share/icons/default"
+    state: link
