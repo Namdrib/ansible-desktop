@@ -8,6 +8,7 @@
     - ssh_agent_user_service
     - pacman
     - triple-coaster
+    - twm
 
 - name: Perform common desktop setup
   ansible.builtin.import_playbook: setup_desktops.yml
