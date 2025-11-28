@@ -22,9 +22,5 @@
   register: twm_add_wants_out
   changed_when: "'Created symlink' not in twm_add_wants_out.stdout"
   with_items:
-    # For light/dark theming, wallpaper (via swaybg)
-    - darkman
-    # For notifications
-    - mako
-    # For status bar
-    - waybar
+    # Dank material shell
+    - dms

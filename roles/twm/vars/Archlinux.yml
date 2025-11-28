@@ -1,0 +1,6 @@
+# vim: et
+---
+
+twm_packages_platform_specific:
+  # Dark material shell, from AUR
+  - dms-shell-bin

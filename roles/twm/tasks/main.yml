@@ -1,6 +1,13 @@
 # vim: et
 ---
 
+- name: Include platform-specific variables
+  ansible.builtin.include_tasks: include_platform_specific_vars.yml
+
+- name: Enable DMS copr (Fedora)
+  ansible.builtin.import_tasks: enable_dms_copr.yml
+  when: ansible_facts['os_family'] in ['RedHat', 'Nobara']
+
 - name: Install twm packages
   become: true
   become_user: root

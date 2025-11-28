@@ -1,0 +1,6 @@
+# vim: et
+---
+
+twm_packages_platform_specific:
+  # Dank material shell, from COPR
+  - dms

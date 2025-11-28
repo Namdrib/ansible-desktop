@@ -3,5 +3,5 @@
 
 - name: Install packages we want
   ansible.builtin.package:
-    name: "{{ twm_packages_to_install }}"
+    name: "{{ twm_packages + twm_packages_platform_specific }}"
     state: present

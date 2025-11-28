@@ -1,0 +1,8 @@
+# vim: et
+---
+
+- name: Enablle DankMaterialShell COPR repo
+  become: true
+  become_user: root
+  community.general.copr:
+    name: avengemedia/dms
