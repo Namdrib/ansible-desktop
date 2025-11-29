@@ -6,3 +6,5 @@ twm_packages_platform_specific:
   - dms-shell-bin
   # Optional depenency of darkman to determine the location
   - geoclue
+  # To do screen sharing
+  - wlroots0.18
