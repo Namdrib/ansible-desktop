@@ -6,6 +6,13 @@
     path: /etc/xdg/menus/plasma-applications.menu
   register: twm_plasma_applications
 
+# On some distributions, this file may already exist
+# In that case, don't do anything
+- name: Check for top-level applications.menu
+  ansible.builtin.stat:
+    path: /etc/xdg/menus/applications.menu
+  register: twm_applications
+
 # This is so when using KDE as the main underlying ecosystem, launching files
 # from Dolphin opens with the correct program
 - name: Link applications to KDE
@@ -17,4 +24,4 @@
     state: link
     owner: root
     group: root
-  when: twm_plasma_applications.stat.exists
+  when: twm_plasma_applications.stat.exists and not twm_applications.stat.exists
