@@ -11,4 +11,5 @@ twm_packages:
   - niri # Scrolling window manager
   - swayidle # Idle manager
   - swaylock # Lock screen manager
+  - wev # Debug wayland events
   - xwayland-satellite # X application bridge
