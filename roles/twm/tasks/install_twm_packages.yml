@@ -2,6 +2,8 @@
 ---
 
 - name: Install packages we want
+  become: true
+  become_user: root
   ansible.builtin.package:
     name: "{{ twm_packages + twm_packages_platform_specific }}"
     state: present
