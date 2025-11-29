@@ -4,3 +4,5 @@
 twm_packages_platform_specific:
   # Dark material shell, from AUR
   - dms-shell-bin
+  # Optional depenency of darkman to determine the location
+  - geoclue

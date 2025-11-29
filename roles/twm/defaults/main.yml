@@ -7,7 +7,6 @@ __twm_required_facts:
 # List of packages to install for a workstation with standalone WM
 twm_packages:
   - fuzzel # Application launcher
-  - geoclue # Optional depenency of darkman to determine the location
   - niri # Scrolling window manager
   - swayidle # Idle manager
   - swaylock # Lock screen manager
