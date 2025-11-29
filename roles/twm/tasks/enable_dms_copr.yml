@@ -6,3 +6,5 @@
   become_user: root
   community.general.copr:
     name: avengemedia/dms
+    # The chroot needs to be listed here: https://copr.fedorainfracloud.org/coprs/avengemedia/dms/build/9811434/
+    chroot: "fedora-{{ ansible_facts['distribution_major_version'] }}-{{ ansible_facts['architecture'] }}"
