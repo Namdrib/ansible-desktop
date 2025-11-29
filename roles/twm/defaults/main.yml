@@ -11,4 +11,5 @@ twm_packages:
   - niri # Scrolling window manager
   - swayidle # Idle manager
   - swaylock # Lock screen manager
+  - wlroots # To do screen sharing
   - xwayland-satellite # X application bridge
