@@ -6,6 +6,7 @@ __twm_required_facts:
 
 # List of packages to install for a workstation with standalone WM
 twm_packages:
+  - darkman # Dark/light settings
   - fuzzel # Application launcher
   - niri # Scrolling window manager
   - swayidle # Idle manager
