@@ -3,8 +3,14 @@
 
 # See: https://wiki.archlinux.org/title/Cursor_themes#The_default_cursor_theme
 
+- name: Check for existence of {{ twm_cursor_dir }}
+  ansible.builtin.stat:
+    path: "{{ twm_cursor_dir }}"
+  register: twm_cursor
+
 - name: Set cursor theme
   ansible.builtin.file:
-    src: "/usr/share/icons/breeze_cursors"
+    src: "{{ twm_cursor_dir }}"
     dest: "{{ ansible_env.HOME }}/.local/share/icons/default"
     state: link
+  when: twm_cursor.stat.exists
