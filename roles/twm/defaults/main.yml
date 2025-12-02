@@ -9,6 +9,7 @@ twm_packages:
   - darkman # Dark/light settings
   - fuzzel # Application launcher
   - niri # Scrolling window manager
+  - playerctl # Control media player actions
   - swayidle # Idle manager
   - swaylock # Lock screen manager
   - wev # Debug wayland events
