@@ -1,7 +1,7 @@
 # vim: et
 ---
 
-- name: Enablle DankMaterialShell COPR repo
+- name: Enable DankMaterialShell COPR repo
   become: true
   become_user: root
   community.general.copr:
