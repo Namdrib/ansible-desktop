@@ -41,8 +41,8 @@ dhcp_reservations:
 
   ## Servers
   # - { ip: "{{ network_subnet }}.80", mac: dc:a6:32:41:23:d5, hostname: bomb } # Raspberry Pi4
-  - { ip: "{{ network_subnet }}.81", mac: 00:d8:61:a9:cb:96, hostname: proxmox01 } # Proxmox
-  - { ip: "{{ network_subnet }}.82", mac: 6c:2b:59:d6:8d:21, hostname: proxmox02 } # Proxmox (Optiplex 7060) wired
+  - { ip: "{{ network_subnet }}.81", mac: 00:d8:61:a9:cb:96, hostname: pve01 } # Proxmox (Main server)
+  - { ip: "{{ network_subnet }}.82", mac: 6c:2b:59:d6:8d:21, hostname: pve02 } # Proxmox (Optiplex 7060) wired
   - { ip: "{{ network_subnet }}.83", mac: 52:36:ad:f0:4d:91, hostname: nas01 } # Network storage
   - { ip: "{{ network_subnet }}.85", mac: fa:e4:7e:2a:6e:e3, hostname: apps01 } # Docker host
   - { ip: "{{ network_subnet }}.86", mac: bc:24:11:32:c0:59, hostname: apps02 } # Docker host - for transcodes
