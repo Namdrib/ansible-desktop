@@ -4,8 +4,8 @@
 - name: Include platform-specific variables
   ansible.builtin.include_tasks: include_platform_specific_vars.yml
 
-- name: Enable DMS copr (Fedora)
-  ansible.builtin.import_tasks: enable_dms_copr.yml
+- name: Enable COPR Repos (Fedora)
+  ansible.builtin.import_tasks: enable_twm_copr_repos.yml
   when: ansible_facts['os_family'] in ['RedHat', 'Nobara']
 
 - name: Install twm packages
