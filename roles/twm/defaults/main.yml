@@ -12,6 +12,7 @@ twm_packages:
   - playerctl # Control media player actions
   - swayidle # Idle manager
   - swaylock # Lock screen manager
+  - swww # Wallpaper manager
   - wev # Debug wayland events
   - xwayland-satellite # X application bridge
 
