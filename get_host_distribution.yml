@@ -8,4 +8,4 @@
   tasks:
     - name: Classify hosts depending on their OS distribution
       ansible.builtin.debug:
-        msg: "distribution => {{ ansible_facts['distribution'] }}, os_family => {{ ansible_facts['os_family'] }}"
+        msg: "distribution => {{ ansible_facts['distribution'] }}, os_family => {{ ansible_facts['os_family'] }}, distribution_major_version => {{ ansible_facts['distribution_major_version'] }}"
