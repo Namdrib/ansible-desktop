@@ -4,6 +4,8 @@
 - name: Install nvidia drivers for the host
   ansible.builtin.include_tasks: install_nvidia_drivers.yml
   when: "'nvidiahosts' in group_names"
+  tags:
+    - graphics
 
 # This is only used when passing an Nvidia GPU through to docker containers so
 # they can make use of it.
@@ -11,7 +13,11 @@
 - name: Install Nvidia container toolkit for the host
   ansible.builtin.include_tasks: install_nvidia_container_toolkit.yml
   when: "'nvidiahosts' in group_names and 'dockerhosts' in group_names"
+  tags:
+    - graphics
 
 - name: Allow sudo-less Nvidia monitoring
   ansible.builtin.include_tasks: create_nvidia_monitoring_sudoers_template.yml
   when: "'nvidiahosts' in group_names"
+  tags:
+    - graphics
