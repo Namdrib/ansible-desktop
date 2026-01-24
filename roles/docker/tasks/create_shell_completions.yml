@@ -1,0 +1,31 @@
+# vim: et
+---
+
+# On some distros, the file `/usr/share/fish/completions/docker.fish` exists,
+# but doesn't do anything useful
+
+# On Ubuntu, `docker-ce-cli` provides the file
+# `/usr/share/fish/vendor_completions.d/docker.fish`
+# on Fedora, `docker-cli` provides this file
+
+# This may be out of date, or lack certain completions
+# For example, on Fedora 42, the docker sub commands complete, files in docker
+# compose's `-f` argument do not
+
+# It's possible that one day, this task may become obsoleted by updates to the
+# package-managed completion file
+
+- name: Ensure the local fish completions directory exists
+  ansible.builtin.file:
+    dest: "{{ ansible_env.HOME }}/.config/fish/completions"
+    state: directory
+    mode: '0750'
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+
+# This creates a fish completions file for docker, so things like tab-completing
+# file names within the docker compose command works
+- name: Create a local docker completion file for fish
+  ansible.builtin.shell:
+    cmd: 'docker completion fish > {{ ansible_env.HOME }}/.config/fish/completions/docker.fish'
+    creates: "{{ ansible_env.HOME }}/.config/fish/completions/docker.fish"

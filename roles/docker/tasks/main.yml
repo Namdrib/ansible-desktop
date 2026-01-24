@@ -9,3 +9,6 @@
 
 - name: Enable the docker service
   ansible.builtin.include_tasks: enable_docker.yml
+
+- name: Create shell completion files
+  ansible.builtin.include_tasks: create_shell_completions.yml
