@@ -10,7 +10,6 @@ all:
         apps01:
         apps02:
         beans:
-        bomb:
     desktops:
       hosts:
         complex-stonework:
