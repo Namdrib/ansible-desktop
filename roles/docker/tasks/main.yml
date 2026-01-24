@@ -7,5 +7,5 @@
 - name: Distro-specific steps to install docker packages
   ansible.builtin.include_tasks: "install_docker_packages_{{ ansible_facts['os_family'] | lower }}.yml"
 
-- name: Run docker post-install steps
-  ansible.builtin.include_tasks: docker_post_install.yml
+- name: Enable the docker service
+  ansible.builtin.include_tasks: enable_docker.yml
