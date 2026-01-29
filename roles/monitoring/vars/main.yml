@@ -8,11 +8,16 @@ __monitoring_required_facts:
 # Any packages that are specific to a platform should be defined in a
 # platform-specific vars file
 monitoring_packages:
+  - btop
+  - ethtool
   - htop
   - iotop
+  - iperf3
   - lnav # Log navigator
   - ncdu
   - nmap
   - nethogs
   - net-tools
+  - powertop
+  - sysstat
   - s-tui
