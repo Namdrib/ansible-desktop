@@ -54,20 +54,28 @@ all:
       hosts:
         b-desktop-6168:
           friendly_name: b-desktop
+          template: {"NAME":"Athom Plug V2","GPIO":[0,0,0,3104,0,32,0,0,224,576,0,0,0,0],"FLAG":0,"BASE":18}
         server-6090:
           friendly_name: server
+          template: {"NAME":"Athom Plug V2","GPIO":[0,0,0,3104,0,32,0,0,224,576,0,0,0,0],"FLAG":0,"BASE":18}
         fridge-5939:
           friendly_name: fridge
+          template: {"NAME":"Athom Plug V2","GPIO":[0,0,0,3104,0,32,0,0,224,576,0,0,0,0],"FLAG":0,"BASE":18}
         washing-machine-1735:
           friendly_name: washing-machine
+          template: {"NAME":"Athom Plug V2","GPIO":[0,0,0,3104,0,32,0,0,224,576,0,0,0,0],"FLAG":0,"BASE":18}
         d-desktop-4696:
           friendly_name: d-desktop
+          template: {"NAME":"Athom Plug V2","GPIO":[0,0,0,3104,0,32,0,0,224,576,0,0,0,0],"FLAG":0,"BASE":18}
         dishwasher-4111:
           friendly_name: dishwasher
+          template: {"NAME":"Athom Plug V2","GPIO":[0,0,0,3104,0,32,0,0,224,576,0,0,0,0],"FLAG":0,"BASE":18}
         tv-lounge-4248:
           friendly_name: tv-lounge
+          template: {"NAME":"Athom Plug V2","GPIO":[0,0,0,3104,0,32,0,0,224,576,0,0,0,0],"FLAG":0,"BASE":18}
         network-2849:
           friendly_name: network
+          template: {"NAME":"Athom Plug V2","GPIO":[0,0,0,3104,0,32,0,0,224,576,0,0,0,0],"FLAG":0,"BASE":18}
 
     # Physical location of servers (and, implicitly, network)
     east:
