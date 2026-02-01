@@ -6,3 +6,4 @@ powerline_shell_theme_file: /usr/share/powerline/config_files/themes/shell/__mai
 common_packages_platform_specific:
   - mlocate
   - vim
+  - dictionaries-common # For dictionary /usr/share/dict/

@@ -9,3 +9,4 @@ common_packages_platform_specific:
   - plocate
   - vim-X11
   - vim-enhanced
+  - words # For dictionary /usr/share/dict/
