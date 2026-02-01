@@ -6,6 +6,7 @@ __desktop_required_facts:
 
 desktop_packages:
   - discord
+  - krdc # Remote desktop application
   - pinta # From AUR
   - picard
   - putty

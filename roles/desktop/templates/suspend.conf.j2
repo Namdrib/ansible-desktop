@@ -1,0 +1,4 @@
+# Systemd logind drop-in file to suspsend after some time
+[Login]
+IdleAction=suspend
+IdleActionSec={{ desktop_time_to_suspend }}

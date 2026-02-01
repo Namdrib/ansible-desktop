@@ -15,3 +15,8 @@
   ansible.builtin.import_tasks: autostart_yakuake.yml
   tags:
     - yakuake
+
+- name: Setup suspend
+  ansible.builtin.import_tasks: configure_suspend_time.yml
+  tags:
+    - suspend
