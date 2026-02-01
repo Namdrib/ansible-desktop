@@ -34,11 +34,10 @@ all:
       hosts:
         bomb:
         pi3:
-    proxmoxhosts:
+    pve_hosts:
       hosts:
-        proxmox01:
-        proxmox02:
-        proxmox02-wireless:
+        pve01:
+        pve02:
       vars:
         ansible_user: root
     intelhosts:
@@ -89,9 +88,8 @@ all:
         apps02:
         bomb:
         nas01:
-        proxmox01:
-        proxmox02:
-        proxmox02-wireless:
+        pve01:
+        pve02:
         triple-coaster:
         b-desktop-6168:
         server-6090:
