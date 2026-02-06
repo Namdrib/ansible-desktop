@@ -17,3 +17,4 @@
     name: ssh-agent
     enabled: true
     scope: user
+    state: started
