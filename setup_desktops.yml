@@ -11,6 +11,7 @@
 
   roles:
     - common
+    - ssh_agent_user_service
     # - davfs_client
     - dev
     - desktop
