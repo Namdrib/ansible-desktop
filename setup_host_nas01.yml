@@ -5,7 +5,10 @@
   hosts: nas01
 
   roles:
-    - disable_ipv6
+    - role: disable_ipv6
+      tags: disable_ipv6
     # - ftps_server
-    - monitoring
-    - smb_scan_server
+    - role: monitoring
+      tags: monitoring
+    - role: smb_scan_server
+      tags: smb_scan_server

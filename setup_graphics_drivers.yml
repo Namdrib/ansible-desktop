@@ -4,5 +4,13 @@
 - name: Install graphics drivers
   hosts: all
   roles:
-    - intel_graphics_drivers
-    - nvidia_graphics_drivers
+    - role: intel_graphics_drivers
+      tags:
+        - intel
+        - drivers
+        - graphics
+    - role: nvidia_graphics_drivers
+      tags:
+        - nvidia
+        - drivers
+        - graphics

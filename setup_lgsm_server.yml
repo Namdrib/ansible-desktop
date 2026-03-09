@@ -12,3 +12,5 @@
 
     # Handles per-game configuration, done as the game server
     - role: lgsm_server
+  tags:
+    - lgsm

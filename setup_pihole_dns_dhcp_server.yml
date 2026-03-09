@@ -6,5 +6,7 @@
   hosts: piholes
 
   roles:
-    - pihole_dns_dhcp_server
-    - disable_ipv6
+    - role: pihole_dns_dhcp_server
+      tags: pihole_dns_dhcp_server
+    - role: disable_ipv6
+      tags: disable_ipv6

@@ -10,17 +10,27 @@
     user: namdrib
 
   roles:
-    - common
-    - ssh_agent_user_service
+    - role: common
+      tags: common
+    - role: ssh_agent_user_service
+      tags: ssh_agent_user_service
     # - davfs_client
-    - dev
-    - desktop
-    - gaming
-    - latex
-    - monitoring
-    - samba_client
-    - kde_workstation
-    - disable_ipv6
+    - role: dev
+      tags: dev
+    - role: desktop
+      tags: desktop
+    - role: gaming
+      tags: gaming
+    - role: latex
+      tags: latex
+    - role: monitoring
+      tags: monitoring
+    - role: samba_client
+      tags: samba_client
+    - role: kde_workstation
+      tags: kde_workstation
+    - role: disable_ipv6
+      tags: disable_ipv6
 
   tasks:
     - name: Run programs on system startup

@@ -7,4 +7,5 @@
   hosts: piholes
 
   roles:
-    - wireguard_server
+    - role: wireguard_server
+      tags: wireguard_server

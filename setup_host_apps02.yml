@@ -14,19 +14,29 @@
   hosts: apps02
 
   roles:
-    - kde_server
-    - docker
-    - intel_graphics_drivers
-    - monitoring
-    - samba_client
+    - role: kde_server
+      tags: kde_server
+    - role: docker
+      tags: docker
+    - role: intel_graphics_drivers
+      tags:
+        - intel
+        - drivers
+        - graphics
+    - role: monitoring
+      tags: monitoring
+    - role: samba_client
+      tags: samba_client
 
 - name: Setup apps02 (user portion)
   remote_user: "{{ main_username }}"
   hosts: apps02
 
   roles:
-    - common
-    - server_setup
+    - role: common
+      tags: common
+    - role: server_setup
+      tags: server_setup
 
 - name: Setup backups
   hosts: apps02
@@ -35,4 +45,4 @@
     - role: fuzzymistborn.autorestic
       become: true
   tags:
-    backups_tag
+    backups
