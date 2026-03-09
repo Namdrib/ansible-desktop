@@ -5,8 +5,6 @@
   hosts: triple-coaster
 
   roles:
-    - role: ssh_agent_user_service
-      tags: ssh_agent_user_service
     - role: pacman
       tags: pacman
     - role: triple-coaster
