@@ -9,7 +9,10 @@
   ansible.builtin.get_url:
     url: https://nvidia.github.io/libnvidia-container/gpgkey
     dest: /tmp/nvidia-container-toolkit-keyring.asc
-  register: new_key
+    owner: root
+    group: root
+    mode: '0644'
+  register: nvidia_graphics_drivers_install_download_new_key
 
 # Need to have the dearmor part, and gpg prompts for y/N to overwrite
 # So can't just use apt_key or just a gpg command by itself
@@ -22,7 +25,7 @@
     cmd: "gpg --dearmor -o {{ nvidia_graphics_drivers_container_toolkit_key }} /tmp/nvidia-container-toolkit-keyring.asc"
     stdin: y
     creates: "{{ nvidia_graphics_drivers_container_toolkit_key }}"
-  when: new_key.changed
+  when: nvidia_graphics_drivers_install_download_new_key.changed
 
 # It needs to be world-readable for apt to read it
 - name: Set permission on GPG key
