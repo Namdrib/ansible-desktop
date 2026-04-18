@@ -8,3 +8,5 @@
   become_user: root
   ansible.builtin.command:
     cmd: "ubuntu-drivers install {{ nvidia_graphics_drivers_version }}"
+  register: install_drivers
+  changed_when: '"already installed" not in install_drivers.stdout'
