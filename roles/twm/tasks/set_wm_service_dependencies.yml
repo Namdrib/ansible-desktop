@@ -24,3 +24,6 @@
   with_items:
     # Dank material shell
     - dms
+  tags:
+    # ansible-code 2.18.11: The systemd module doesn't support add-wants
+    - skip_ansible_lint
