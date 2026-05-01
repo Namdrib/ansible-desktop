@@ -9,3 +9,5 @@
 
 - name: Create sudoers for monitoring tools
   ansible.builtin.import_tasks: create_monitoring_sudoers_template.yml
+  # PVE servers don't have sudo
+  when: "'pve_hosts' not in group_names"
