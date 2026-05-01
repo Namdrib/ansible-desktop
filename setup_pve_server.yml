@@ -1,0 +1,19 @@
+# vim: et
+---
+
+# Playbook to set up a Proxmox Virtualisation Environment (PVE) server
+
+# This can be run like:
+# ansible-playbook setup_pve_server.yml -D
+
+# This assumes the runner has SSH key access to the PVE servers
+
+- name: Setup PVE host
+  remote_user: root
+  hosts: pve_hosts
+
+  roles:
+    - role: monitoring
+      tags: monitoring
+    - role: pve_server
+      tags: pve_server

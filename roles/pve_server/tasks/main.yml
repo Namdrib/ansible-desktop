@@ -1,0 +1,7 @@
+# vim: et
+---
+
+- name: Install PVE server packages
+  ansible.builtin.package:
+    name: "{{ pve_server_packages }}"
+    state: present

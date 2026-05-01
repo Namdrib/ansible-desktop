@@ -1,0 +1,10 @@
+# vim: et
+---
+
+pve_server_packages:
+  - fwupd # To manage firmware updates
+  - hwloc # Show hardware topology
+  - linux-cpupower
+  - needrestart
+  - powertop # General power management
+  - unattended-upgrades
