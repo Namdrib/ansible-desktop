@@ -2,5 +2,5 @@
 ---
 
 server_setup_repo_url: "git@github.com:Namdrib/server-setup"
-server_setup_clone_dir: "{{ ansible_env.HOME }}/coding/git/namdrib/server-setup"
-server_setup_install_dir: "{{ ansible_env.HOME }}/.server-setup"
+server_setup_clone_dir: '{{ lookup("env", "HOME") }}/coding/git/namdrib/server-setup'
+server_setup_install_dir: '{{ lookup("env", "HOME") }}/.server-setup'

@@ -3,7 +3,7 @@
 
 - name: Settings - Highlight Non Default Settings
   community.general.ini_file:
-    path: "{{ ansible_env.HOME }}/.config/systemsettingsrc"
+    path: '{{ lookup("env", "HOME") }}/.config/systemsettingsrc'
     section: systemsettings_sidebar_mode
     option: HighlightNonDefaultSettings
     value: 'true'
@@ -12,7 +12,7 @@
 
 - name: Settings - Don't pause media players on sleep
   community.general.ini_file:
-    path: "{{ ansible_env.HOME }}/.config/powerdevilrc"
+    path: '{{ lookup("env", "HOME") }}/.config/powerdevilrc'
     section: 'General'
     option: pausePlayersOnSuspend
     value: 'false'

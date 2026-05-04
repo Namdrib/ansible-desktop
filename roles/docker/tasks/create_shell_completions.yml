@@ -17,7 +17,7 @@
 
 - name: Ensure the local fish completions directory exists
   ansible.builtin.file:
-    dest: "{{ ansible_env.HOME }}/.config/fish/completions"
+    dest: '{{ lookup("env", "HOME") }}/.config/fish/completions'
     state: directory
     mode: '0750'
     owner: "{{ main_username }}"
@@ -27,5 +27,5 @@
 # file names within the docker compose command works
 - name: Create a local docker completion file for fish
   ansible.builtin.shell:
-    cmd: 'docker completion fish > {{ ansible_env.HOME }}/.config/fish/completions/docker.fish'
-    creates: "{{ ansible_env.HOME }}/.config/fish/completions/docker.fish"
+    cmd: 'docker completion fish > {{ lookup("env", "HOME") }}/.config/fish/completions/docker.fish'
+    creates: '{{ lookup("env", "HOME") }}/.config/fish/completions/docker.fish'
