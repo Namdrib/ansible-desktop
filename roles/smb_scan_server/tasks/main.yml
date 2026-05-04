@@ -15,6 +15,6 @@
 
 # TODO: Define the SMB share in /etc/samba/smb.conf
 
-- name: Reload SMB server
+- name: Enable the SMB server
   become: true
-  ansible.builtin.import_tasks: reload_smb_server.yml
+  ansible.builtin.import_tasks: enable_smb_server.yml
