@@ -22,7 +22,7 @@
       - bc
       - jq
       - tmux
-      - netcat
+      - netcat-openbsd
       - libsdl2-2.0-0:i386
       - steamcmd
       - openjdk-17-jre
