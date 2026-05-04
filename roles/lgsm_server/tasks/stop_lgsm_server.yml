@@ -1,7 +1,7 @@
 # vim: et
 ---
 
-- name: Stop LGSM server
+- name: Stop LGSM server for {{ item }}
   ignore_errors: true
   ansible.builtin.command:
     cmd: "bash {{ item }} stop"

@@ -3,7 +3,7 @@
 
 # Loop over the X_files variables to see which files to copy
 # look for them in the templates/X folder
-- name: Apply game server config files
+- name: Apply config files for {{ item }}
   ansible.builtin.copy:
     src: "{{ item }}/{{ config_file.source }}"
     dest: "{{ config_file.dest }}"
@@ -16,7 +16,7 @@
 
 # Loop over the X_templates variables to see which templates to copy
 # look for them in the templates/X folder
-- name: Apply game server template files
+- name: Apply template files for {{ item }}
   ansible.builtin.template:
     src: "{{ item }}/{{ template_file.source }}"
     dest: "{{ template_file.dest }}"
@@ -27,7 +27,7 @@
   loop_control:
     loop_var: template_file
 
-- name: Disable analytics
+- name: Disable analytics for {{ item }}
   ansible.builtin.lineinfile:
     path: "/home/{{ item }}/lgsm/config-lgsm/{{ item }}/common.cfg"
     regexp: '^stats=".*"'

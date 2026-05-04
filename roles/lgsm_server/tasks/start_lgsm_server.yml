@@ -1,7 +1,7 @@
 # vim: et
 ---
 
-- name: Start LGSM server
+- name: Start LGSM server for {{ item }}
   ansible.builtin.command:
     cmd: "bash {{ item }} restart"
     chdir: "/home/{{ item }}"

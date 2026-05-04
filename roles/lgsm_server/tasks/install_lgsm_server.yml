@@ -12,14 +12,14 @@
     path: "/home/{{ item }}/linuxgsm.sh"
   register: game_server_exists
 
-- name: Create the game server installer
+- name: Create the installer for {{ item }}
   ansible.builtin.command:
     cmd: "bash linuxgsm.sh {{ item }}"
     chdir: "/home/{{ item }}"
   when: not game_server_exists.stat.exists
 
 # WARNING: This step potentially takes a long time!
-- name: Install the server from the installer
+- name: Install {{ item }}
   ansible.builtin.expect:
     command: "bash {{ item }} install"
     chdir: "/home/{{ item }}"

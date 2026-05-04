@@ -1,7 +1,7 @@
 # vim: et
 ---
 
-- name: Install, configure, and start the game server
+- name: Install, configure, and start the game server {{ item }}
   # All tasks need to be done as the game server's service user
   become: true
   become_user: "{{ item }}"
@@ -10,14 +10,14 @@
     - name: See if LGSM server is installed
       ansible.builtin.stat:
         path: "/home/{{ item }}/serverfiles"
-      register: stat_results
+      register: lgsm_server_files
 
     # Potentially costly step, so skip if server is already installed
     # If we've run all of the steps successfully before, there will be
     # a cron job to keep the server updated anyway
     - name: Install LGSM server
       ansible.builtin.include_tasks: install_lgsm_server.yml
-      when: not stat_results.stat.exists
+      when: not lgsm_server_files.stat.exists
 
     # Config files placed in the next step may be overwritten
     # when the server restarts if it is already running
