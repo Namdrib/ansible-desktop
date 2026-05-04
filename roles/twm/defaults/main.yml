@@ -6,13 +6,13 @@ __twm_required_facts:
 
 # List of packages to install for a workstation with standalone WM
 twm_packages:
+  - awww # Wallpaper manager
   - darkman # Dark/light settings
   - fuzzel # Application launcher
   - niri # Scrolling window manager
   - playerctl # Control media player actions
   - swayidle # Idle manager
   - swaylock # Lock screen manager
-  - swww # Wallpaper manager
   - wev # Debug wayland events
   - xwayland-satellite # X application bridge
 
