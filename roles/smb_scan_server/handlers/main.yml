@@ -1,8 +1,8 @@
 # vim: et
 ---
 
-- name: Enable smbd
+- name: Reload smbd
   ansible.builtin.systemd_service:
+    state: reloaded
     name: smbd
-    enabled: true
-  notify: Reload smbd
+    daemon_reload: true
