@@ -11,6 +11,7 @@
     comment: Scanner user
     groups: scanner
     append: true
-    password: "{{ smb_scan_server_user_password | password_hash }}"
+    password: "{{ smb_scan_server_user_password | password_hash('sha512') }}"
+    update_password: on_create
     create_home: false
     shell: "/usr/sbin/nologin"
