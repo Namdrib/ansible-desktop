@@ -1,22 +1,18 @@
 # vim: et
 ---
 
-- name: Check if main shell theme file exists
-  ansible.builtin.stat:
-    path: "{{ powerline_shell_theme_file }}"
-  register: common_powerline_shell_file
+- name: Create powerline user customisation dirs
+  ansible.builtin.file:
+    path: "{{ item }}"
+    mode: '0755'
+    state: directory
+  loop:
+    - "{{ powerline_shell_theme_dir }}"
 
 - name: Set powerline main shell theme file
-  become: true
-  become_user: root
   ansible.builtin.copy:
-    src: powerline_shell_theme_file.json
-    dest: "{{ powerline_shell_theme_file }}"
+    src: powerline/shell_theme_file.json
+    dest: "{{ powerline_shell_theme_dir }}/__main__.json"
     mode: '0644'
-    owner: root
-    group: root
-  # Because the powerline shell theme file is in a system directory, we want to
-  # make sure it is correct, so we don't pollute the file system
-  # It gives a change to review if the config file has been renamed, changed,
-  # etc.
-  when: common_powerline_shell_file.stat.exists
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"

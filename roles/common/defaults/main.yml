@@ -4,3 +4,6 @@
 dotfiles_repo_url: "git@github.com:Namdrib/dotfiles"
 dotfiles_clone_dir: '{{ lookup("env", "HOME") }}/coding/git/namdrib/dotfiles'
 dotfiles_install_dir: '{{ lookup("env", "HOME") }}/.dotfiles'
+
+powerline_user_config_dir: '{{ lookup("env", "HOME") }}/.config/powerline'
+powerline_shell_theme_dir: "{{ powerline_user_config_dir }}/themes/shell"
