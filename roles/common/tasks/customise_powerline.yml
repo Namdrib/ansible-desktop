@@ -1,29 +1,14 @@
 # vim: et
 ---
 
-- name: Create powerline user customisation dirs
-  ansible.builtin.file:
-    path: "{{ item }}"
-    mode: '0755'
-    state: directory
-  loop:
-    - "{{ powerline_shell_theme_dir }}"
-    - "{{ powerline_tmux_theme_dir }}"
-
-- name: Set powerline main shell theme file
+# Because the src doesn't have a trailing slash, the entire directory _and_ its
+# contents are copied
+- name: Copy all powerline config files into user's config directory
   ansible.builtin.copy:
-    src: powerline/shell_theme_file.json
-    dest: "{{ powerline_shell_theme_dir }}/__main__.json"
+    src: powerline
+    dest: "{{ user_config_dir }}/"
     mode: '0644'
-    owner: "{{ main_username }}"
-    group: "{{ main_username }}"
-  notify: 'Reload powerline daemon'
-
-- name: Set powerline tmux theme file
-  ansible.builtin.copy:
-    src: powerline/tmux_theme_file.json
-    dest: "{{ powerline_tmux_theme_dir }}/__main__.json"
-    mode: '0644'
+    directory_mode: '0755'
     owner: "{{ main_username }}"
     group: "{{ main_username }}"
   notify: 'Reload powerline daemon'
