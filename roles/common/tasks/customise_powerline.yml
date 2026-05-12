@@ -8,11 +8,21 @@
     state: directory
   loop:
     - "{{ powerline_shell_theme_dir }}"
+    - "{{ powerline_tmux_theme_dir }}"
 
 - name: Set powerline main shell theme file
   ansible.builtin.copy:
     src: powerline/shell_theme_file.json
     dest: "{{ powerline_shell_theme_dir }}/__main__.json"
+    mode: '0644'
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+  notify: 'Reload powerline daemon'
+
+- name: Set powerline tmux theme file
+  ansible.builtin.copy:
+    src: powerline/tmux_theme_file.json
+    dest: "{{ powerline_tmux_theme_dir }}/__main__.json"
     mode: '0644'
     owner: "{{ main_username }}"
     group: "{{ main_username }}"
