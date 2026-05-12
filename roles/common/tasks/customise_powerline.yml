@@ -16,3 +16,4 @@
     mode: '0644'
     owner: "{{ main_username }}"
     group: "{{ main_username }}"
+  notify: 'Reload powerline daemon'

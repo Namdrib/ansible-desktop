@@ -1,0 +1,6 @@
+# vim: et
+---
+
+- name: Reload powerline daemon
+  ansible.builtin.command:
+    cmd: "powerline-daemon --replace"
