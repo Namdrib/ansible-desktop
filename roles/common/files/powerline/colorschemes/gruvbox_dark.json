@@ -1,15 +1,15 @@
 {
 	"name": "gruvbox_dark",
 	"groups": {
-		"information:additional":     { "fg": "gruvbox:light2", "bg": "gruvbox:dark2", "attrs": [] },
+		"information:additional":     { "fg": "gruvbox:light2", "bg": "gruvbox:dark1", "attrs": [] },
 		"information:regular":        { "fg": "gruvbox:light1", "bg": "gruvbox:dark2", "attrs": ["bold"] },
 		"information:highlighted":    { "fg": "white", "bg": "gray4", "attrs": [] },
 		"information:priority":       { "fg": "brightyellow", "bg": "mediumorange", "attrs": [] },
 		"warning:regular":            { "fg": "white", "bg": "brightred", "attrs": ["bold"] },
 		"critical:failure":           { "fg": "gruvbox:light0", "bg": "gruvbox:neutral_red", "attrs": [] },
-		"critical:success":           { "fg": "gruvbox_light0", "bg": "gruvbox:neutral_green", "attrs": [] },
+		"critical:success":           { "fg": "gruvbox:light0", "bg": "gruvbox:neutral_green", "attrs": [] },
 
-		"background":                 { "fg": "white", "bg": "gruvbox:dark0", "attrs": [] },
+		"background":                 { "fg": "white", "bg": "gruvbox:dark0_hard", "attrs": [] },
 		"background:divider":         { "fg": "gray5", "bg": "gruvbox:dark1", "attrs": [] },
 
 		"session":                    { "fg": "black", "bg": "gray10", "attrs": ["bold"] },
@@ -59,8 +59,8 @@
 		"stash:divider":              "branch:divider",
 		"cwd":                        "information:additional",
 		"cwd:current_folder":         "information:regular",
-		"cwd:divider":                { "fg": "gruvbox:light1", "bg": "gruvbox:dark2", "attrs": [] },
-		"virtualenv":                 { "fg": "white", "bg": "darkcyan", "attrs": [] },
+		"cwd:divider":                { "fg": "gruvbox:light2", "bg": "gruvbox:dark1", "attrs": [] },
+		"virtualenv":                 { "fg": "gruvbox:dark1", "bg": "gruvbox:neutral_blue", "attrs": [] },
 		"attached_clients":           { "fg": "gray8", "bg": "gray0", "attrs": [] }
 	}
 }
