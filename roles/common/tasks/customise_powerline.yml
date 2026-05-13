@@ -4,11 +4,7 @@
 # Because the src doesn't have a trailing slash, the entire directory _and_ its
 # contents are copied
 - name: Copy all powerline config files into user's config directory
-  ansible.builtin.copy:
+  ansible.posix.synchronize:
     src: powerline
     dest: "{{ user_config_dir }}/"
-    mode: '0644'
-    directory_mode: '0755'
-    owner: "{{ main_username }}"
-    group: "{{ main_username }}"
   notify: 'Reload powerline daemon'
