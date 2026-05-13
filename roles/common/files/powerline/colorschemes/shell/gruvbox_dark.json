@@ -1,0 +1,13 @@
+{
+	"name": "Gruvbox dark for shell",
+	"groups": {
+		"mode":     { "fg": "gruvbox:dark0_hard",  "bg": "gruvbox:bright_yellow", "attrs": ["bold"] }
+	},
+	"mode_translations": {
+		"vicmd": {
+			"groups": {
+				"mode": { "fg": "gruvbox:light1", "bg": "gruvbox:dark0_hard", "attrs": ["bold"] }
+			}
+		}
+	}
+}

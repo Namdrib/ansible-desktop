@@ -3,6 +3,9 @@
 		"term_truecolor": true
 	},
 	"ext": {
+		"shell": {
+			"colorscheme": "gruvbox_dark"
+		},
 		"tmux": {
 			"colorscheme": "gruvbox_dark"
 		}
