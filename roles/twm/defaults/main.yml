@@ -17,3 +17,8 @@ twm_packages:
   - xwayland-satellite # X application bridge
 
 twm_cursor_dir: /usr/share/icons/breeze_cursors
+
+twm_copr_repos:
+  # The chroot needs to be listed here: https://copr.fedorainfracloud.org/coprs/avengemedia/dms/build/9811434/
+  - avengemedia/dms # For dms
+  - alebastr/sway-extras # For awww
