@@ -12,7 +12,7 @@ twm_packages:
   - niri # Scrolling window manager
   - playerctl # Control media player actions
   - swayidle # Idle manager
-  - swaylock # Lock screen manager
+  - swaylock-effects # Lock screen manager (from AUR/COPR)
   - wev # Debug wayland events
   - xwayland-satellite # X application bridge
 
@@ -22,3 +22,4 @@ twm_copr_repos:
   # The chroot needs to be listed here: https://copr.fedorainfracloud.org/coprs/avengemedia/dms/build/9811434/
   - avengemedia/dms # For dms
   - alebastr/sway-extras # For awww
+  - eddsalkield/swaylock-effects # For swaylock-effects
