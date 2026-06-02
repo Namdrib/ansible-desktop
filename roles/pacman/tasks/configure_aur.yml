@@ -5,32 +5,32 @@
 - name: Install Chaotic AUR primary key
   become: true
   ansible.builtin.command: pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-  register: key_install
+  register: pacman_aur_key_install
   changed_when: '"not changed" not in key_install.stderr'
 
 - name: Debug installing Chaoric AUR primary key
   ansible.builtin.debug:
-    msg: "{{ key_install.stderr }}"
+    msg: "{{ pacman_aur_key_install.stderr }}"
 
 - name: Sign the Chaotic AUR primary key
   become: true
   ansible.builtin.command: pacman-key --lsign-key 3056513887B78AEB
-  register: key_sign
-  changed_when: '"Locally signed" in key_sign.stderr'
+  register: pacman_aur_key_sign
+  changed_when: '"Locally signed" in pacman_aur_key_sign.stderr'
 
 - name: Debug signing Chaoric AUR primary key
   ansible.builtin.debug:
-    msg: "{{ key_sign.stderr }}"
+    msg: "{{ pacman_aur_key_sign.stderr }}"
 
 - name: Install Chaoric AUR packages
   become: true
   ansible.builtin.command: pacman -U --noconfirm --needed 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-  register: aur_packages
-  changed_when: '"nothing to do" not in aur_packages.stdout'
+  register: pacman_aur_aur_packages
+  changed_when: '"nothing to do" not in pacman_aur_aur_packages.stdout'
 
 - name: Debug installing Chaoric AUR packages
   ansible.builtin.debug:
-    msg: "{{ aur_packages.stdout }}"
+    msg: "{{ pacman_aur_aur_packages.stdout }}"
 
 - name: Install AUR packages
   become: true

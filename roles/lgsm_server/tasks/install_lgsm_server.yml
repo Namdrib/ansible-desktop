@@ -7,16 +7,16 @@
     dest: "/home/{{ item }}/linuxgsm.sh"
     mode: "0775"
 
-- name: "Check if the {{ item }} user home exists"
+- name: "Check if home directory exists - {{ item }}"
   ansible.builtin.stat:
     path: "/home/{{ item }}/linuxgsm.sh"
-  register: game_server_exists
+  register: lgsm_server_user_home
 
-- name: Create the installer for {{ item }}
+- name: "Create the installer - {{ item }}"
   ansible.builtin.command:
     cmd: "bash linuxgsm.sh {{ item }}"
     chdir: "/home/{{ item }}"
-  when: not game_server_exists.stat.exists
+  when: not lgsm_server_user_home.stat.exists
 
 # WARNING: This step potentially takes a long time!
 - name: Install {{ item }}

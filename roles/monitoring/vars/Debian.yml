@@ -1,3 +1,5 @@
+# vim: et
+---
 
 monitoring_packages_platform_specific:
   - bind9-utils
