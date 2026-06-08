@@ -1,0 +1,6 @@
+# vim: et
+---
+
+opnsense_unbound_enabled: true
+opnsense_unbound_register_dhcp_static_mappings: false
+opnsense_unbound_dnssec_enabled: true

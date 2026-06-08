@@ -1,0 +1,10 @@
+# vim: et
+---
+
+- name: Configure Unbound general settings
+  oxlorg.opnsense.unbound_general:
+    enabled: "{{ opnsense_unbound_enabled | bool }}"
+    register_dhcp_static_mappings: "{{ opnsense_unbound_register_dhcp_static_mappings | bool }}"
+    reload: false
+    dnssec: "{{ opnsense_unbound_dnssec_enabled | bool }}"
+  notify: Reload Unbound
