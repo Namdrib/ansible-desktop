@@ -5,6 +5,9 @@ all:
       hosts:
         beans:
         nas01:
+    firewalls:
+      hosts:
+        firewall01:
     dockerhosts:
       hosts:
         apps01:
@@ -87,6 +90,7 @@ all:
         apps01:
         apps02:
         bomb:
+        firewall01:
         nas01:
         pve01:
         pve02:
