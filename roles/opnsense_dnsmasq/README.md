@@ -1,7 +1,7 @@
 # OPNsense dnsmasq
 
-This role configures dnsmasq with the following high-level goals:
-- DHCP server
-- Static DHCP leases
-- DNS resolution of local hosts
-    - Primary DNS resolution is handled by Unbound
+This role configures dnsmasq as a DHCP server
+
+1. Unbound acts as the primary resolver
+2. dnsmasq acts as the DHCP server, and has static DHCP reservations (see: roles/opnsense_dnsmasq)
+3. Unbound forwards the LAN zone to dnsmasq so local clients can be resolved by dnsmasq
