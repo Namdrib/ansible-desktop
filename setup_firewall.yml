@@ -22,3 +22,5 @@
   roles:
     - role: opnsense_unbound
       tags: opnsense_unbound
+    - role: opnsense_dnsmasq
+      tags: opnsense_dnsmasq
