@@ -19,7 +19,7 @@ tasmota:
 	ansible-playbook -i inventory.yml setup_tasmota_devices.yml -D
 
 dhcp:
-	ansible-playbook -i inventory.yml setup_pihole_dns_dhcp_server.yml --limit north_east -K -b -D -C
+	ansible-playbook -i inventory.yml setup_firewall.yml --limit north_east -D
 
 apps01:
 	ansible-playbook setup_host_apps01.yml -K -D
