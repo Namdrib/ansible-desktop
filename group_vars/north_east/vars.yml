@@ -31,6 +31,7 @@ dhcp_reservations:
   - { ip: "{{ network_subnet }}.46", mac: ac:67:84:0d:f0:ec, hostname: Kitchen-Display, description: "Google Home Mini" }
   - { ip: "{{ network_subnet }}.48", mac: 54:2a:1b:5c:f6:20, hostname: SonosZP-wireless, description: "Speaker (IKEA Symfonisk Lamp) wireless" }
   - { ip: "{{ network_subnet }}.49", mac: b8:b4:09:56:20:c0, hostname: samsung-tv01, description: "TV (Samsung Frame) wired" }
+  - { ip: "{{ network_subnet }}.51", mac: a4:c1:e8:66:d4:89, hostname: switch2, description: "Nintendo Switch 2" }
 
   ## Personal devices. Leaving space for wired and wireless
   - { ip: "{{ network_subnet }}.60", mac: 18:c0:4d:3c:85:e9, hostname: DESKTOP-1TOA6VN, description: "B desktop wired" }
