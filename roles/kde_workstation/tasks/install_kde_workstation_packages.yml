@@ -2,6 +2,7 @@
 ---
 
 - name: Install packages we want
+  become: true
   ansible.builtin.package:
     name: "{{ kde_workstation_packages_to_install }}"
     state: present
