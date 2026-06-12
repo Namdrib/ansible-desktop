@@ -1,0 +1,22 @@
+# vim: et
+---
+
+# Whether to enable dnsmasq
+opnsense_dnsmasq_enabled: true
+opnsense_dnsmasq_authoritative: true
+
+# Whether to register the FQDN of DHCP entries into DNS
+opnsense_dnsmasq_dhcp_fqdn: true
+
+# Whether to automatically register firewall rules to allow DHCP traffic
+opnsense_dnsmasq_fw_rules: true
+
+# Whether to forward lookups (PTR) for private addresses (RFC 1918) to upstream
+# name servers
+opnsense_dnsmasq_forward_private_reverse: false
+
+# 53 is used by Unbound
+opnsense_dnsmasq_port: 53053
+
+opnsense_dnsmasq_start_addr: "{{ dhcp_range_start }}"
+opnsense_dnsmasq_end_addr: "{{ dhcp_range_end }}"

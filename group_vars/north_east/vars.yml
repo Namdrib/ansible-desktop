@@ -3,6 +3,7 @@ samba_host_name: nas01
 # Home networking
 # See: https://blog.ktz.me/fully-automated-dns-and-dhcp-with-pihole-and-dnsmasq/
 network_subnet: "{{ vault_network_subnet }}"
+network_reverse_dns_zone: "{{ vault_reverse_network_subnet }}.in-addr.arpa"
 default_domain: "home.arpa"
 network_cidr: "{{ network_subnet }}.0/24"
 dhcp_range_start: "{{ network_subnet }}.5"
@@ -18,55 +19,55 @@ dns_overrides:
 
 dhcp_reservations:
   ## Infra
-  - { ip: "{{ network_subnet }}.1", mac: f8:ca:59:ae:f1:6b, hostname: firewall01 } # Protectli Vault (FW4C)
-  - { ip: "{{ network_subnet }}.2", mac: 82:bf:24:fe:62:8b, hostname: wap01 } # Travel router / Wi-Fi AP
-  - { ip: "{{ network_subnet }}.3", mac: 8c:90:2d:17:73:fc, hostname: wap02 } # TP-Link EAP650
+  - { ip: "{{ network_subnet }}.1", mac: f8:ca:59:ae:f1:6b, hostname: firewall01, description: "Protectli Vault (FW4C)" }
+  - { ip: "{{ network_subnet }}.2", mac: 82:bf:24:fe:62:8b, hostname: wap01, description: "Travel router / Wi-Fi AP" }
+  - { ip: "{{ network_subnet }}.3", mac: 8c:90:2d:17:73:fc, hostname: wap02, description: "TP-Link EAP650" }
 
   ## Entertainment. Leaving space for wired and wireless
-  - { ip: "{{ network_subnet }}.40", mac: b4:b2:91:ed:04:f6, hostname: lg-tv01 } # TV (LG TVUP8000) wired
-  - { ip: "{{ network_subnet }}.41", mac: 8c:19:b5:cc:b3:d0, hostname: lg-tv01-wireless } # TV (LG TVUP8000) wireless
-  - { ip: "{{ network_subnet }}.42", mac: ac:bf:71:2d:e1:4b, hostname: Bose-Smart-Soundbar-600 } # Speaker (Bose Smart Soundbar 600) wired
-  - { ip: "{{ network_subnet }}.44", mac: 84:e6:57:a5:1c:d6, hostname: PlayStation-5 } # PlayStation 5 wired
-  - { ip: "{{ network_subnet }}.46", mac: ac:67:84:0d:f0:ec, hostname: Kitchen-Display } # Google Home Mini
-  - { ip: "{{ network_subnet }}.47", mac: 54:2a:1b:5c:f6:20, hostname: SonosZP-wireless } # Speaker (IKEA Symfonisk Lamp) wireless
-  - { ip: "{{ network_subnet }}.49", mac: b8:b4:09:56:20:c0, hostname: samsung-tv01 } # TV (Samsung Frame) wired
+  - { ip: "{{ network_subnet }}.40", mac: b4:b2:91:ed:04:f6, hostname: lg-tv01, description: "TV (LG TVUP8000) wired" }
+  - { ip: "{{ network_subnet }}.41", mac: 8c:19:b5:cc:b3:d0, hostname: lg-tv01-wireless, description: "TV (LG TVUP8000) wireless" }
+  - { ip: "{{ network_subnet }}.42", mac: ac:bf:71:2d:e1:4b, hostname: Bose-Smart-Soundbar-600, description: "Speaker (Bose Smart Soundbar 600) wired" }
+  - { ip: "{{ network_subnet }}.44", mac: 84:e6:57:a5:1c:d6, hostname: PlayStation-5, description: "PlayStation 5 wired" }
+  - { ip: "{{ network_subnet }}.46", mac: ac:67:84:0d:f0:ec, hostname: Kitchen-Display, description: "Google Home Mini" }
+  - { ip: "{{ network_subnet }}.47", mac: 54:2a:1b:5c:f6:20, hostname: SonosZP-wireless, description: "Speaker (IKEA Symfonisk Lamp) wireless" }
+  - { ip: "{{ network_subnet }}.49", mac: b8:b4:09:56:20:c0, hostname: samsung-tv01, description: "TV (Samsung Frame) wired" }
 
   ## Personal devices. Leaving space for wired and wireless
-  - { ip: "{{ network_subnet }}.60", mac: 18:c0:4d:3c:85:e9, hostname: DESKTOP-1TOA6VN } # Beck desktop wired
-  - { ip: "{{ network_subnet }}.62", mac: e2:c0:15:12:4e:d8, hostname: watermelon-cake } # Phone (Asus Zenfone 8)
-  - { ip: "{{ network_subnet }}.63", mac: ac:5f:3e:4c:e7:d3, hostname: rabid-tweezers } # Phone (Samsung Galaxy S7)
-  - { ip: "{{ network_subnet }}.64", mac: 82:ba:5b:77:d6:48, hostname: hippo-bonanza } # Phone (Samsung Galaxy S10e)
-  - { ip: "{{ network_subnet }}.65", mac: a8:a1:59:42:50:00, hostname: triple-coaster } # Denton desktop wired
-  - { ip: "{{ network_subnet }}.67", mac: 82:fe:11:40:cf:de, hostname: gangsta-pudding } # Phone (Google Pixel 8)
+  - { ip: "{{ network_subnet }}.60", mac: 18:c0:4d:3c:85:e9, hostname: DESKTOP-1TOA6VN, description: "B desktop wired" }
+  - { ip: "{{ network_subnet }}.62", mac: e2:c0:15:12:4e:d8, hostname: watermelon-cake, description: "Phone (Asus Zenfone 8)" }
+  - { ip: "{{ network_subnet }}.63", mac: ac:5f:3e:4c:e7:d3, hostname: rabid-tweezers, description: "Phone (Samsung Galaxy S7)" }
+  - { ip: "{{ network_subnet }}.64", mac: 82:ba:5b:77:d6:48, hostname: hippo-bonanza, description: "Phone (Samsung Galaxy S10e)" }
+  - { ip: "{{ network_subnet }}.65", mac: a8:a1:59:42:50:00, hostname: triple-coaster, description: "D desktop wired" }
+  - { ip: "{{ network_subnet }}.67", mac: 82:fe:11:40:cf:de, hostname: gangsta-pudding, description: "Phone (Google Pixel 8)" }
 
   ## Servers
-  # - { ip: "{{ network_subnet }}.80", mac: dc:a6:32:41:23:d5, hostname: bomb } # Raspberry Pi4
-  - { ip: "{{ network_subnet }}.81", mac: 00:d8:61:a9:cb:96, hostname: pve01 } # Proxmox (Main server)
-  - { ip: "{{ network_subnet }}.82", mac: 6c:2b:59:d6:8d:21, hostname: pve02 } # Proxmox (Optiplex 7060) wired
-  - { ip: "{{ network_subnet }}.83", mac: 52:36:ad:f0:4d:91, hostname: nas01 } # Network storage
-  - { ip: "{{ network_subnet }}.85", mac: fa:e4:7e:2a:6e:e3, hostname: apps01 } # Docker host
-  - { ip: "{{ network_subnet }}.86", mac: bc:24:11:32:c0:59, hostname: apps02 } # Docker host - for transcodes
-  - { ip: "{{ network_subnet }}.90", mac: 94:dd:f8:01:0b:b7, hostname: printer01 } # Printer (Brother MFC-L2880DW) wired
-  - { ip: "{{ network_subnet }}.91", mac: 00:41:0e:4a:68:46, hostname: printer01-wireless } # Printer (Brother MFC-L2880DW) wireless
+  # - { ip: "{{ network_subnet }}.80", mac: dc:a6:32:41:23:d5, hostname: bomb, description: "Raspberry Pi4" }
+  - { ip: "{{ network_subnet }}.81", mac: 00:d8:61:a9:cb:96, hostname: pve01, description: "Proxmox (Main server)" }
+  - { ip: "{{ network_subnet }}.82", mac: 6c:2b:59:d6:8d:21, hostname: pve02, description: "Proxmox (Optiplex 7060) wired" }
+  - { ip: "{{ network_subnet }}.83", mac: 52:36:ad:f0:4d:91, hostname: nas01, description: "Network storage" }
+  - { ip: "{{ network_subnet }}.85", mac: fa:e4:7e:2a:6e:e3, hostname: apps01, description: "Docker host" }
+  - { ip: "{{ network_subnet }}.86", mac: bc:24:11:32:c0:59, hostname: apps02, description: "Docker host - for transcodes" }
+  - { ip: "{{ network_subnet }}.90", mac: 94:dd:f8:01:0b:b7, hostname: printer01, description: "Printer (Brother MFC-L2880DW) wired" }
+  - { ip: "{{ network_subnet }}.91", mac: 00:41:0e:4a:68:46, hostname: printer01-wireless, description: "Printer (Brother MFC-L2880DW) wireless" }
 
   ## IoT devices
-  - { ip: "{{ network_subnet }}.200", mac: 5c:a6:e6:27:3e:e4, hostname: plug-spare } # TP-Link Tapo P100 (Spare)
-  - { ip: "{{ network_subnet }}.201", mac: 5c:a6:e6:27:39:17, hostname: plug-br1-lamp } # TP-Link Tapo P100 (Bedroom 1)
-  - { ip: "{{ network_subnet }}.202", mac: 4c:eb:d6:de:18:18, hostname: b-desktop-6168 } # Athom Smart Plug (tasmota_DE1818)
-  - { ip: "{{ network_subnet }}.203", mac: 4c:eb:d6:dd:77:ca, hostname: server-6090 } # Athom Smart Plug (tasmota_DD77CA)
-  - { ip: "{{ network_subnet }}.204", mac: 4c:eb:d6:dd:77:33, hostname: fridge-5939 } # Athom Smart Plug (tasmota_DD7733)
-  - { ip: "{{ network_subnet }}.205", mac: 4c:eb:d6:de:06:c7, hostname: washing-machine-1735 } # Athom Smart Plug (tasmota_DE06C7)
-  - { ip: "{{ network_subnet }}.206", mac: 4c:eb:d6:dd:d2:58, hostname: d-desktop-4696 } # Athom Smart Plug (tasmota_DDD258)
-  - { ip: "{{ network_subnet }}.207", mac: 4c:eb:d6:dd:50:0f, hostname: dishwasher-4111 } # Athom Smart Plug (tasmota_DD500F)
-  - { ip: "{{ network_subnet }}.208", mac: 48:e1:e9:b6:54:7f, hostname: garage-door-opener-1 } # Meross Smart Garage Door Opener
-  - { ip: "{{ network_subnet }}.209", mac: a0:b7:65:ca:60:90, hostname: wled-ca6090 } # WLED controller for LG TV backlight (QuinLED-dig2go)
-  - { ip: "{{ network_subnet }}.210", mac: ec:e3:34:53:3e:68, hostname: inverter01 } # GoodWe EHB Inverter
-  - { ip: "{{ network_subnet }}.212", mac: 34:ab:95:a7:90:98, hostname: tv-lounge-4248 } # Athom Smart Plug (tasmota_A79098)
-  - { ip: "{{ network_subnet }}.213", mac: 34:ab:95:a7:8b:21, hostname: network-2849 } # Athom Smart Plug (tasmota_A78B21)
-  - { ip: "{{ network_subnet }}.214", mac: 70:c9:32:30:d6:30, hostname: robovac } # Dreame L10s Ultra
-  - { ip: "{{ network_subnet }}.215", mac: ec:71:db:8d:a2:d0, hostname: doorbell } # Reolink PoE Video Doorbell
-  - { ip: "{{ network_subnet }}.216", mac: ec:71:db:4e:8c:c9, hostname: indoor-cam } # Reolink E1 Zoom Indoor Cam wired
-  - { ip: "{{ network_subnet }}.217", mac: d0:12:55:85:98:40, hostname: indoor-cam-wireless } # Reolink E1 Zoom Indoor Cam wireless
-  - { ip: "{{ network_subnet }}.218", mac: ec:71:db:6a:b4:c3, hostname: carport-cam } # Reolink CX410
-  - { ip: "{{ network_subnet }}.219", mac: ec:71:db:39:5f:6c, hostname: back-cam } # Reolink CX410
-  - { ip: "{{ network_subnet }}.220", mac: dc:03:98:05:86:ab, hostname: washing-machine } # LG
+  - { ip: "{{ network_subnet }}.200", mac: 5c:a6:e6:27:3e:e4, hostname: plug-spare, description: "TP-Link Tapo P100 (Spare)" }
+  - { ip: "{{ network_subnet }}.201", mac: 5c:a6:e6:27:39:17, hostname: plug-br1-lamp, description: "TP-Link Tapo P100 (Bedroom 1)" }
+  - { ip: "{{ network_subnet }}.202", mac: 4c:eb:d6:de:18:18, hostname: b-desktop-6168, description: "Athom Smart Plug (tasmota_DE1818)" }
+  - { ip: "{{ network_subnet }}.203", mac: 4c:eb:d6:dd:77:ca, hostname: server-6090, description: "Athom Smart Plug (tasmota_DD77CA)" }
+  - { ip: "{{ network_subnet }}.204", mac: 4c:eb:d6:dd:77:33, hostname: fridge-5939, description: "Athom Smart Plug (tasmota_DD7733)" }
+  - { ip: "{{ network_subnet }}.205", mac: 4c:eb:d6:de:06:c7, hostname: washing-machine-1735, description: "Athom Smart Plug (tasmota_DE06C7)" }
+  - { ip: "{{ network_subnet }}.206", mac: 4c:eb:d6:dd:d2:58, hostname: d-desktop-4696, description: "Athom Smart Plug (tasmota_DDD258)" }
+  - { ip: "{{ network_subnet }}.207", mac: 4c:eb:d6:dd:50:0f, hostname: dishwasher-4111, description: "Athom Smart Plug (tasmota_DD500F)" }
+  - { ip: "{{ network_subnet }}.208", mac: 48:e1:e9:b6:54:7f, hostname: garage-door-opener-1, description: "Meross Smart Garage Door Opener" }
+  - { ip: "{{ network_subnet }}.209", mac: a0:b7:65:ca:60:90, hostname: wled-ca6090, description: "WLED controller for LG TV backlight (QuinLED-dig2go)" }
+  - { ip: "{{ network_subnet }}.210", mac: ec:e3:34:53:3e:68, hostname: inverter01, description: "GoodWe EHB Inverter" }
+  - { ip: "{{ network_subnet }}.212", mac: 34:ab:95:a7:90:98, hostname: tv-lounge-4248, description: "Athom Smart Plug (tasmota_A79098)" }
+  - { ip: "{{ network_subnet }}.213", mac: 34:ab:95:a7:8b:21, hostname: network-2849, description: "Athom Smart Plug (tasmota_A78B21)" }
+  - { ip: "{{ network_subnet }}.214", mac: 70:c9:32:30:d6:30, hostname: robovac, description: "Dreame L10s Ultra" }
+  - { ip: "{{ network_subnet }}.215", mac: ec:71:db:8d:a2:d0, hostname: doorbell, description: "Reolink PoE Video Doorbell" }
+  - { ip: "{{ network_subnet }}.216", mac: ec:71:db:4e:8c:c9, hostname: indoor-cam, description: "Reolink E1 Zoom Indoor Cam wired" }
+  - { ip: "{{ network_subnet }}.217", mac: d0:12:55:85:98:40, hostname: indoor-cam-wireless, description: "Reolink E1 Zoom Indoor Cam wireless" }
+  - { ip: "{{ network_subnet }}.218", mac: ec:71:db:6a:b4:c3, hostname: carport-cam, description: "Reolink CX410 (car port)" }
+  - { ip: "{{ network_subnet }}.219", mac: ec:71:db:39:5f:6c, hostname: back-cam, description: "Reolink CX410 (back)" }
+  - { ip: "{{ network_subnet }}.220", mac: dc:03:98:05:86:ab, hostname: washing-machine, description: "LG" }

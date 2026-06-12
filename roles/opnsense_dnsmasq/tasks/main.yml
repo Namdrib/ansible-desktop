@@ -1,0 +1,34 @@
+# vim: et
+---
+
+- name: Enable dnsmasq DHCP
+  oxlorg.opnsense.dnsmasq_general:
+    enabled: "{{ opnsense_dnsmasq_enabled | bool }}"
+    port: "{{ opnsense_dnsmasq_port | int }}"
+    dhcp_fqdn: "{{ opnsense_dnsmasq_dhcp_fqdn }}"
+    dhcp_default_fw_rules: "{{ opnsense_dnsmasq_fw_rules | bool }}"
+    forward_private_reverse: "{{ opnsense_dnsmasq_forward_private_reverse | bool }}"
+    reload: false
+  notify: Reload dnsmasq
+
+- name: Set up the DHCP range
+  oxlorg.opnsense.dnsmasq_range:
+    description: "LAN"
+    interface: "LAN"
+    domain: "{{ default_domain }}"
+    start_addr: "{{ opnsense_dnsmasq_start_addr }}"
+    end_addr: "{{ opnsense_dnsmasq_end_addr }}"
+  notify: Reload dnsmasq
+
+- name: Add static DHCP reservations
+  oxlorg.opnsense.dnsmasq_host:
+    description: "{{ item.description }}"
+    host: "{{ item.hostname }}"
+    local: true
+    ip: "{{ item.ip }}"
+    hardware_addr: "{{ item.mac }}"
+    state: present
+  with_items: "{{ dhcp_reservations }}"
+  notify: Reload dnsmasq
+  tags:
+    - dhcp_reservations_tag

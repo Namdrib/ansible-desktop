@@ -1,0 +1,7 @@
+# vim: et
+---
+
+- name: Reload dnsmasq
+  oxlorg.opnsense.service:
+    name: dnsmasq
+    action: reload

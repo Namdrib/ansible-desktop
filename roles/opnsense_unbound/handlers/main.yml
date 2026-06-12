@@ -1,0 +1,7 @@
+# vim: et
+---
+
+- name: Reload Unbound
+  oxlorg.opnsense.service:
+    name: unbound
+    action: reload

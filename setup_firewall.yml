@@ -1,0 +1,30 @@
+# vim: et
+---
+
+- name: Setup firewall host
+  # This doesn't actually matter - as long as it's:
+  # - Resolvable
+  # - In the same location group as the firewall being targetted
+  # It just happens to be that ansible_host will be correct if this is firwalls
+  hosts: firewalls
+  # These steps run on the Ansible runner, and target opnsense via the API
+  connection: local
+
+  vars:
+    opnsense_api_key: "{{ vault_opnsense_api_key }}"
+    opnsense_api_secret: "{{ vault_opnsense_api_secret }}"
+    opnsense_ssl_verify: false
+
+  module_defaults:
+    # These same vars are used across all modules of oxlorg.opnsense
+    group/oxlorg.opnsense.all:
+      firewall: "{{ ansible_host }}"
+      api_key: "{{ opnsense_api_key }}"
+      api_secret: "{{ opnsense_api_secret }}"
+      ssl_verify: "{{ opnsense_ssl_verify }}"
+
+  roles:
+    - role: opnsense_unbound
+      tags: opnsense_unbound
+    - role: opnsense_dnsmasq
+      tags: opnsense_dnsmasq

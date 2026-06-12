@@ -1,0 +1,30 @@
+# vim: et
+---
+
+- name: Configure Unbound general settings
+  oxlorg.opnsense.unbound_general:
+    enabled: "{{ opnsense_unbound_enabled | bool }}"
+    register_dhcp_static_mappings: "{{ opnsense_unbound_register_dhcp_static_mappings | bool }}"
+    reload: false
+    dnssec: "{{ opnsense_unbound_dnssec_enabled | bool }}"
+  notify: Reload Unbound
+
+- name: Forward local domain queries to dnsmasq (forward lookup)
+  oxlorg.opnsense.unbound_forward:
+    domain: "{{ default_domain }}"
+    target: '127.0.0.1'
+    port: "{{ opnsense_dnsmasq_port }}"
+    description: "LAN Forward Lookup"
+    state: present
+    reload: false
+  notify: Reload Unbound
+
+- name: Forward local domain queries to dnsmasq (reverse lookup)
+  oxlorg.opnsense.unbound_forward:
+    domain: "{{ network_reverse_dns_zone }}"
+    target: '127.0.0.1'
+    port: "{{ opnsense_dnsmasq_port }}"
+    description: "LAN Reverse Lookup"
+    state: present
+    reload: false
+  notify: Reload Unbound
