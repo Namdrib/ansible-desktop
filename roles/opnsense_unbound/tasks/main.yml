@@ -9,8 +9,7 @@
     dnssec: "{{ opnsense_unbound_dnssec_enabled | bool }}"
   notify: Reload Unbound
 
-# This forawrds queries for DHCP clients to dnsmasq
-- name: Configure DHCP query forwarding (forward lookup)
+- name: Forward local domain queries to dnsmasq (forward lookup)
   oxlorg.opnsense.unbound_forward:
     domain: "{{ default_domain }}"
     target: '127.0.0.1'
@@ -20,8 +19,7 @@
     reload: false
   notify: Reload Unbound
 
-# This forawrds queries for DHCP clients to dnsmasq
-- name: Configure DHCP query forwarding (reverse lookup)
+- name: Forward local domain queries to dnsmasq (reverse lookup)
   oxlorg.opnsense.unbound_forward:
     domain: "{{ network_reverse_dns_zone }}"
     target: '127.0.0.1'
