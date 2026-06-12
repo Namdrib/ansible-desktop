@@ -2,6 +2,10 @@
 ---
 
 - name: Setup firewall host
+  # This doesn't actually matter - as long as it's:
+  # - Resolvable
+  # - In the same location group as the firewall being targetted
+  # It just happens to be that ansible_host will be correct if this is firwalls
   hosts: firewalls
   # These steps run on the Ansible runner, and target opnsense via the API
   connection: local
