@@ -30,3 +30,5 @@
     state: present
   with_items: "{{ dhcp_reservations }}"
   notify: Reload dnsmasq
+  tags:
+    - dhcp_reservations_tag
