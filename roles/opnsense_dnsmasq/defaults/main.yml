@@ -3,7 +3,9 @@
 
 # Whether to enable dnsmasq
 opnsense_dnsmasq_enabled: true
-opnsense_dnsmasq_authoritative: true
+
+# Whether dnsmasq is definitely the only DHCP server on the network
+opnsense_dnsmasq_dhcp_authoritative: true
 
 # Whether to register the FQDN of DHCP entries into DNS
 opnsense_dnsmasq_dhcp_fqdn: true

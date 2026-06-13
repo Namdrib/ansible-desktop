@@ -6,6 +6,7 @@
     enabled: "{{ opnsense_dnsmasq_enabled | bool }}"
     port: "{{ opnsense_dnsmasq_port | int }}"
     dhcp_fqdn: "{{ opnsense_dnsmasq_dhcp_fqdn }}"
+    dhcp_authoritative: "{{ opnsense_dnsmasq_dhcp_authoritative }}"
     dhcp_default_fw_rules: "{{ opnsense_dnsmasq_fw_rules | bool }}"
     forward_private_reverse: "{{ opnsense_dnsmasq_forward_private_reverse | bool }}"
     reload: false
