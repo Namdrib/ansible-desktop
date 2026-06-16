@@ -1,0 +1,19 @@
+# vim: et
+---
+
+# This can be used to see the state of the current blocklists
+# Not too sure how to list all available blocklists
+# - name: List DNS blocklists
+#   oxlorg.opnsense.list:
+#     target: unbound_dnsbl
+#   register: thing
+
+# - name: Print DNS blocklists
+#   debug:
+#     msg: "{{ thing }}"
+
+- name: Add DNS Blocklists
+  oxlorg.opnsense.unbound_dnsbl:
+    name: 'General Blocklists'
+    enabled: true
+    providers: "{{ opnsense_unbound_blocklist_providers }}"

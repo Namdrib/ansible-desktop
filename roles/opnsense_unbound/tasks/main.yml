@@ -28,3 +28,10 @@
     state: present
     reload: false
   notify: Reload Unbound
+
+- name: Set up DNS blocklists
+  ansible.builtin.import_tasks: setup_dns_blocklists.yml
+  notify: Reload Unbound
+  tags:
+    - unbound
+    - blocklists

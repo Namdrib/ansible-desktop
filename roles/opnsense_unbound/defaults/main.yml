@@ -4,3 +4,8 @@
 opnsense_unbound_enabled: true
 opnsense_unbound_register_dhcp_static_mappings: false
 opnsense_unbound_dnssec_enabled: true
+
+opnsense_unbound_blocklist_providers:
+  - 'ep' # Easy Privacy
+  - 'oisd0' # Ads Blocklist
+  - 'sb' # Steven Black
