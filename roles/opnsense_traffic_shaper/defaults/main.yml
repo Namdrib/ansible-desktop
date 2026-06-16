@@ -1,0 +1,47 @@
+# vim: et
+---
+
+# Whether to enable traffic shaping
+opnsense_traffic_shaper_enabled: true
+
+# These pipes are configured to mitigate the effects of bufferbloat
+# The bandwidth may need to be tailored for each deployment
+opnsense_traffic_shaper_pipes:
+  - description: 'Download pipe'
+    bandwidth: 503
+    units: 'Mbit'
+    scheduler: 'fq_codel'
+    codel_ecn_enable: true
+    enabled: true
+  - description: 'Upload pipe'
+    bandwidth: 53
+    units: 'Mbit'
+    scheduler: 'fq_codel'
+    codel_ecn_enable: true
+    enabled: true
+
+opnsense_traffic_shaper_queues:
+  - description: 'Download queue'
+    pipe: 'Download pipe'
+    weight: 100
+    enabled: true
+  - description: 'Upload queue'
+    pipe: 'Upload pipe'
+    weight: 100
+    enabled: true
+
+opnsense_traffic_shaper_rules:
+  - description: 'Download rule'
+    target_pipe: 'Download pipe'
+    target_queue: 'Download queue'
+    direction: 'in'
+    interface: 'wan'
+    sequence: 1
+    enabled: true
+  - description: 'Upload rule'
+    target_pipe: 'Upload pipe'
+    target_queue: 'Upload queue'
+    direction: 'out'
+    interface: 'wan'
+    sequence: 2
+    enabled: true

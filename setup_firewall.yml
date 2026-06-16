@@ -28,3 +28,5 @@
       tags: opnsense_unbound
     - role: opnsense_dnsmasq
       tags: opnsense_dnsmasq
+    - role: opnsense_traffic_shaper
+      tags: opnsense_traffic_shaper

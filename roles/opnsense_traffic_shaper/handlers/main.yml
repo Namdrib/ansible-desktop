@@ -1,0 +1,7 @@
+# vim: et
+---
+
+- name: Reload traffic shaper
+  oxlorg.opnsense.service:
+    name: shaper
+    action: reload

@@ -1,0 +1,49 @@
+# vim: et
+---
+
+- name: Create shaper pipes
+  oxlorg.opnsense.shaper_pipe:
+    description: "{{ item.description }}"
+    bandwidth: "{{ item.bandwidth }}"
+    bandwidth_metric: "{{ item.units }}"
+    scheduler: "{{ item.scheduler }}"
+    codel_ecn_enable: "{{ item.codel_ecn_enable | bool }}"
+    enabled: "{{ item.enabled | bool }}"
+    reload: false
+  notify: Reload shaper
+  loop: "{{ opnsense_traffic_shaper_pipes }}"
+  when: opnsense_traffic_shaper_enabled
+  tags:
+    - shaper
+    - pipes
+
+- name: Create shaper queues
+  oxlorg.opnsense.shaper_queue:
+    description: "{{ item.description }}"
+    pipe: "{{ item.pipe }}"
+    weight: "{{ item.weight }}"
+    enabled: "{{ item.enabled | bool }}"
+    reload: false
+  notify: Reload shaper
+  loop: "{{ opnsense_traffic_shaper_queues }}"
+  when: opnsense_traffic_shaper_enabled
+  tags:
+    - shaper
+    - queues
+
+- name: Create shaper rules
+  oxlorg.opnsense.shaper_rule:
+    description: "{{ item.description }}"
+    target_pipe: "{{ item.target_pipe }}"
+    target_queue: "{{ item.target_queue }}"
+    direction: "{{ item.direction }}"
+    interface: "{{ item.interface }}"
+    sequence: "{{ item.sequence }}"
+    enabled: "{{ item.enabled | bool }}"
+    reload: false
+  notify: Reload shaper
+  loop: "{{ opnsense_traffic_shaper_rules }}"
+  when: opnsense_traffic_shaper_enabled
+  tags:
+    - shaper
+    - rules
