@@ -2,10 +2,10 @@
 ---
 
 - name: Distro-specific steps to setup docker repo
-  ansible.builtin.include_tasks: "setup_docker_repo_{{ ansible_facts['os_family'] | lower }}.yml"
+  ansible.builtin.include_tasks: "repo_setup/{{ ansible_facts['os_family'] }}.yml"
 
 - name: Distro-specific steps to install docker packages
-  ansible.builtin.include_tasks: "install_docker_packages_{{ ansible_facts['os_family'] | lower }}.yml"
+  ansible.builtin.include_tasks: "install_packages/{{ ansible_facts['os_family'] }}.yml"
 
 - name: Enable the docker service
   ansible.builtin.include_tasks: enable_docker.yml

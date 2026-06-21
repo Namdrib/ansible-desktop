@@ -1,0 +1,17 @@
+# vim: et
+---
+
+- name: Ensure ansible_facts used by role
+  ansible.builtin.setup:
+    gather_subset: min
+  when: not ansible_facts.keys() | list |
+    intersect(__docker_required_facts) == __docker_required_facts
+
+- name: Set platform/version specific variables
+  ansible.builtin.include_vars: "{{ __docker_vars_file }}"
+  loop:
+    - default.yml
+    - "{{ ansible_facts['os_family'] }}.yml"
+  vars:
+    __docker_vars_file: "{{ role_path }}/vars/{{ item }}"
+  when: __docker_vars_file is file
