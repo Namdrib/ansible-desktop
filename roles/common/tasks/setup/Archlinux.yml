@@ -1,0 +1,10 @@
+# vim: et
+---
+
+# This timer runs pkgfile --update on a schedule, to ensure the index of
+# available files for the command-not-found hook are regularly updated
+- name: Enable automatic, scheduled pkgfile updates {{ ansible_facts['distribution'] }}
+  become: true
+  ansible.builtin.systemd_service:
+    name: pkgfile-update.timer
+    enabled: true

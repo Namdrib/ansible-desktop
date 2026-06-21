@@ -36,3 +36,13 @@
 
 - name: Apply umask
   ansible.builtin.import_tasks: apply_umask.yml
+
+- name: Apply platform-specific tasks
+  ansible.builtin.include_tasks: "{{ lookup('first_found', __common_ff_params) }}"
+  vars:
+    __common_ff_params:
+      files:
+        - "{{ ansible_facts['distribution'] }}.yml"
+      paths:
+        - "{{ role_path }}/tasks/setup"
+      skip: true
