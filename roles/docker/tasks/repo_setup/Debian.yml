@@ -37,7 +37,7 @@
     uris: https://download.docker.com/linux/ubuntu
     # This should be the version codename
     # using arch={{ ansible_architecture }} gives the wrong result (x86_64)
-    suites: "{{ ansible_distribution_release }}"
+    suites: "{{ ansible_facts['distribution_release'] }}"
     components:
       - stable
     architectures: amd64
