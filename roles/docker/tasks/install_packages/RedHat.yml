@@ -5,5 +5,5 @@
   become: true
   become_user: root
   ansible.builtin.package:
-    name: "{{ docker_packages_redhat }}"
+    name: "{{ docker_packages_platform_specific }}"
     state: present

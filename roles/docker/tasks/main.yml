@@ -1,6 +1,9 @@
 # vim: et
 ---
 
+- name: Include platform-specific variables
+  ansible.builtin.include_tasks: include_platform_specific_vars.yml
+
 - name: Distro-specific steps to setup docker repo
   ansible.builtin.include_tasks: "repo_setup/{{ ansible_facts['os_family'] }}.yml"
 

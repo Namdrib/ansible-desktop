@@ -1,0 +1,19 @@
+# vim: et
+---
+
+# These are the packages for Docker (Fedora)
+docker_packages_platform_specific:
+  - moby-engine
+  - docker-cli
+  - containerd
+  - docker-buildx
+  - docker-compose
+  - docker-compose-switch
+
+# These are the packages for Docker CE (Docker)
+docker_ce_packages_platform_specific:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
