@@ -1,0 +1,19 @@
+# vim: et
+---
+
+- name: Ensure corectrl profiles directory exists
+  ansible.builtin.file:
+    path: '{{ lookup("env", "HOME") }}/.config/corectrl/profiles'
+    state: directory
+    mode: '0755'
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+
+- name: Deploy corectrl profiles
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: '{{ lookup("env", "HOME") }}/.config/corectrl/profiles/'
+    mode: '0644'
+    owner: "{{ main_username }}"
+    group: "{{ main_username }}"
+  loop: "{{ corectrl_profiles }}"

@@ -18,3 +18,9 @@
 
 - name: Set kernel boot parameters
   ansible.builtin.import_tasks: set_kernel_boot_parameters.yml
+
+- name: Deploy corectrl profiles
+  ansible.builtin.import_tasks: deploy_corectrl_profiles.yml
+  tags:
+  - corectrl
+  - gpu

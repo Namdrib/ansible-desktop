@@ -11,3 +11,7 @@ windows_drive: windows-hdd-1tb
 windows_drive_uuid: 58EA1A91EA1A6B8E
 
 external_xdg_location: "{{ linux_drive }}/xdg"
+
+corectrl_profiles:
+  - monado-service.ccpro
+  - steam.ccpro
