@@ -17,3 +17,13 @@
     owner: "{{ main_username }}"
     group: "{{ main_username }}"
   loop: "{{ corectrl_profiles }}"
+
+- name: Allow corectrl to run without password
+  become: true
+  ansible.builtin.template:
+    src: 90-corectrl.rules.j2
+    dest: "/etc/polkit-1/rules.d/90-corectrl.rules"
+    mode: '0640'
+    owner: root
+    group: polkitd
+  notify: Reload polkit
