@@ -22,5 +22,5 @@
 - name: Deploy corectrl profiles
   ansible.builtin.import_tasks: deploy_corectrl_profiles.yml
   tags:
-  - corectrl
-  - gpu
+    - corectrl
+    - gpu
