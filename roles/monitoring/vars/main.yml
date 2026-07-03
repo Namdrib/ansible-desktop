@@ -16,6 +16,7 @@ monitoring_packages:
   - lnav # Log navigator
   - ncdu
   - nmap
+  - nvme-cli
   - nethogs
   - net-tools
   - powertop
