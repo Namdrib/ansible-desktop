@@ -14,11 +14,13 @@ monitoring_packages:
   - iotop
   - iperf3
   - lnav # Log navigator
+  - ltrace
   - ncdu
   - nmap
   - nvme-cli
   - nethogs
   - net-tools
   - powertop
+  - strace
   - sysstat
   - s-tui
