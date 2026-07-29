@@ -1,0 +1,6 @@
+# vim: et
+---
+
+common_packages_platform_specific:
+  - gvim
+  - words
