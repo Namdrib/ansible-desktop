@@ -2,7 +2,6 @@
 ---
 
 monitoring_packages_platform_specific:
-  - bind9-utils
-  - iperf3
+  - iperf
   - lnav # Log navigator
   - nmap

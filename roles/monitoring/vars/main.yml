@@ -2,6 +2,7 @@
 ---
 
 __monitoring_required_facts:
+  - distribution
   - os_family
 
 # This is the set of monitoring packages common across all supported platforms
@@ -12,12 +13,9 @@ monitoring_packages:
   - ethtool
   - htop
   - iotop
-  - iperf3
-  - lnav # Log navigator
   - ltrace
   - mtr
   - ncdu
-  - nmap
   - nvme-cli
   - nethogs
   - net-tools
