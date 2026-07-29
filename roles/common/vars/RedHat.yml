@@ -4,7 +4,6 @@
 common_packages_platform_specific:
   - autojump-fish
   - dnf-plugins-core
-  - plocate
   - vim-X11
   - vim-enhanced
   - words # For dictionary /usr/share/dict/

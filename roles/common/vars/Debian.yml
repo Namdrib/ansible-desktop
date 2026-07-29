@@ -2,6 +2,5 @@
 ---
 
 common_packages_platform_specific:
-  - plocate
   - vim
   - dictionaries-common # For dictionary /usr/share/dict/

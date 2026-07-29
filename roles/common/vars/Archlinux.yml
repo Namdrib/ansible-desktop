@@ -4,5 +4,4 @@
 common_packages_platform_specific:
   - gvim # provides CLI vim as well
   - pkgfile # Command not found
-  - plocate
   - words # For dictionary /usr/share/dict/

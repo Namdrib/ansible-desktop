@@ -9,6 +9,7 @@ common_packages:
   - bat
   - fzf
   - git
+  - plocate
   - powerline
   - syncthing
   - timeshift
