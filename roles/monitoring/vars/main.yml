@@ -18,7 +18,6 @@ monitoring_packages:
   - ncdu
   - nvme-cli
   - nethogs
-  - net-tools
   - powertop
   - strace
   - sysstat
