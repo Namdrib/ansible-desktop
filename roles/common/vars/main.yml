@@ -2,6 +2,7 @@
 ---
 
 __common_required_facts:
+  - distribution
   - os_family
 
 common_packages:

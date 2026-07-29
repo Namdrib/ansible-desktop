@@ -42,7 +42,9 @@
   vars:
     __common_ff_params:
       files:
+        - "{{ ansible_facts['os_family'] }}.yml"
         - "{{ ansible_facts['distribution'] }}.yml"
+        - default.yml
       paths:
         - "{{ role_path }}/tasks/setup"
       skip: true

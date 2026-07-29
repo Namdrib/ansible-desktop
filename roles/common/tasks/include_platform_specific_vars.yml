@@ -12,6 +12,7 @@
   loop:
     - default.yml
     - "{{ ansible_facts['os_family'] }}.yml"
+    - "{{ ansible_facts['distribution'] }}.yml"
   vars:
     __rolename_vars_file: "{{ role_path }}/vars/{{ item }}"
   when: __rolename_vars_file is file
