@@ -9,3 +9,4 @@ twm_packages_platform_specific:
   - geoclue
   # To do screen sharing
   - wlroots0.18
+  - xdg-desktop-portal-gnome
