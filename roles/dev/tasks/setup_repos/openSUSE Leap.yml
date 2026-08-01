@@ -1,0 +1,8 @@
+# vim: et
+---
+
+- name: Install custom zypper repos
+  become: true
+  community.general.zypper_repository:
+    repo: "https://download.opensuse.org/repositories/devel:/tools:/ide:/vscode/{{ ansible_facts['distribution_version'] }}/devel:tools:ide:vscode.repo"
+    state: present

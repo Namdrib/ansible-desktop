@@ -4,9 +4,17 @@
 - name: Include platform-specific variables
   ansible.builtin.include_tasks: include_platform_specific_vars.yml
 
-- name: Set up RedHat repos
-  ansible.builtin.include_tasks: "setup_dnf_repo_files.yml"
-  when: ansible_facts['os_family'] in ['RedHat', 'Nobara']
+- name: Apply platform-specific tasks
+  ansible.builtin.include_tasks: "{{ lookup('first_found', __common_ff_params) }}"
+  vars:
+    __common_ff_params:
+      files:
+        - "{{ ansible_facts['os_family'] }}.yml"
+        - "{{ ansible_facts['distribution'] }}.yml"
+        - default.yml
+      paths:
+        - "{{ role_path }}/tasks/setup_repos"
+      skip: true
 
 - name: Install dev packages
   ansible.builtin.import_tasks: install_dev_packages.yml

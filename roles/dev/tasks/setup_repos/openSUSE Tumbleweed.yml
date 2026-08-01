@@ -1,0 +1,9 @@
+# vim: et
+---
+
+- name: Install custom zypper repos
+  become: true
+  community.general.zypper_repository:
+    name: devel_tools_ide_vscode
+    repo: 'https://download.opensuse.org/repositories/devel:/tools:/ide:/vscode/openSUSE_Tumbleweed'
+    state: present

@@ -2,6 +2,9 @@
 ---
 
 dev_packages_platform_specific:
+  - ansible-lint
   - python3-pylsp
   - pylint
+  - qtcreator
+  - screenkey
   - shellcheck

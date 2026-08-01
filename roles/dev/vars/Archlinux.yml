@@ -2,8 +2,11 @@
 ---
 
 dev_packages_platform_specific:
+  - ansible-lint
   - code # VS Code
   - python-lsp-server
   - python-pylint
+  - qtcreator
+  - screenkey
   - shellcheck
   - unityhub # From AUR

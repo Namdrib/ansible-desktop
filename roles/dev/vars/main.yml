@@ -3,10 +3,8 @@
 
 __dev_required_facts:
   - os_family
+  - distribution
 
 dev_packages:
   - ansible
-  - ansible-lint
   - make
-  - qtcreator
-  - screenkey

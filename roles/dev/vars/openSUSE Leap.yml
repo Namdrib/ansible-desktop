@@ -1,0 +1,9 @@
+# vim: et
+---
+
+dev_packages_platform_specific:
+  - code
+  - python-lsprotocol
+  - python-pylint
+  - qt-creator
+  - ShellCheck
