@@ -2,7 +2,5 @@
 ---
 
 desktop_packages_platform_specific:
-  - discord
   - fira-code-fonts
-  - kde-connect
-  - pinta
+  - kdeconnect-kde

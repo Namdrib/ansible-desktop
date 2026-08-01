@@ -3,11 +3,11 @@
 
 __desktop_required_facts:
   - os_family
+  - distribution
+  - distribution_version
 
 desktop_packages:
-  - discord
   - krdc # Remote desktop application
-  - pinta # From AUR
   - picard
   - putty
   - qbittorrent
