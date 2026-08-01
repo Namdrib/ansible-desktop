@@ -9,8 +9,9 @@
     - name: Classify hosts depending on their OS distribution
       ansible.builtin.debug:
         msg: |-
-          host => {{ ansible_facts['hostname'] }}
-          distribution => {{ ansible_facts['distribution'] }}
-          os_family => {{ ansible_facts['os_family'] }}
-          distribution_major_version => {{ ansible_facts['distribution_major_version'] }}
-          distribution_release => {{ ansible_facts['distribution_release'] }}
+          host: {{ ansible_facts['hostname'] }}
+          distribution: {{ ansible_facts['distribution'] }}
+          os_family: {{ ansible_facts['os_family'] }}
+          distribution_major_version: {{ ansible_facts['distribution_major_version'] }}
+          distribution_release: {{ ansible_facts['distribution_release'] }}
+          distribution_version: {{ ansible_facts['distribution_version'] }}
