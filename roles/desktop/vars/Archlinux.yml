@@ -5,9 +5,10 @@ desktop_packages_platform_specific:
   - bitwarden
   - discord
   - kdeconnect
+  - krita
   - obsidian
   - onlyoffice-desktopeditors
-  - pinta # From AUR
+  - pinta
   - signal-desktop
   - sweethome3d
   - ttf-fira-code
