@@ -3,8 +3,10 @@
 
 dev_packages_platform_specific:
   - ansible-lint
+  - black
   - codium
   - pylint
+  - python3-lsp-black
   - python3-lsp-server
   - qtcreator
   - screenkey
