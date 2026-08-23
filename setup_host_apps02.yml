@@ -14,8 +14,6 @@
   hosts: apps02
 
   roles:
-    - role: kde_server
-      tags: kde_server
     - role: docker
       tags: docker
     - role: intel_graphics_drivers
