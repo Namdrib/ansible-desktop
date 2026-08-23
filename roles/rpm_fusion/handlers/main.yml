@@ -5,5 +5,5 @@
   become: true
   become_user: root
   ansible.builtin.command:
-    cmd: dnf group update core -y
+    cmd: dnf group upgrade core -y
   listen: "Update core group"
