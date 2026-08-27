@@ -4,11 +4,16 @@
 dev_packages_platform_specific:
   - ansible-lint
   - code
+  - cppcheck
+  - gitlint
   - python-black
   - python-lsp-rope
   - python-pylint
   - python-python-lsp-server
   - python-rope
+  - python-yamllint
+  - python-vim-vint
   - qt-creator
   - screenkey
+  - vale
   - ShellCheck

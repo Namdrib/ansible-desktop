@@ -4,6 +4,8 @@
 dev_packages_platform_specific:
   - ansible-lint
   - black
+  - cppcheck
+  - markdownlint
   - python3-pylsp
   - python3-pylsp-black
   - python3-pylsp-rope

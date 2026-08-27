@@ -2,10 +2,11 @@
 ---
 
 dev_packages_platform_specific:
-  - ansible-lint
   - black
   - codium
+  - cppcheck
   - pylint
+  - python3-ansible-lint
   - python3-lsp-black
   - python3-lsp-server
   - qtcreator
