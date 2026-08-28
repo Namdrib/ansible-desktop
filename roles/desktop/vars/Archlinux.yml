@@ -4,6 +4,7 @@
 desktop_packages_platform_specific:
   - bitwarden
   - discord
+  - easyeffects
   - kdeconnect
   - krita
   - obsidian

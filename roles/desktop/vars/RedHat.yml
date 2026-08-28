@@ -3,6 +3,7 @@
 
 desktop_packages_platform_specific:
   - discord
+  - easyeffects
   - fira-code-fonts
   - kde-connect
   - pinta
