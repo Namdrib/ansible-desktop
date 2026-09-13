@@ -14,3 +14,6 @@ desktop_packages_platform_specific:
   - sweethome3d
   - ttf-fira-code
   - veracrypt
+  - vlc-plugin-freetype
+  - vlc-plugin-matroska
+  - vlc-plugin-srt
