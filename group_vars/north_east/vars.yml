@@ -35,11 +35,7 @@ dhcp_reservations:
 
   ## Personal devices. Leaving space for wired and wireless
   - { ip: "{{ network_subnet }}.60", mac: 18:c0:4d:3c:85:e9, hostname: DESKTOP-1TOA6VN, description: "B desktop wired" }
-  - { ip: "{{ network_subnet }}.62", mac: e2:c0:15:12:4e:d8, hostname: watermelon-cake, description: "Phone (Asus Zenfone 8)" }
-  - { ip: "{{ network_subnet }}.63", mac: ac:5f:3e:4c:e7:d3, hostname: rabid-tweezers, description: "Phone (Samsung Galaxy S7)" }
-  - { ip: "{{ network_subnet }}.64", mac: 82:ba:5b:77:d6:48, hostname: hippo-bonanza, description: "Phone (Samsung Galaxy S10e)" }
   - { ip: "{{ network_subnet }}.65", mac: a8:a1:59:42:50:00, hostname: triple-coaster, description: "D desktop wired" }
-  - { ip: "{{ network_subnet }}.67", mac: 82:fe:11:40:cf:de, hostname: gangsta-pudding, description: "Phone (Google Pixel 8)" }
 
   ## Servers
   # - { ip: "{{ network_subnet }}.80", mac: dc:a6:32:41:23:d5, hostname: bomb, description: "Raspberry Pi4" }
