@@ -14,7 +14,7 @@ opnsense_traffic_shaper_pipes:
     codel_ecn_enable: true
     enabled: true
   - description: 'Upload pipe'
-    bandwidth: 53
+    bandwidth: 55
     units: 'Mbit'
     scheduler: 'fq_codel'
     codel_ecn_enable: true
