@@ -11,8 +11,8 @@ dev_packages_platform_specific:
   - python-pylint
   - python-python-lsp-server
   - python-rope
-  - python-yamllint
   - python-vim-vint
+  - python-yamllint
   - qt-creator
   - screenkey
   - vale

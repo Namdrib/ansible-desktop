@@ -6,11 +6,11 @@ dev_packages_platform_specific:
   - black
   - cppcheck
   - markdownlint
+  - pylint
   - python3-pylsp
   - python3-pylsp-black
   - python3-pylsp-rope
   - python3-rope
-  - pylint
   - qtcreator
   - screenkey
   - shellcheck
