@@ -7,10 +7,12 @@ dev_packages_platform_specific:
   - cppcheck
   - markdownlint
   - pylint
+  - python3-numpy
   - python3-pylsp
   - python3-pylsp-black
   - python3-pylsp-rope
   - python3-rope
+  - python3-scipy
   - qtcreator
   - screenkey
   - shellcheck

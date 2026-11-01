@@ -8,9 +8,11 @@ dev_packages_platform_specific:
   - gitlint
   - python-black
   - python-lsp-rope
+  - python-numpy
   - python-pylint
   - python-python-lsp-server
   - python-rope
+  - python-scipy
   - python-vim-vint
   - python-yamllint
   - qt-creator

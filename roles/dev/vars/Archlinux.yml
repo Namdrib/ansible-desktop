@@ -8,8 +8,10 @@ dev_packages_platform_specific:
   - python-black
   - python-lsp-black
   - python-lsp-server
+  - python-numpy
   - python-pylint
   - python-rope
+  - python-scipy
   - qtcreator
   - screenkey
   - shellcheck

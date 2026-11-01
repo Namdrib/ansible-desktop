@@ -9,6 +9,8 @@ dev_packages_platform_specific:
   - python3-ansible-lint
   - python3-lsp-black
   - python3-lsp-server
+  - python3-numpy
+  - python3-scipy
   - qtcreator
   - screenkey
   - ShellCheck
