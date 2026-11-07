@@ -21,3 +21,4 @@
   when: "'nvidiahosts' in group_names"
   tags:
     - graphics
+    - monitoring

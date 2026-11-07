@@ -10,3 +10,5 @@
     cmd: "ubuntu-drivers install {{ nvidia_graphics_drivers_version }}"
   register: nvidia_graphics_drivers_install
   changed_when: '"already installed" not in nvidia_graphics_drivers_install.stdout'
+  tags:
+    - long

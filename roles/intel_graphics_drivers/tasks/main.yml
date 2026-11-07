@@ -26,3 +26,4 @@
   when: "'intelhosts' in group_names"
   tags:
     - graphics
+    - monitoring
